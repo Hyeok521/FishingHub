@@ -39,7 +39,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       <div className="nav-header">
         <div className="Logo">
           <Link to="/">
-            <img width={100} src="FNH1.png" />
+            <img width={100} src="FNH2.png" />
           </Link>
         </div>
 
