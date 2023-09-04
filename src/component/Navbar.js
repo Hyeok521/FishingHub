@@ -9,6 +9,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import SplitButton from "react-bootstrap/SplitButton";
+//
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
@@ -39,7 +40,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       <div className="nav-header">
         <div className="Logo">
           <Link to="/">
-            <img width={100} src="FNH2.png" />
+            <img width={100} src="FNH3.png" />
           </Link>
         </div>
 
