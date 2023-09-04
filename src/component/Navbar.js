@@ -48,7 +48,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           {authenticate ? (
             <div onClick={() => setAuthenticate(false)}>
               <FontAwesomeIcon icon={faUser} />
-              <span tyle={{ cursor: "pointer" }}>로그아웃</span>
+              <span style={{ cursor: "pointer" }}>로그아웃</span>
             </div>
           ) : (
             <div onClick={() => navigate("/login")}>
