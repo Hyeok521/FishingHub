@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../component/ProductCard";
 import { Row, Col, Container, Alert } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-//
+
 const ProductAll = () => {
   let [products, setProducts] = useState([]);
   const [query, setQuery] = useSearchParams();
