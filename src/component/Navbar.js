@@ -9,7 +9,6 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import SplitButton from "react-bootstrap/SplitButton";
-//
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
@@ -19,6 +18,12 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     if (event.key === "Enter") {
       navigate(`?q=${event.target.value}`);
     }
+  };
+
+  const Communityboard = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/Communityboard");
   };
   return (
     <div>
@@ -70,7 +75,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                 <Dropdown.Menu>
                   {menu === "게시판" && (
                     <>
-                      <Dropdown.Item eventKey="1">
+                      <Dropdown.Item eventKey="1" onClick={Communityboard}>
                         커뮤니티 게시판
                       </Dropdown.Item>
                       <Dropdown.Item eventKey="2">
