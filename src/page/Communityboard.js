@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Col,
@@ -14,46 +14,33 @@ const Communityboard = () => {
     {
       id: 1,
       title: "첫 번째 글",
+      content: "첫 번째 내용",
       author: "홍길동",
       views: 10,
       date: "2023-09-05",
       file: null,
       fileURL: null,
     },
-    // ... more posts
   ]);
-
-  useEffect(() => {
-    // Update file URL whenever posts change
-    setPosts((prevPosts) =>
-      prevPosts.map((post) => {
-        if (post.file) {
-          const blob = new Blob([post.file], { type: post.file.type });
-          const fileURL = URL.createObjectURL(blob);
-          return { ...post, fileURL };
-        }
-        return post;
-      })
-    );
-  }, [posts]);
 
   const [showModal, setShowModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
   const [newOrEditedPost, setNewOrEditedPost] = useState({
     title: "",
+    content: "",
     author: "",
     file: null,
   });
 
   const openModalForNewPost = () => {
     setCurrentPost(null);
-    setNewOrEditedPost({ title: "", author: "", file: null });
+    setNewOrEditedPost({ title: "", content: "", author: "", file: null });
     setShowModal(true);
   };
 
   const openModalForEdit = (post) => {
     setCurrentPost(post);
-    setNewOrEditedPost({ title: post.title, author: post.author, file: null });
+    setNewOrEditedPost({ ...post });
     setShowModal(true);
   };
 
@@ -62,13 +49,28 @@ const Communityboard = () => {
   };
 
   const handleFileChange = (event) => {
+    const file = event.target.files[0];
     setNewOrEditedPost({
       ...newOrEditedPost,
-      file: event.target.files[0],
+      file: file,
+    });
+  };
+
+  const handleFileDelete = () => {
+    setNewOrEditedPost({
+      ...newOrEditedPost,
+      file: null,
     });
   };
 
   const handleSave = () => {
+    if (newOrEditedPost.file) {
+      const blob = new Blob([newOrEditedPost.file], {
+        type: newOrEditedPost.file.type,
+      });
+      newOrEditedPost.fileURL = URL.createObjectURL(blob);
+    }
+
     if (currentPost) {
       // Update existing post
       setPosts(
@@ -90,6 +92,7 @@ const Communityboard = () => {
         },
       ]);
     }
+
     closeModal();
   };
 
@@ -106,12 +109,12 @@ const Communityboard = () => {
       </Row>
       <Row>
         <Col>
-          <Button onClick={openModalForNewPost}>글쓰기</Button>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>글번호</th>
                 <th>제목</th>
+                <th>내용</th>
                 <th>작성자</th>
                 <th>조회수</th>
                 <th>작성일</th>
@@ -124,6 +127,7 @@ const Communityboard = () => {
                 <tr key={post.id}>
                   <td>{post.id}</td>
                   <td>{post.title}</td>
+                  <td>{post.content}</td>
                   <td>{post.author}</td>
                   <td>{post.views}</td>
                   <td>{post.date}</td>
@@ -144,6 +148,7 @@ const Communityboard = () => {
                       </>
                     )}
                   </td>
+
                   <td>
                     <Button
                       variant="success"
@@ -160,6 +165,8 @@ const Communityboard = () => {
                   </td>
                 </tr>
               ))}
+
+              <Button onClick={openModalForNewPost}>글쓰기</Button>
             </tbody>
           </Table>
         </Col>
@@ -185,6 +192,21 @@ const Communityboard = () => {
               />
             </Form.Group>
             <Form.Group>
+              <Form.Label>내용</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="내용을 입력하세요."
+                value={newOrEditedPost.content}
+                onChange={(e) =>
+                  setNewOrEditedPost({
+                    ...newOrEditedPost,
+                    content: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
               <Form.Label>작성자</Form.Label>
               <Form.Control
                 type="text"
@@ -201,6 +223,11 @@ const Communityboard = () => {
             <Form.Group>
               <Form.Label>파일 업로드</Form.Label>
               <Form.Control type="file" onChange={handleFileChange} />
+              {newOrEditedPost.file && (
+                <Button variant="danger" onClick={handleFileDelete}>
+                  파일 삭제
+                </Button>
+              )}
             </Form.Group>
           </Form>
         </Modal.Body>
