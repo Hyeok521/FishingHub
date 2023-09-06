@@ -8,7 +8,11 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
+<<<<<<< HEAD
 
+=======
+//aaq
+>>>>>>> c5388fac37496668df201282ba354e430eb048c1
 const Communityboard = () => {
   const [posts, setPosts] = useState([
     {
