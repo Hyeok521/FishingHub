@@ -5,7 +5,10 @@ import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import SplitButton from "react-bootstrap/SplitButton";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
@@ -15,6 +18,12 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     if (event.key === "Enter") {
       navigate(`?q=${event.target.value}`);
     }
+  };
+
+  const Communityboard = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/Communityboard");
   };
   return (
     <div>
@@ -36,7 +45,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       <div className="nav-header">
         <div className="Logo">
           <Link to="/">
-            <img width={100} src="FNH.png" />
+            <img width={100} src="FNH3.png" />
           </Link>
         </div>
 
@@ -44,7 +53,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           {authenticate ? (
             <div onClick={() => setAuthenticate(false)}>
               <FontAwesomeIcon icon={faUser} />
-              <span tyle={{ cursor: "pointer" }}>로그아웃</span>
+              <span style={{ cursor: "pointer" }}>로그아웃</span>
             </div>
           ) : (
             <div onClick={() => navigate("/login")}>
@@ -58,18 +67,47 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       <div class="nav-menu-area">
         <ul className="menu">
           {menuList.map((menu, index) => (
-            <li>
-              <a href="#" key={index}>
-                {menu}
-              </a>
+            <li key={index} className="Highdrop">
+              <Dropdown>
+                <Dropdown.Toggle variant="light" id={`dropdown-${menu}`}>
+                  {menu}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  {menu === "게시판" && (
+                    <>
+                      <Dropdown.Item eventKey="1" onClick={Communityboard}>
+                        커뮤니티 게시판
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="2">
+                        출조정보 게시판
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="3">
+                        조황정보 게시판
+                      </Dropdown.Item>
+                    </>
+                  )}
+                  {menu === "정보제공" && (
+                    <>
+                      <Dropdown.Item eventKey="1">어종정보</Dropdown.Item>
+                      <Dropdown.Item eventKey="2">포인터 정보</Dropdown.Item>
+                      <Dropdown.Item eventKey="3">날씨 정보</Dropdown.Item>
+                    </>
+                  )}
+                  {menu === "고객센터" && (
+                    <>
+                      <Dropdown.Item eventKey="1">공지사항</Dropdown.Item>
+                      <Dropdown.Item eventKey="2">FAQ</Dropdown.Item>
+                      <Dropdown.Item eventKey="3">Q&A</Dropdown.Item>
+                    </>
+                  )}
+                  {menu === "마이페이지" && (
+                    <Dropdown.Item eventKey="1">회원정보 수정</Dropdown.Item>
+                  )}
+                </Dropdown.Menu>
+              </Dropdown>
             </li>
           ))}
         </ul>
-
-        <div className="search-box">
-          <FontAwesomeIcon icon={faSearch} />
-          <input type="text" placeholder="제품검색" onKeyPress={onCheckEnter} />
-        </div>
       </div>
     </div>
   );

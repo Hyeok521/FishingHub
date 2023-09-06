@@ -9,7 +9,7 @@ import PrivateRoute from "./Route/PrivateRoute";
 import SighUp from "./page/SighUp";
 import Idsearch from "./page/Idsearch";
 import PasswordSearch from "./page/PasswordSearch";
-
+import Communityboard from "./page/Communityboard";
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
   return (
@@ -36,6 +36,11 @@ function App() {
         <Route
           path="/product/:id"
           element={<PrivateRoute authenticate={authenticate} />}
+        />
+
+        <Route
+          path="/Communityboard"
+          element={<Communityboard authenticate={authenticate} />}
         />
       </Routes>
     </div>
