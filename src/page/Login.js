@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import axios from "axios";
 
 const Login = ({ setAuthenticate, to }) => {
   console.log("tototo", to);
   const navigate = useNavigate();
-  const login = (event) => {
+  const idRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const login = async (event) => {
     event.preventDefault();
-    setAuthenticate(true);
-    navigate("/");
+    const id = idRef.current.value;
+    const password = passwordRef.current.value;
+
+    try {
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/login",
+        {
+          id,
+          password,
+        }
+      );
+
+      if (response.status === 200) {
+        setAuthenticate(true);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("로그인 실패:", error);
+    }
   };
 
   const goToSignUp = (event) => {
@@ -36,12 +57,17 @@ const Login = ({ setAuthenticate, to }) => {
       <Form className="login-form" onSubmit={login}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Id</Form.Label>
-          <Form.Control type="id" placeholder="id" />
+          <Form.Control type="text" placeholder="id" name="id" ref={idRef} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            ref={passwordRef}
+          />
         </Form.Group>
 
         <ButtonGroup className="Button">
