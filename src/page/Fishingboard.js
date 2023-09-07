@@ -9,7 +9,7 @@ import {
   Table,
 } from "react-bootstrap";
 
-const Communityboard = () => {
+const Fishingboard = () => {
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -104,7 +104,7 @@ const Communityboard = () => {
     <Container>
       <Row>
         <Col>
-          <h1>커뮤니티 게시판</h1>
+          <h1>출조정보 게시판</h1>
         </Col>
       </Row>
       <Row>
@@ -244,4 +244,4 @@ const Communityboard = () => {
   );
 };
 
-export default Communityboard;
+export default Fishingboard;

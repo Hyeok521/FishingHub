@@ -9,22 +9,61 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import SplitButton from "react-bootstrap/SplitButton";
+import Faq from "../page3/Faq";
+import EditMember from "../page4/EditMember";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
-  const onCheckEnter = (event) => {
-    if (event.key === "Enter") {
-      navigate(`?q=${event.target.value}`);
-    }
-  };
+  // const onCheckEnter = (event) => {
+  //   if (event.key === "Enter") {
+  //     navigate(`?q=${event.target.value}`);
+  //   }
+  // };
 
   const Communityboard = (event) => {
     event.preventDefault();
     setAuthenticate(true);
     navigate("/Communityboard");
   };
+
+  const Fishingboard = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/Fishingboard");
+  };
+
+  const TrendBoard = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/TrendBoard");
+  };
+
+  const AnnounCement = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/AnnounCement");
+  };
+
+  const Faq = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/Faq");
+  };
+
+  const QNA = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/QNA");
+  };
+
+  const EditMember = (event) => {
+    event.preventDefault();
+    setAuthenticate(true);
+    navigate("/EditMember");
+  };
+
   return (
     <div>
       <div className="side-menu" style={{ width: width }}>
@@ -78,10 +117,10 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                       <Dropdown.Item eventKey="1" onClick={Communityboard}>
                         커뮤니티 게시판
                       </Dropdown.Item>
-                      <Dropdown.Item eventKey="2">
+                      <Dropdown.Item eventKey="2" onClick={Fishingboard}>
                         출조정보 게시판
                       </Dropdown.Item>
-                      <Dropdown.Item eventKey="3">
+                      <Dropdown.Item eventKey="3" onClick={TrendBoard}>
                         조황정보 게시판
                       </Dropdown.Item>
                     </>
@@ -95,13 +134,21 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                   )}
                   {menu === "고객센터" && (
                     <>
-                      <Dropdown.Item eventKey="1">공지사항</Dropdown.Item>
-                      <Dropdown.Item eventKey="2">FAQ</Dropdown.Item>
-                      <Dropdown.Item eventKey="3">Q&A</Dropdown.Item>
+                      <Dropdown.Item eventKey="1" onClick={AnnounCement}>
+                        공지사항
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="2" onClick={Faq}>
+                        FAQ
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="3" onClick={QNA}>
+                        Q&A
+                      </Dropdown.Item>
                     </>
                   )}
                   {menu === "마이페이지" && (
-                    <Dropdown.Item eventKey="1">회원정보 수정</Dropdown.Item>
+                    <Dropdown.Item eventKey="1" onClick={EditMember}>
+                      회원정보 수정
+                    </Dropdown.Item>
                   )}
                 </Dropdown.Menu>
               </Dropdown>
