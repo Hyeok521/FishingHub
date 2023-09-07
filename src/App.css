@@ -2,11 +2,20 @@ body {
   font-family: sans-serif;
 }
 
+.header-void {
+  background-color: navy;
+  color: white;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: -25px;
+}
+
 .nav-header {
   display: flex;
-  max-width: 1300px;
-  margin: 0 auto;
   justify-content: space-between;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 .Logo {
@@ -14,18 +23,18 @@ body {
 }
 
 .LogSet {
-  margin-top: 40px;
   margin-right: 200px;
 }
 
 .menu {
   display: flex;
+  justify-content: center;
   list-style-type: none;
-  padding: 20px;
 }
 
-.meny li {
-  margin-right: 1000px;
+.menu li {
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .menu li a {
@@ -39,22 +48,9 @@ body {
   justify-content: center;
   margin-right: 60px;
 }
+
 .burger-menu {
   margin-left: 20px;
-}
-
-.search-box {
-  border-bottom: 1px solid black;
-  position: absolute;
-  right: 20px;
-  padding: 5px;
-}
-.search-box input {
-  border: none;
-  margin-left: 5px;
-}
-.search-box input:focus {
-  outline: none;
 }
 
 .card {
@@ -73,9 +69,11 @@ body {
   font-size: 11px;
   height: 20px;
 }
+
 .login-form {
   width: 40em;
 }
+
 .login-area {
   display: flex;
   justify-content: center;
@@ -89,10 +87,12 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+
 .product-info {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 .drop-down {
   margin-top: 20px;
 }
@@ -106,6 +106,7 @@ body {
   transform: scale(1.1);
   z-index: 1;
 }
+
 .hide {
   visibility: hidden;
 }
@@ -135,6 +136,7 @@ body {
   padding-top: 60px;
   z-index: 2;
 }
+
 .side-menu-list button {
   margin: 5px;
   border: none;
@@ -201,27 +203,6 @@ body {
   margin-left: 70px;
 }
 
-.main-section {
-  display: flex; /* Flexbox 사용 */
-  flex-direction: column; /* 자식 요소들을 수직으로 배열 */
-  align-items: center; /* 자식 요소들을 가운데로 정렬 */
-  text-align: center; /* 텍스트를 가운데로 정렬 */
-  margin-top: 80px;
-}
-
-.region-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* 버튼이 너무 많아져 화면 너비를 초과할 경우 다음 줄로 강제 줄바꿈 */
-  gap: 20px; /* 버튼 사이의 간격 */
-  margin-top: 20px;
-}
-
-.region-button {
-  margin: 10px;
-  padding: 10px 20px;
-}
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(
@@ -238,19 +219,58 @@ body {
 }
 
 .carousel-indicators {
-  bottom: 100px; /* 이 값을 조절하여 인디케이터의 위치를 위아래로 움직일 수 있습니다 */
+  bottom: 50px; /* 이 값을 조절하여 인디케이터의 위치를 위아래로 움직일 수 있습니다 */
 }
 
 .carousel {
-  width: 1000px; /* Carousel의 너비 설정 */
+  width: 100vw; /* Carousel의 너비 설정 */
   overflow: hidden; /* 이미지가 Carousel의 너비 및 높이를 초과할 경우 숨김 처리 */
 }
 
-.carousel-text {
-  padding: 10px;
+.pointer {
+  width: 100vw;
+  height: 700px;
 }
 
-.pointer {
-  width: 800px;
-  height: 500px;
+.product-add1 {
+  display: flex;
+  justify-content: center;
+  list-style-type: none; /* 리스트 스타일 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.product-add1 img {
+  width: 300px;
+  height: 300px;
+}
+
+.product-add1 li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+.product-add1 li a div {
+  font-size: 24px; /* 원하는 크기로 설정 */
+  margin-top: 20px;
+}
+
+.footer {
+  background-color: gray;
+  color: white;
+  height: 150px;
+  margin-top: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  flex-direction: column;
+}
+
+.footer ul li {
+  list-style-type: none;
 }

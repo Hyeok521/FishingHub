@@ -4,23 +4,12 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import SplitButton from "react-bootstrap/SplitButton";
-import Faq from "../page3/Faq";
-import EditMember from "../page4/EditMember";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
-  // const onCheckEnter = (event) => {
-  //   if (event.key === "Enter") {
-  //     navigate(`?q=${event.target.value}`);
-  //   }
-  // };
 
   const Communityboard = (event) => {
     event.preventDefault();
@@ -66,6 +55,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   return (
     <div>
+      <div className="header-void">Welcome to Fishing Hub!</div>
       <div className="side-menu" style={{ width: width }}>
         <button className="closebtn" onClick={() => setWidth(0)}>
           &times;
@@ -81,30 +71,29 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
       </div>
 
-      <div className="nav-header">
+      <div
+        className="nav-header"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <div className="Logo">
           <Link to="/">
             <img width={100} src="FNH3.png" />
           </Link>
         </div>
 
-        <div className="LogSet">
-          {authenticate ? (
-            <div onClick={() => setAuthenticate(false)}>
-              <FontAwesomeIcon icon={faUser} />
-              <span style={{ cursor: "pointer" }}>로그아웃</span>
-            </div>
-          ) : (
-            <div onClick={() => navigate("/login")}>
-              <FontAwesomeIcon icon={faUser} />
-              <span style={{ cursor: "pointer" }}>로그인</span>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div class="nav-menu-area">
-        <ul className="menu">
+        <ul
+          className="menu"
+          style={{
+            display: "flex",
+            listStyleType: "none",
+            padding: 0,
+            margin: 0,
+          }}
+        >
           {menuList.map((menu, index) => (
             <li key={index} className="Highdrop">
               <Dropdown>
@@ -155,6 +144,20 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             </li>
           ))}
         </ul>
+
+        <div className="LogSet">
+          {authenticate ? (
+            <div onClick={() => setAuthenticate(false)}>
+              <FontAwesomeIcon icon={faUser} />
+              <span style={{ cursor: "pointer" }}>로그아웃</span>
+            </div>
+          ) : (
+            <div onClick={() => navigate("/login")}>
+              <FontAwesomeIcon icon={faUser} />
+              <span style={{ cursor: "pointer" }}>로그인</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
