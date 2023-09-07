@@ -1,37 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
-import axios from "axios";
 
 const Login = ({ setAuthenticate, to }) => {
   console.log("tototo", to);
   const navigate = useNavigate();
-  const idRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const login = async (event) => {
+  const login = (event) => {
     event.preventDefault();
-    const id = idRef.current.value;
-    const password = passwordRef.current.value;
-
-    try {
-      const response = await axios.post(
-        "http://13.48.105.95:8080/member/login",
-        {
-          id,
-          password,
-        }
-      );
-
-      if (response.status === 200) {
-        setAuthenticate(true);
-        navigate("/");
-      }
-    } catch (error) {
-      console.error("로그인 실패:", error);
-    }
+    setAuthenticate(true);
+    navigate("/");
   };
 
   const goToSignUp = (event) => {
@@ -54,24 +33,28 @@ const Login = ({ setAuthenticate, to }) => {
 
   return (
     <Container className="login-area">
-      <Form className="login-form" onSubmit={login}>
+      <Form
+        method="post"
+        action="http://13.48.105.95:8080/member/login"
+        className="login-form"
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Id</Form.Label>
-          <Form.Control type="text" placeholder="id" name="id" ref={idRef} />
+          <Form.Control type="id" placeholder="id" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            ref={passwordRef}
-          />
+          <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
         <ButtonGroup className="Button">
-          <Button aria-label="First_Group" variant="primary" onClick={login}>
+          <Button
+            type="submit"
+            aria-label="First_Group"
+            variant="primary"
+            // onClick={login}
+          >
             로그인
           </Button>
           <ButtonGroup aria-label="Second group" className="Id_pass">
