@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Button,
   Col,
@@ -9,7 +10,7 @@ import {
   Table,
 } from "react-bootstrap";
 
-const Communityboard = () => {
+const QNA = () => {
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -104,7 +105,7 @@ const Communityboard = () => {
     <Container>
       <Row>
         <Col>
-          <h1>커뮤니티 게시판</h1>
+          <h1>Q&A</h1>
         </Col>
       </Row>
       <Row>
@@ -244,4 +245,4 @@ const Communityboard = () => {
   );
 };
 
-export default Communityboard;
+export default QNA;

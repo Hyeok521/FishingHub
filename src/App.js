@@ -10,6 +10,14 @@ import SighUp from "./page/SighUp";
 import Idsearch from "./page/Idsearch";
 import PasswordSearch from "./page/PasswordSearch";
 import Communityboard from "./page/Communityboard";
+import Fishingboard from "./page/Fishingboard";
+import TrendBoard from "./page/TrendBoard";
+import AnnounCement from "./page3/AnnounCement";
+import Faq from "./page3/Faq";
+import QNA from "./page3/QNA";
+import EditMember from "./page4/EditMember";
+import Edit from "./page4/Edit";
+
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
   return (
@@ -42,6 +50,32 @@ function App() {
           path="/Communityboard"
           element={<Communityboard authenticate={authenticate} />}
         />
+
+        <Route
+          path="/Fishingboard"
+          element={<Fishingboard authenticate={authenticate} />}
+        />
+
+        <Route
+          path="/TrendBoard"
+          element={<TrendBoard authenticate={authenticate} />}
+        />
+
+        <Route
+          path="/AnnounCement"
+          element={<AnnounCement authenticate={authenticate} />}
+        />
+
+        <Route path="/Faq" element={<Faq authenticate={authenticate} />} />
+
+        <Route path="/QNA" element={<QNA authenticate={authenticate} />} />
+
+        <Route
+          path="/EditMember"
+          element={<EditMember authenticate={authenticate} />}
+        />
+
+        <Route path="/Edit" element={<Edit authenticate={authenticate} />} />
       </Routes>
     </div>
   );

@@ -24,12 +24,9 @@ body {
   padding: 20px;
 }
 
-<<<<<<< HEAD
-=======
-.meny li {
+HEAD .meny li {
   margin-right: 1000px;
 }
->>>>>>> c5388fac37496668df201282ba354e430eb048c1
 .menu li a {
   text-decoration: none;
   color: black;
@@ -202,7 +199,6 @@ body {
 .Highdrop {
   margin-left: 70px;
 }
-<<<<<<< HEAD
 
 .main-section {
   display: flex; /* Flexbox 사용 */
@@ -257,5 +253,3 @@ body {
   width: 800px;
   height: 500px;
 }
-=======
->>>>>>> c5388fac37496668df201282ba354e430eb048c1
