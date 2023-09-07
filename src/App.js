@@ -10,9 +10,7 @@ import SighUp from "./page/SighUp";
 import Idsearch from "./page/Idsearch";
 import PasswordSearch from "./page/PasswordSearch";
 import Communityboard from "./page/Communityboard";
-<<<<<<< HEAD
 import Footer from "./component/Footer";
-=======
 import Fishingboard from "./page/Fishingboard";
 import TrendBoard from "./page/TrendBoard";
 import AnnounCement from "./page3/AnnounCement";
@@ -21,7 +19,6 @@ import QNA from "./page3/QNA";
 import EditMember from "./page4/EditMember";
 import Edit from "./page4/Edit";
 
->>>>>>> cc51e6cda23b1a98f42684c13e4bd16bd51e1a4d
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
   return (

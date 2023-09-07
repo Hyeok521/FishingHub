@@ -24,16 +24,10 @@ body {
   padding: 20px;
 }
 
-<<<<<<< HEAD
 .meny li {
   margin-right: 1000px;
 }
 
-=======
-HEAD .meny li {
-  margin-right: 1000px;
-}
->>>>>>> cc51e6cda23b1a98f42684c13e4bd16bd51e1a4d
 .menu li a {
   text-decoration: none;
   color: black;
