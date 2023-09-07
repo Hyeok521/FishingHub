@@ -10,6 +10,7 @@ import SighUp from "./page/SighUp";
 import Idsearch from "./page/Idsearch";
 import PasswordSearch from "./page/PasswordSearch";
 import Communityboard from "./page/Communityboard";
+import Footer from "./component/Footer";
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
   return (
@@ -43,6 +44,7 @@ function App() {
           element={<Communityboard authenticate={authenticate} />}
         />
       </Routes>
+      <Footer authenticate={authenticate} setAuthenticate={setAuthenticate} />
     </div>
   );
 }
