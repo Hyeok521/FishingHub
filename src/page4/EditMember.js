@@ -37,30 +37,8 @@ const EditMember = () => {
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={8}>
-          <h1>회원정보 수정</h1>
+          <h4>회원정보 수정</h4>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Id</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Id를 입력하세요"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formEmail">
-              <Form.Label>이메일</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="홍길동@naver.com"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-
             <Form.Group controlId="formPassword">
               <Form.Label>비밀번호</Form.Label>
               <Form.Control

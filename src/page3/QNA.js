@@ -105,7 +105,7 @@ const QNA = () => {
     <Container>
       <Row>
         <Col>
-          <h1>Q&A</h1>
+          <h3>Q&A</h3>
         </Col>
       </Row>
       <Row>

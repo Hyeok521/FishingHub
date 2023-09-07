@@ -274,3 +274,22 @@ body {
 .footer ul li {
   list-style-type: none;
 }
+
+.BoardBody {
+  width: 1300px;
+  text-align: center;
+}
+
+.write-button {
+  /* 이곳에 원하는 스타일을 적용하세요. */
+  margin-left: 1200px;
+}
+
+.fixedTable {
+  table-layout: fixed;
+}
+
+.auto-wrap {
+  white-space: normal;
+  word-wrap: break-word;
+}

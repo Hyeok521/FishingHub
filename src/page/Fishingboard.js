@@ -104,7 +104,7 @@ const Fishingboard = () => {
     <Container>
       <Row>
         <Col>
-          <h1>출조정보 게시판</h1>
+          <h4>출조정보 게시판</h4>
         </Col>
       </Row>
       <Row>

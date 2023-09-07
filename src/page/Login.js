@@ -33,7 +33,11 @@ const Login = ({ setAuthenticate, to }) => {
 
   return (
     <Container className="login-area">
-      <Form className="login-form" onSubmit={login}>
+      <Form
+        method="post"
+        action="http://13.48.105.95:8080/member/login"
+        className="login-form"
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Id</Form.Label>
           <Form.Control type="id" placeholder="id" />
@@ -45,7 +49,12 @@ const Login = ({ setAuthenticate, to }) => {
         </Form.Group>
 
         <ButtonGroup className="Button">
-          <Button aria-label="First_Group" variant="primary" onClick={login}>
+          <Button
+            type="submit"
+            aria-label="First_Group"
+            variant="primary"
+            // onClick={login}
+          >
             로그인
           </Button>
           <ButtonGroup aria-label="Second group" className="Id_pass">

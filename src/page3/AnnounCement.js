@@ -104,7 +104,7 @@ const AnnounCement = () => {
     <Container>
       <Row>
         <Col>
-          <h1>공지사항</h1>
+          <h4>공지사항</h4>
         </Col>
       </Row>
       <Row>

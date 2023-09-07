@@ -104,7 +104,7 @@ const TrendBoard = () => {
     <Container>
       <Row>
         <Col>
-          <h1>조황정보 게시판</h1>
+          <h4>조황정보 게시판</h4>
         </Col>
       </Row>
       <Row>
