@@ -14,10 +14,10 @@ const Login = ({ setAuthenticate }) => {
     try {
       console.log("로그인 요청을 시도합니다..."); // 한글로 로그 출력
 
-      const response = await axios.post(
-        "http://13.48.105.95:8080/member/login",
-        { userId: id, userPw: password }
-      );
+      const response = await axios.post("/member/login", {
+        userId: id,
+        userPw: password,
+      });
 
       console.log("서버 응답:", response); // 한글로 로그 출력
 
