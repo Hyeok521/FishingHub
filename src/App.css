@@ -255,8 +255,9 @@ body {
 }
 
 .product-add1 li a div {
-  font-size: 24px; /* 원하는 크기로 설정 */
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 20px; /* 원하는 크기로 설정 */
+  color: black;
 }
 
 .footer {
