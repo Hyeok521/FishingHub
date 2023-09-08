@@ -28,7 +28,7 @@ const ProductAll = () => {
   ];
 
   return (
-    <div className="main-section">
+    <div>
       <Carousel className="carousel">
         {imageUrls.map((url, index) => (
           <Carousel.Item key={index}>
@@ -37,7 +37,7 @@ const ProductAll = () => {
         ))}
       </Carousel>
       <div>
-        <ul className="product-add1">
+        <ul className="product-add">
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=28">
               <img src="https://sapa.co.kr/web/product/extra/big/20230224/585d140ee81a60cb4964fd56ed44175c.jpg" />
@@ -75,43 +75,39 @@ const ProductAll = () => {
           style={{
             backgroundColor: "lightgray",
             width: "1350px",
-            margin: "30px auto 0 auto",
+            margin: "60px auto 0 auto",
             transform: "none",
           }}
         >
-          <Row
-            noGutters={true}
-            style={{ display: "flex", alignItems: "center" }}
-          >
+          <Row noGutters={true}>
             <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
               <Card.Img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHs13reajopIdtO4sXbuYCNsTR3ANghaCZTw&usqp=CAU"
-                variant="right"
-                style={{ width: "375px" }}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfFbzu_8IO3x7CB3q-He2q9ZeOQ7Y6sdXWsKZWWMUr9sLT66S68gX-zmVJNBCyHVvDouA&usqp=CAU"
+                variant="left"
+                style={{ width: "675px" }}
               />
             </Col>
-            <Col
-              xs={6}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <div
-                style={{ textAlign: "left", width: "90%", margin: "0 auto" }}
+            <Col xs={6} style={{ display: "flex" }}>
+              <Card.Body
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                <Card.Text style={{ fontSize: "20px" }}>
+                <Card.Text style={{ fontSize: "20px", textAlign: "left" }}>
                   <div>
                     바다의 파도 속에서, 강의 흐름 속에서, 우리는 무엇을 찾고
                     있는가?
                   </div>
-                  <div>아마도 잡히지 않는 꿈, </div>
+                  <div>아마도 잡히지 않는 꿈, 혹은</div>
                   <div>
-                    혹은 놓치고 싶지 않은 순간의 아름다움을 찾고 있을 것이다.
+                    놓치고 싶지 않은 순간의 아름다움을 찾고 있을 것이다.
                   </div>
                 </Card.Text>
-              </div>
+              </Card.Body>
             </Col>
           </Row>
         </Card>
@@ -153,7 +149,7 @@ const ProductAll = () => {
             </Col>
             <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
               <Card.Img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfFbzu_8IO3x7CB3q-He2q9ZeOQ7Y6sdXWsKZWWMUr9sLT66S68gX-zmVJNBCyHVvDouA&usqp=CAU"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX9pq_LheRIf41LZyi-g36AIzWK59-dlil1Q&usqp=CAU"
                 variant="left"
                 style={{ width: "675px" }}
               />
