@@ -16,7 +16,26 @@ const TrendBoard = () => {
       title: "첫 번째 글",
       content: "첫 번째 내용",
       author: "홍길동",
-      views: 10,
+      date: "2023-09-05",
+      file: null,
+      fileURL: null,
+    },
+
+    {
+      id: 2,
+      title: "두 번째 글",
+      content: "두 번째 내용",
+      author: "홍길동",
+      date: "2023-09-05",
+      file: null,
+      fileURL: null,
+    },
+
+    {
+      id: 3,
+      title: "세 번째 글",
+      content: "세 번째 내용",
+      author: "홍길동",
       date: "2023-09-05",
       file: null,
       fileURL: null,
@@ -101,25 +120,26 @@ const TrendBoard = () => {
   };
 
   return (
-    <Container>
+    <Container className="BoardBody">
       <Row>
         <Col>
-          <h4>조황정보 게시판</h4>
+          <h4 style={{ marginTop: "30px", marginBottom: "40px" }}>
+            조황정보 게시판
+          </h4>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Table striped bordered hover>
+          <Table striped bordered hover className="fixedTable">
             <thead>
               <tr>
-                <th>글번호</th>
-                <th>제목</th>
+                <th style={{ width: "70px" }}>글번호</th>
+                <th style={{ width: "270px" }}>제목</th>
                 <th>내용</th>
-                <th>작성자</th>
-                <th>조회수</th>
-                <th>작성일</th>
-                <th>파일</th>
-                <th>작업</th>
+                <th style={{ width: "70px" }}>작성자</th>
+                <th style={{ width: "120px" }}>작성일</th>
+                <th style={{ width: "120px" }}>파일</th>
+                <th style={{ width: "150px" }}>작업</th>
               </tr>
             </thead>
             <tbody>
@@ -127,21 +147,12 @@ const TrendBoard = () => {
                 <tr key={post.id}>
                   <td>{post.id}</td>
                   <td>{post.title}</td>
-                  <td>{post.content}</td>
+                  <td className="auto-wrap">{post.content}</td>
                   <td>{post.author}</td>
-                  <td>{post.views}</td>
                   <td>{post.date}</td>
                   <td>
                     {post.fileURL && (
                       <>
-                        <a
-                          href={post.fileURL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          파일 열기
-                        </a>{" "}
-                        |
                         <a href={post.fileURL} download>
                           파일 다운로드
                         </a>
@@ -149,26 +160,30 @@ const TrendBoard = () => {
                     )}
                   </td>
 
-                  <td>
-                    <Button
-                      variant="success"
-                      onClick={() => openModalForEdit(post)}
-                    >
-                      수정
-                    </Button>
-                    <Button
-                      variant="danger"
-                      onClick={() => handleDelete(post.id)}
-                    >
-                      삭제
-                    </Button>
+                  <td className="center-align">
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <Button
+                        style={{ marginRight: "10px" }}
+                        variant="success"
+                        onClick={() => openModalForEdit(post)}
+                      >
+                        수정
+                      </Button>
+                      <Button
+                        variant="danger"
+                        onClick={() => handleDelete(post.id)}
+                      >
+                        삭제
+                      </Button>
+                    </div>
                   </td>
                 </tr>
               ))}
-
-              <Button onClick={openModalForNewPost}>글쓰기</Button>
             </tbody>
           </Table>
+          <Button className="write-button" onClick={openModalForNewPost}>
+            글쓰기
+          </Button>
         </Col>
       </Row>
       <Modal show={showModal} onHide={closeModal}>

@@ -277,13 +277,15 @@ body {
 }
 
 .BoardBody {
-  width: 1300px;
+  /* 테이블의 전체 크기 */
+  width: 1200px;
   text-align: center;
 }
 
 .write-button {
-  /* 이곳에 원하는 스타일을 적용하세요. */
-  margin-left: 1200px;
+  /* 글쓰기 버튼 */
+  margin-left: 1100px;
+  position: relative;
 }
 
 .fixedTable {
