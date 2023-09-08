@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Carousel } from "react-bootstrap";
+import { Container, Carousel, Card, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 
 const ProductAll = () => {
@@ -63,6 +63,103 @@ const ProductAll = () => {
             </a>
           </li>
         </ul>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Card
+          style={{
+            backgroundColor: "lightgray",
+            width: "1350px",
+            margin: "30px auto 0 auto",
+            transform: "none",
+          }}
+        >
+          <Row
+            noGutters={true}
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
+              <Card.Img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHs13reajopIdtO4sXbuYCNsTR3ANghaCZTw&usqp=CAU"
+                variant="right"
+                style={{ width: "375px" }}
+              />
+            </Col>
+            <Col
+              xs={6}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
+            >
+              <div
+                style={{ textAlign: "left", width: "90%", margin: "0 auto" }}
+              >
+                <Card.Text style={{ fontSize: "20px" }}>
+                  <div>
+                    바다의 파도 속에서, 강의 흐름 속에서, 우리는 무엇을 찾고
+                    있는가?
+                  </div>
+                  <div>아마도 잡히지 않는 꿈, </div>
+                  <div>
+                    혹은 놓치고 싶지 않은 순간의 아름다움을 찾고 있을 것이다.
+                  </div>
+                </Card.Text>
+              </div>
+            </Col>
+          </Row>
+        </Card>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Card
+          style={{
+            backgroundColor: "lightgray",
+            width: "1350px",
+            margin: "60px auto 0 auto",
+            transform: "none",
+          }}
+        >
+          <Row noGutters={true}>
+            <Col xs={6} style={{ display: "flex" }}>
+              <Card.Body
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center", // 추가: 내용을 중앙으로 정렬
+                }}
+              >
+                <Card.Text style={{ fontSize: "20px", textAlign: "left" }}>
+                  <div>낚시는 인생의 교훈을 주는 활동이다.</div>
+                  <div>무한한 기다림과 인내, 그리고 예상치 못한 선물.</div>
+                  <div>이 모든 것이 우리에게 인생이란 무엇인지,</div>
+                  <div>그리고 진정한 행복이란 무엇인지를 알려준다.</div>
+                </Card.Text>
+              </Card.Body>
+            </Col>
+            <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
+              <Card.Img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfFbzu_8IO3x7CB3q-He2q9ZeOQ7Y6sdXWsKZWWMUr9sLT66S68gX-zmVJNBCyHVvDouA&usqp=CAU"
+                variant="left"
+                style={{ width: "675px" }}
+              />
+            </Col>
+          </Row>
+        </Card>
       </div>
     </div>
   );
