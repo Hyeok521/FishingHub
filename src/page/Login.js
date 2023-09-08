@@ -38,7 +38,7 @@ const Login = ({ setAuthenticate }) => {
   const goToSignUp = (event) => {
     event.preventDefault();
     setAuthenticate(true);
-    navigate("/SignUp");
+    navigate("/SighUp");
   };
 
   const goToIdSearch = (event) => {
