@@ -4,7 +4,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-const Login = ({ setAuthenticate, to }) => {
+const Login = ({ setAuthenticate }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -12,25 +12,26 @@ const Login = ({ setAuthenticate, to }) => {
   const login = async (event) => {
     event.preventDefault();
     try {
-      console.log("Attempting to send login request..."); // 요청 전에 로그를 남깁니다
+      console.log("로그인 요청을 시도합니다..."); // 한글로 로그 출력
 
       const response = await axios.post(
         "http://13.48.105.95:8080/member/login",
         { userId: id, userPw: password }
       );
-      console.log("Server response:", response); // 서버에서 받은 응답을 로깅합니다
+
+      console.log("서버 응답:", response); // 한글로 로그 출력
 
       if (response.status === 200 && response.data !== "로그인 실패") {
-        console.log("Login successful!"); // 로그인 성공 시 로그를 남깁니다
+        console.log("로그인 성공!"); // 한글로 로그 출력
         setAuthenticate(true);
         navigate("/");
       } else {
-        console.log("Login failed. Server responded with:", response); // 로그인 실패 시 응답을 로깅합니다
-        alert("Login failed.");
+        console.log("로그인 실패. 서버 응답:", response); // 한글로 로그 출력
+        alert("로그인 실패"); // 한글로 알림
         navigate("/login");
       }
     } catch (error) {
-      console.error("Login request failed with error:", error); // 에러가 발생한 경우 에러 정보를 로깅합니다
+      console.error("로그인 요청 실패. 에러 정보:", error); // 한글로 로그 출력
     }
   };
 
