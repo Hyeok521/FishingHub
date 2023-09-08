@@ -38,7 +38,7 @@ const Login = ({ setAuthenticate }) => {
   const goToSignUp = (event) => {
     event.preventDefault();
     setAuthenticate(true);
-    navigate("/SighUp"); // 이 부분을 /SighUp으로 변경
+    navigate("/SighUp");
   };
 
   const goToIdSearch = (event) => {
