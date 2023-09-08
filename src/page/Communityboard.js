@@ -196,7 +196,7 @@ const Communityboard = () => {
                         href={post.fileURL}
                         download
                       >
-                        파일 다운로드
+                        다운로드
                       </a>
                     )}
                   </td>
@@ -207,19 +207,20 @@ const Communityboard = () => {
                         href={post.imageURL}
                         download
                       >
-                        이미지 다운로드
+                        다운로드
                       </a>
                     )}
                   </td>
                   <td>
                     <Button
-                      variant="success"
+                      style={{ marginRight: "10px" }}
+                      variant="primary"
                       onClick={() => openModalForEdit(post)}
                     >
                       수정
                     </Button>
                     <Button
-                      variant="danger"
+                      variant="primary"
                       onClick={() =>
                         setPosts(posts.filter((p) => p.id !== post.id))
                       }
@@ -273,18 +274,28 @@ const Communityboard = () => {
             </Form.Group>
             <Form.Group>
               <Form.Label>내용</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="내용을 입력하세요."
-                value={newOrEditedPost.content}
-                onChange={(e) =>
-                  setNewOrEditedPost({
-                    ...newOrEditedPost,
-                    content: e.target.value,
-                  })
-                }
-              />
+              <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+                {/* 게시글 보기 모드에서만 이미지를 표시합니다. */}
+                {!isEditing && currentPost?.imageURL && (
+                  <Image
+                    src={currentPost.imageURL}
+                    alt="Attached Image"
+                    thumbnail
+                  />
+                )}
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="내용을 입력하세요."
+                  value={newOrEditedPost.content}
+                  onChange={(e) =>
+                    setNewOrEditedPost({
+                      ...newOrEditedPost,
+                      content: e.target.value,
+                    })
+                  }
+                />
+              </div>
             </Form.Group>
             <Form.Group>
               <Form.Label>작성자</Form.Label>
@@ -338,7 +349,7 @@ const Communityboard = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowPostModal(false)}>
+          <Button variant="primary" onClick={() => setShowPostModal(false)}>
             취소
           </Button>
           {isEditing && (

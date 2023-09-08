@@ -284,8 +284,9 @@ body {
 
 .write-button {
   /* 글쓰기 버튼 */
+  display: flex;
+  /* position: relative; */
   margin-left: 1100px;
-  position: relative;
 }
 
 .fixedTable {
