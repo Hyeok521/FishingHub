@@ -41,25 +41,25 @@ const ProductAll = () => {
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=28">
               <img src="https://sapa.co.kr/web/product/extra/big/20230224/585d140ee81a60cb4964fd56ed44175c.jpg" />
-              <div>릴</div>
+              <div>릴 →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=107">
               <img src="https://sapa.co.kr/web/product/extra/big/20230901/636e7a9b5c3dae5054fee181e387317f.jpg" />
-              <div>낚싯줄</div>
+              <div>낚싯줄 →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=112">
               <img src="https://sapa.co.kr/web/product/extra/big/20230207/37f74a86184ec084cd81980c986c4a40.jpg" />
-              <div>낚시가방</div>
+              <div>낚시가방 →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=261">
               <img src="https://sapa.co.kr/web/product/medium/202308/70c4de93dbc72ec255fdfb775e7674b4.jpg" />
-              <div>낚싯대 및 낚시세트</div>
+              <div>낚싯대 및 낚시세트 →</div>
             </a>
           </li>
         </ul>
