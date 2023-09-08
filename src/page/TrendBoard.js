@@ -9,7 +9,6 @@ import {
   Table,
   Image,
 } from "react-bootstrap";
-//a
 
 const TrendBoard = () => {
   const [posts, setPosts] = useState([
@@ -47,7 +46,9 @@ const TrendBoard = () => {
     },
   ]);
 
-  const [showPostModal, setShowPostModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
   const [newOrEditedPost, setNewOrEditedPost] = useState({
@@ -100,13 +101,28 @@ const TrendBoard = () => {
     setCurrentPost(post);
     setNewOrEditedPost({ ...post });
     setIsEditing(true);
-    setShowPostModal(true);
+    setShowEditModal(true);
   };
 
   const openModalForView = (post) => {
     setCurrentPost(post);
     setIsEditing(false);
-    setShowPostModal(true);
+    setShowViewModal(true);
+  };
+
+  const openModalForCreate = () => {
+    setCurrentPost(null);
+    setNewOrEditedPost({
+      title: "",
+      content: "",
+      author: "",
+      file: null,
+      fileURL: null,
+      image: null,
+      imageURL: null,
+    });
+    setIsEditing(false);
+    setShowCreateModal(true);
   };
 
   const handleSave = () => {
@@ -129,7 +145,9 @@ const TrendBoard = () => {
         },
       ]);
     }
-    setShowPostModal(false);
+    setShowEditModal(false);
+    setShowViewModal(false);
+    setShowCreateModal(false);
   };
 
   return (
@@ -161,34 +179,30 @@ const TrendBoard = () => {
                 <tr key={post.id}>
                   <td>{post.id}</td>
                   <td>
-                    {post.title.length > 15 ? (
-                      <span
-                        style={{
-                          cursor: "pointer",
-                          color: "black",
-                        }}
-                        onClick={() => openModalForView(post)}
-                      >
-                        {post.title.slice(0, 15) + "..."}
-                      </span>
-                    ) : (
-                      post.title
-                    )}
+                    <span
+                      style={{
+                        cursor: "pointer",
+                        color: "black",
+                      }}
+                      onClick={() => openModalForView(post)}
+                    >
+                      {post.title.length > 15
+                        ? post.title.slice(0, 15) + "..."
+                        : post.title}
+                    </span>
                   </td>
                   <td>
-                    {post.content.length > 25 ? (
-                      <span
-                        style={{
-                          cursor: "pointer",
-                          color: "black",
-                        }}
-                        onClick={() => openModalForView(post)}
-                      >
-                        {post.content.slice(0, 25) + "..."}
-                      </span>
-                    ) : (
-                      post.content
-                    )}
+                    <span
+                      style={{
+                        cursor: "pointer",
+                        color: "black",
+                      }}
+                      onClick={() => openModalForView(post)}
+                    >
+                      {post.content.length > 25
+                        ? post.content.slice(0, 25) + "..."
+                        : post.content}
+                    </span>
                   </td>
                   <td>{post.author}</td>
                   <td>{post.date}</td>
@@ -235,27 +249,28 @@ const TrendBoard = () => {
               ))}
             </tbody>
           </Table>
-          <Button
-            className="write-button"
-            onClick={() => {
-              setCurrentPost(null);
-              setNewOrEditedPost({
-                title: "",
-                content: "",
-                author: "",
-                file: null,
-                fileURL: null,
-                image: null,
-                imageURL: null,
-              });
-              setShowPostModal(true);
-            }}
-          >
+          <Button className="write-button" onClick={openModalForCreate}>
             글쓰기
           </Button>
         </Col>
       </Row>
-      <Modal show={showPostModal} onHide={() => setShowPostModal(false)}>
+      <Modal
+        show={showEditModal}
+        onHide={() => setShowEditModal(false)}
+        onExited={() => {
+          setCurrentPost(null);
+          setNewOrEditedPost({
+            title: "",
+            content: "",
+            author: "",
+            file: null,
+            fileURL: null,
+            image: null,
+            imageURL: null,
+          });
+          setIsEditing(false);
+        }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>{isEditing ? "게시글 수정" : "게시글 보기"}</Modal.Title>
         </Modal.Header>
@@ -275,31 +290,25 @@ const TrendBoard = () => {
                 }
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>내용</Form.Label>
-              <div style={{ border: "1px solid #ccc", padding: "10px" }}>
-                {/* 게시글 보기 모드에서만 이미지를 표시합니다. */}
-                {!isEditing && currentPost?.imageURL && (
-                  <Image
-                    src={currentPost.imageURL}
-                    alt="Attached Image"
-                    thumbnail
+            {isEditing && (
+              <Form.Group>
+                <Form.Label>내용</Form.Label>
+                <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    placeholder="내용을 입력하세요."
+                    value={newOrEditedPost.content}
+                    onChange={(e) =>
+                      setNewOrEditedPost({
+                        ...newOrEditedPost,
+                        content: e.target.value,
+                      })
+                    }
                   />
-                )}
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="내용을 입력하세요."
-                  value={newOrEditedPost.content}
-                  onChange={(e) =>
-                    setNewOrEditedPost({
-                      ...newOrEditedPost,
-                      content: e.target.value,
-                    })
-                  }
-                />
-              </div>
-            </Form.Group>
+                </div>
+              </Form.Group>
+            )}
             <Form.Group>
               <Form.Label>작성자</Form.Label>
               <Form.Control
@@ -352,7 +361,7 @@ const TrendBoard = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={() => setShowPostModal(false)}>
+          <Button variant="primary" onClick={() => setShowEditModal(false)}>
             취소
           </Button>
           {isEditing && (
@@ -360,6 +369,139 @@ const TrendBoard = () => {
               저장
             </Button>
           )}
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={showViewModal}
+        onHide={() => setShowViewModal(false)}
+        onExited={() => {
+          setCurrentPost(null);
+        }}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>게시글 보기</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5>{currentPost?.title}</h5>
+          {currentPost?.imageURL && (
+            <div className="text-center" style={{ marginTop: "20px" }}>
+              <img
+                src={currentPost?.imageURL}
+                alt="게시글 이미지"
+                style={{ maxWidth: "100%", maxHeight: "400px" }}
+              />
+            </div>
+          )}
+          <p>{currentPost?.content}</p>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        show={showCreateModal}
+        onHide={() => setShowCreateModal(false)}
+        onExited={() => {
+          setCurrentPost(null);
+          setNewOrEditedPost({
+            title: "",
+            content: "",
+            author: "",
+            file: null,
+            fileURL: null,
+            image: null,
+            imageURL: null,
+          });
+          setIsEditing(false);
+        }}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>{isEditing ? "게시글 수정" : "게시글 작성"}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group>
+              <Form.Label>제목</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="제목을 입력하세요."
+                value={newOrEditedPost.title}
+                onChange={(e) =>
+                  setNewOrEditedPost({
+                    ...newOrEditedPost,
+                    title: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>내용</Form.Label>
+              <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="내용을 입력하세요."
+                  value={newOrEditedPost.content}
+                  onChange={(e) =>
+                    setNewOrEditedPost({
+                      ...newOrEditedPost,
+                      content: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>작성자</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="작성자를 입력하세요."
+                value={newOrEditedPost.author}
+                onChange={(e) =>
+                  setNewOrEditedPost({
+                    ...newOrEditedPost,
+                    author: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>파일 업로드</Form.Label>
+              <Form.Control type="file" onChange={handleFileChange} />
+              {newOrEditedPost.file && (
+                <div>
+                  <Button variant="danger" onClick={handleFileDelete}>
+                    파일 삭제
+                  </Button>
+                </div>
+              )}
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>이미지 업로드</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              {newOrEditedPost.image && (
+                <div>
+                  <Image
+                    src={newOrEditedPost.imageURL}
+                    alt="Image Preview"
+                    thumbnail
+                  />
+                  <Button variant="danger" onClick={handleImageDelete}>
+                    이미지 삭제
+                  </Button>
+                </div>
+              )}
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowCreateModal(false)}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={handleSave}>
+            저장
+          </Button>
         </Modal.Footer>
       </Modal>
     </Container>

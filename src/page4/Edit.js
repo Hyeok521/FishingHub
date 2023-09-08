@@ -3,7 +3,7 @@ import { Form, Button, Container } from "react-bootstrap";
 
 const Edit = () => {
   return (
-    <Container className="SighUp-area">
+    <Container>
       <Form className="SighUp-form">
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
