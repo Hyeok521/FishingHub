@@ -255,6 +255,7 @@ const Communityboard = () => {
       <Modal
         show={showEditModal}
         onHide={() => setShowEditModal(false)}
+        size="lg"
         onExited={() => {
           setCurrentPost(null);
           setNewOrEditedPost({
@@ -375,27 +376,33 @@ const Communityboard = () => {
         onExited={() => {
           setCurrentPost(null);
         }}
+        size="lg"
       >
         <Modal.Header closeButton>
           <Modal.Title>게시글 보기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5>{currentPost?.title}</h5>
-          {currentPost?.imageURL && (
-            <div className="text-center" style={{ marginTop: "20px" }}>
-              <img
-                src={currentPost?.imageURL}
-                alt="게시글 이미지"
-                style={{ maxWidth: "100%", maxHeight: "400px" }}
-              />
-            </div>
-          )}
-          <p>{currentPost?.content}</p>
+          <div className="modal-section">
+            <h3>{currentPost?.title}</h3>
+          </div>
+          <div className="modal-section">
+            {currentPost?.imageURL && (
+              <div className="text-center" style={{ marginTop: "20px" }}>
+                <img
+                  src={currentPost?.imageURL}
+                  alt="게시글 이미지"
+                  style={{ maxWidth: "100%", maxHeight: "400px" }}
+                />
+              </div>
+            )}
+          </div>
+          <h5>{currentPost?.content}</h5>
         </Modal.Body>
       </Modal>
       <Modal
         show={showCreateModal}
         onHide={() => setShowCreateModal(false)}
+        size="lg"
         onExited={() => {
           setCurrentPost(null);
           setNewOrEditedPost({
