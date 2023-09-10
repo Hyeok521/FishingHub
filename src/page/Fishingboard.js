@@ -52,6 +52,9 @@ const Fishingboard = () => {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
+  const [newComment, setNewComment] = useState(""); // 새 댓글 내용
+  const [newCommentAuthor, setNewCommentAuthor] = useState(""); // 새 댓글 작성자 이름
+  const [comments, setComments] = useState({}); // 각 게시물에 대한 댓글 목록
   const [newOrEditedPost, setNewOrEditedPost] = useState({
     title: "",
     content: "",
@@ -96,6 +99,29 @@ const Fishingboard = () => {
       image: null,
       imageURL: null,
     });
+  };
+
+  // 댓글 저장 함수
+  const handleCommentSave = () => {
+    if (currentPost) {
+      // 현재 게시물이 있는 경우
+      const postId = currentPost.id;
+      const commentDate = new Date().toISOString().split("T")[0];
+      const newComments = [
+        ...(comments[postId] || []),
+        {
+          author: newCommentAuthor, // 댓글 작성자 이름 사용
+          date: commentDate,
+          text: newComment,
+        },
+      ];
+      setComments({
+        ...comments,
+        [postId]: newComments,
+      });
+      setNewComment(""); // 댓글 작성 폼 비우기
+      setNewCommentAuthor(""); // 댓글 작성자 이름 비우기
+    }
   };
 
   const openModalForEdit = (post) => {
@@ -166,7 +192,7 @@ const Fishingboard = () => {
             <thead>
               <tr>
                 <th style={{ width: "70px" }}>글번호</th>
-                <th style={{ width: "150px" }}>제목</th>
+                <th style={{ width: "200px" }}>제목</th>
                 <th>내용</th>
                 <th style={{ width: "70px" }}>작성자</th>
                 <th style={{ width: "120px" }}>작성일</th>
@@ -258,6 +284,7 @@ const Fishingboard = () => {
       <Modal
         show={showEditModal}
         onHide={() => setShowEditModal(false)}
+        size="lg"
         onExited={() => {
           setCurrentPost(null);
           setNewOrEditedPost({
@@ -331,7 +358,11 @@ const Fishingboard = () => {
                   <Form.Control type="file" onChange={handleFileChange} />
                   {newOrEditedPost.file && (
                     <div>
-                      <Button variant="danger" onClick={handleFileDelete}>
+                      <Button
+                        style={{ marginTop: "10px" }}
+                        variant="danger"
+                        onClick={handleFileDelete}
+                      >
                         파일 삭제
                       </Button>
                     </div>
@@ -345,15 +376,27 @@ const Fishingboard = () => {
                     onChange={handleImageChange}
                   />
                   {newOrEditedPost.image && (
-                    <div>
+                    <div
+                      style={{
+                        height: "auto",
+                        width: "auto",
+                      }}
+                    >
                       <Image
                         src={newOrEditedPost.imageURL}
                         alt="Image Preview"
                         thumbnail
+                        style={{
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          marginBottom: "10px",
+                        }}
                       />
-                      <Button variant="danger" onClick={handleImageDelete}>
-                        이미지 삭제
-                      </Button>
+                      <div>
+                        <Button variant="danger" onClick={handleImageDelete}>
+                          이미지 삭제
+                        </Button>
+                      </div>
                     </div>
                   )}
                 </Form.Group>
@@ -378,27 +421,85 @@ const Fishingboard = () => {
         onExited={() => {
           setCurrentPost(null);
         }}
+        size="lg"
       >
         <Modal.Header closeButton>
           <Modal.Title>게시글 보기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5>{currentPost?.title}</h5>
-          {currentPost?.imageURL && (
-            <div className="text-center" style={{ marginTop: "20px" }}>
-              <img
-                src={currentPost?.imageURL}
-                alt="게시글 이미지"
-                style={{ maxWidth: "100%", maxHeight: "400px" }}
-              />
+          <div className="modal-section">
+            <h3>{currentPost?.title}</h3>
+          </div>
+          <div className="modal-section">
+            {currentPost?.imageURL && (
+              <div className="text-center" style={{ marginTop: "20px" }}>
+                <img
+                  src={currentPost?.imageURL}
+                  alt="게시글 이미지"
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    marginBottom: "20px",
+                  }}
+                />
+              </div>
+            )}
+          </div>
+          <h5
+            dangerouslySetInnerHTML={{
+              __html: currentPost?.content.replace(/\n/g, "<br />"),
+            }}
+          ></h5>
+          {/* 댓글 작성 폼 */}
+          <Form.Group>
+            <Form.Label style={{ marginTop: "50px" }}>댓글 작성</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="작성자 이름"
+              value={newCommentAuthor}
+              onChange={(e) => setNewCommentAuthor(e.target.value)}
+            />
+            <Form.Control
+              style={{ marginTop: "5px" }}
+              as="textarea"
+              rows={3}
+              placeholder="댓글을 입력하세요."
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+            />
+          </Form.Group>
+          <Button
+            style={{ marginTop: "10px" }}
+            variant="primary"
+            onClick={handleCommentSave}
+          >
+            댓글 저장
+          </Button>
+
+          {/* 댓글 목록 */}
+          {comments[currentPost?.id]?.map((comment, index) => (
+            <div
+              key={index}
+              style={{
+                marginTop: "20px",
+                borderBottom: "1px solid #ccc",
+                paddingBottom: "10px",
+              }}
+            >
+              <strong>{comment.author}</strong> ({comment.date})
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: comment.text.replace(/\n/g, "<br />"),
+                }}
+              ></p>
             </div>
-          )}
-          <p>{currentPost?.content}</p>
+          ))}
         </Modal.Body>
       </Modal>
       <Modal
         show={showCreateModal}
         onHide={() => setShowCreateModal(false)}
+        size="lg"
         onExited={() => {
           setCurrentPost(null);
           setNewOrEditedPost({
@@ -468,7 +569,11 @@ const Fishingboard = () => {
               <Form.Control type="file" onChange={handleFileChange} />
               {newOrEditedPost.file && (
                 <div>
-                  <Button variant="danger" onClick={handleFileDelete}>
+                  <Button
+                    style={{ marginTop: "10px" }}
+                    variant="danger"
+                    onClick={handleFileDelete}
+                  >
                     파일 삭제
                   </Button>
                 </div>
@@ -482,15 +587,27 @@ const Fishingboard = () => {
                 onChange={handleImageChange}
               />
               {newOrEditedPost.image && (
-                <div>
+                <div
+                  style={{
+                    height: "auto",
+                    width: "auto",
+                  }}
+                >
                   <Image
                     src={newOrEditedPost.imageURL}
                     alt="Image Preview"
                     thumbnail
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      marginBottom: "10px",
+                    }}
                   />
-                  <Button variant="danger" onClick={handleImageDelete}>
-                    이미지 삭제
-                  </Button>
+                  <div>
+                    <Button variant="danger" onClick={handleImageDelete}>
+                      이미지 삭제
+                    </Button>
+                  </div>
                 </div>
               )}
             </Form.Group>
