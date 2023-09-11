@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Container, Carousel, Card, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import WeatherBox from "../component/WeatherBox";
+import WeatherButton from "../component/WeatherButton";
 
 const ProductAll = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +29,49 @@ const ProductAll = () => {
     "https://lh3.googleusercontent.com/p/AF1QipOVyaxWSoRHztNySxaEYgfN3gR6Q9dDhiZ3lTeB=s1360-w1360-h1020",
     "https://lh3.googleusercontent.com/p/AF1QipOEPiLmDPcwrHWgrdKvC9WmRZyB1crjP5Xo6PmJ=s1360-w1360-h1020",
   ];
+
+  const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState("");
+  const cities = [
+    "Seoul",
+    "Gyeonggi-do",
+    "Gangwon-do",
+    "Chungcheongbuk-do",
+    "Chungcheongnam-do",
+    "Jeollabuk-do",
+    "Jeollanam-do",
+    "Gyeongsangbuk-do",
+    "Gyeongsangnam-do",
+    "Jeju",
+  ];
+  const getCurrentLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      getWeatherByCurrentLocation(lat, lon);
+    });
+  };
+
+  const getWeatherByCurrentLocation = async (lat, lon) => {
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e7f59aaca8543637eab9ad2b801f9249`;
+    let response = await fetch(url);
+    let data = await response.json();
+  };
+
+  const getWeatherByCity = async () => {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e7f59aaca8543637eab9ad2b801f9249&units=metric`;
+    let response = await fetch(url);
+    let data = await response.json();
+    setWeather(data);
+  };
+
+  useEffect(() => {
+    if (city == "") {
+      getCurrentLocation();
+    } else {
+      getWeatherByCity();
+    }
+  }, [city]);
 
   return (
     <div>
@@ -63,6 +109,10 @@ const ProductAll = () => {
             </a>
           </li>
         </ul>
+      </div>
+      <div className="weather">
+        <WeatherBox weather={weather} />
+        <WeatherButton cities={cities} setCity={setCity} />
       </div>
       <div
         style={{

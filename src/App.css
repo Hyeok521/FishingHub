@@ -14,7 +14,7 @@ body {
 .nav-header {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 1312px;
   margin: 0 auto;
 }
 
@@ -246,7 +246,7 @@ body {
   height: 300px;
 }
 
-.product-add1 li a {
+.product-add li a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,7 +254,7 @@ body {
   text-decoration: none; /* 밑줄 제거 */
 }
 
-.product-add1 li a div {
+.product-add li a div {
   margin-top: 10px;
   font-size: 20px; /* 원하는 크기로 설정 */
   color: black;
@@ -301,4 +301,19 @@ body {
 .auto-wrap {
   white-space: normal;
   word-wrap: break-word;
+}
+
+.weather {
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.weather-box {
+  /* border: 3px solid black; */
+  /* border-radius: 30px; */
+  padding: 50px;
 }
