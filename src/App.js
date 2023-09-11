@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./page4/page4.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import ProductAll from "./page/ProductAll";
@@ -21,6 +22,24 @@ import Edit from "./page4/Edit";
 
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
+  const handleResize = () => {
+    const zoomLevel = window.outerWidth / window.innerWidth;
+    if (zoomLevel >= 1.1) {
+      document.body.style.overflowX = "auto";
+    } else {
+      document.body.style.overflowX = "hidden";
+    }
+  };
+
+  // 컴포넌트가 마운트되거나 언마운트될 때 이벤트 리스너를 추가/제거
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize(); // 초기 로딩 시에도 적용
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div>
       <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />

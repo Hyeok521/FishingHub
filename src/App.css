@@ -282,11 +282,16 @@ body {
   text-align: center;
 }
 
-.write-button {
-  /* 글쓰기 버튼 */
+.BodyCol {
+  position: relative;
   display: flex;
-  /* position: relative; */
-  margin-left: 1100px;
+  flex-direction: column;
+  align-items: flex-end; /* 오른쪽 정렬 */
+  justify-content: flex-end;
+}
+
+.write-button {
+  margin-top: -5px;
 }
 
 .fixedTable {

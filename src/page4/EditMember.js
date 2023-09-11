@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./page4.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const EditMember = () => {
@@ -34,14 +35,15 @@ const EditMember = () => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center">
+    <Container className="EmBody">
+      <Row className="EmBodyCol">
         <Col xs={12} md={8}>
           <h4>회원정보 수정</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formPassword">
               <Form.Label>비밀번호</Form.Label>
               <Form.Control
+                className="EmCtl"
                 type="password"
                 placeholder="비밀번호를 입력하세요"
                 name="password"
@@ -49,11 +51,15 @@ const EditMember = () => {
                 onChange={handleInputChange}
               />
             </Form.Group>
-
-            <Button onClick={handleEdit} variant="primary" type="button">
-              수정하기
-            </Button>
           </Form>
+          <Button
+            className="EmButton"
+            onClick={handleEdit}
+            variant="primary"
+            type="button"
+          >
+            수정하기
+          </Button>
         </Col>
       </Row>
     </Container>

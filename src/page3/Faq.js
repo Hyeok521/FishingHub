@@ -181,7 +181,7 @@ const Faq = () => {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col className="BodyCol">
           <Table striped bordered hover className="fixedTable">
             <thead>
               <tr>

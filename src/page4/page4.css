@@ -1,0 +1,22 @@
+.EmBody {
+  /* 테이블의 전체 크기 */
+  margin-left: -50px;
+  margin-top: 20px;
+}
+
+.EmCtl {
+  width: 40em;
+}
+
+.EmBodyCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.EmButton {
+  margin-right: 200px;
+  margin-top: 15px;
+}
