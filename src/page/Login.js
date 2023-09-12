@@ -32,6 +32,7 @@ const Login = ({ setAuthenticate }) => {
       }
     } catch (error) {
       console.error("로그인 요청 실패. 에러 정보:", error); // 한글로 로그 출력
+      alert("로그인 실패");
     }
   };
 
