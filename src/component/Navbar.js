@@ -5,6 +5,7 @@ import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import WeatherWidget from "./WeatherWidget";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
@@ -158,6 +159,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             </div>
           )}
         </div>
+        <WeatherWidget />
       </div>
     </div>
   );

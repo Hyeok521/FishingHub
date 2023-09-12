@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Container, Carousel, Card, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import WeatherBox from "../component/WeatherBox";
-import WeatherButton from "../component/WeatherButton";
 
 const ProductAll = () => {
   const [products, setProducts] = useState([]);
@@ -75,7 +73,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <Carousel className="carousel">
+      <Carousel interval={3000} className="carousel">
         {imageUrls.map((url, index) => (
           <Carousel.Item key={index}>
             <img className="pointer" src={url} alt={`Image - ${index + 1}`} />
@@ -83,7 +81,7 @@ const ProductAll = () => {
         ))}
       </Carousel>
       <div>
-        <ul className="product-add">
+        <ul className="product-add1">
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=28">
               <img src="https://sapa.co.kr/web/product/extra/big/20230224/585d140ee81a60cb4964fd56ed44175c.jpg" />
@@ -97,9 +95,37 @@ const ProductAll = () => {
             </a>
           </li>
           <li>
+            <a href="https://www.wfish.co.kr/sp2/goods_data_list.htm?cate_code=009">
+              <img src="https://sapa.co.kr/web/product/medium/202306/dc636f8b85b83077bd32e81a261f80d2.jpg" />
+              <div>찌 →</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.klfishing.com/shop_item_list.php?ac_id=8">
+              <img src="https://sapa.co.kr/web/product/medium/202206/15cbe9ea7c81066739a70917e3ea88a9.jpg" />
+              <div>낚시바늘 →</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul className="product-add2">
+          <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=112">
               <img src="https://sapa.co.kr/web/product/extra/big/20230207/37f74a86184ec084cd81980c986c4a40.jpg" />
               <div>낚시가방 →</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://sapa.co.kr/product/list.html?cate_no=204">
+              <img src="https://sapa.co.kr/web/product/medium/202205/dd9cd4ae2a1683c64676754517265a81.jpg" />
+              <div>낚시의자 및 테이블 →</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.wfish.co.kr/sp2/goods_data_list.htm?cate_code=012">
+              <img src="https://sapa.co.kr/web/product/medium/202306/d20bcf505cb2583e86a92eb6922e0bf2.jpg" />
+              <div>의류 및 잡화 →</div>
             </a>
           </li>
           <li>
@@ -110,10 +136,7 @@ const ProductAll = () => {
           </li>
         </ul>
       </div>
-      <div className="weather">
-        <WeatherBox weather={weather} />
-        <WeatherButton cities={cities} setCity={setCity} />
-      </div>
+
       <div
         style={{
           display: "flex",
