@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const EditMember = () => {
   // 내부 상태로 authenticate와 setAuthenticate를 관리
-  const [authenticate, setAuthenticate] = useState(false);
+  // const [authenticate, setAuthenticate] = useState(false);
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const EditMember = () => {
 
   const handleEdit = (event) => {
     event.preventDefault();
-    setAuthenticate(true); // 상태를 true로 설정
+    // setAuthenticate(true); // 상태를 true로 설정
     navigate("/Edit"); // /Edit 페이지로 이동
   };
 

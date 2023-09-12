@@ -14,43 +14,43 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   const Communityboard = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/Communityboard");
   };
 
   const Fishingboard = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/Fishingboard");
   };
 
   const TrendBoard = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/TrendBoard");
   };
 
   const AnnounCement = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/AnnounCement");
   };
 
   const Faq = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/Faq");
   };
 
   const QNA = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/QNA");
   };
 
   const EditMember = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/EditMember");
   };
 
