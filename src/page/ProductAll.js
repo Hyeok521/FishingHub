@@ -230,6 +230,9 @@ const ProductAll = () => {
           </Row>
         </Card>
       </div>
+      <div className="bottom">
+        <img src="https://fishinghub.store/cdn/shop/files/6abb3fa590883cd3c9df83c9973e2d18.jpg?v=1660987896&width=1500" />
+      </div>
     </div>
   );
 };
