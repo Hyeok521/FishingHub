@@ -160,7 +160,7 @@ const Login = ({ setAuthenticate }) => {
           style={{
             width: "160px",
             height: "60px",
-            marginLeft: "240px",
+            marginLeft: "210px",
             marginTop: "10px",
           }}
         />
