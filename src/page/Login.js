@@ -32,7 +32,7 @@ const Login = ({ setAuthenticate }) => {
       }
     } catch (error) {
       console.error("로그인 요청 실패. 에러 정보:", error); // 한글로 로그 출력
-      alert("현재 서버가 불안정합니다, 시간을 두고 다시 시도해주세요");
+      alert("아이디와 비밀번호를 확인해주세요");
     }
   };
 
