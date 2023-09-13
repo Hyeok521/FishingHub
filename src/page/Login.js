@@ -28,7 +28,7 @@ const Login = ({ setAuthenticate }) => {
 
       // 카카오 로그인 요청
       window.Kakao.Auth.login({
-        scope: "profile_nickname,birthday,talk_message",
+        scope: "profile_nickname,account_email,birthday,talk_message",
         success: (response) => {
           console.log("카카오 로그인 성공", response);
           window.Kakao.API.request({
@@ -93,13 +93,13 @@ const Login = ({ setAuthenticate }) => {
 
   const goToIdSearch = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/IdSearch");
   };
 
   const goToPasswordSearch = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/PasswordSearch");
   };
 
@@ -155,7 +155,7 @@ const Login = ({ setAuthenticate }) => {
         </ButtonGroup>
         <Button variant="warning" onClick={kakaoLogin}>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFQOJtNpYFKTS1T5QdhIDFFgLzQO93BuFjFw&usqp=CAU"
+            src="kakao.png"
             alt="Kakao Login"
             style={{ width: "100%", height: "auto" }}
           />
