@@ -14,7 +14,7 @@ body {
 .nav-header {
   display: flex;
   justify-content: space-between;
-  width: 1312px;
+  width: 1493px; /* 1312px */
   margin: 0 auto;
 }
 
@@ -238,21 +238,32 @@ body {
   height: 700px;
 }
 
-.product-add {
+.product-add1 {
   display: flex;
   justify-content: center;
   list-style-type: none; /* 리스트 스타일 제거 */
   padding: 0; /* 기본 패딩 제거 */
-  margin-top: 50px;
+  margin-top: 70px;
   gap: 50px;
 }
 
-.product-add img {
+.product-add2 {
+  display: flex;
+  justify-content: center;
+  list-style-type: none; /* 리스트 스타일 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  margin-top: 30px;
+  gap: 50px;
+}
+
+.product-add1 img,
+.product-add2 img {
   width: 300px;
   height: 300px;
 }
 
-.product-add li a {
+.product-add1 li a,
+.product-add2 li a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,7 +271,8 @@ body {
   text-decoration: none; /* 밑줄 제거 */
 }
 
-.product-add li a div {
+.product-add1 li a div,
+.product-add2 li a div {
   margin-top: 10px;
   font-size: 20px; /* 원하는 크기로 설정 */
   color: black;
@@ -309,17 +321,28 @@ body {
   word-wrap: break-word;
 }
 
-.weather {
-  background-color: skyblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 50px;
+.weather-widget {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 200px; /* 원하는 너비로 조절 */
+  height: 100px; /* 원하는 높이로 조절 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-widget .carousel {
+  width: 200px;
+  height: 100px;
 }
 
 .weather-box {
-  /* border: 3px solid black; */
-  /* border-radius: 30px; */
-  padding: 50px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.weather-box h2 {
+  font-size: 2px; /* 원하는 크기로 조절 */
+}
+
+.weather-box h3 {
+  font-size: 1px; /* 원하는 크기로 조절 */
 }
