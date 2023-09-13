@@ -156,8 +156,12 @@ const Login = ({ setAuthenticate }) => {
         <Button variant="white" onClick={kakaoLogin}>
           <img
             src="kakao.png"
-            alt="Kakao Login"
-            style={{ width: "240px", height: "44px", marginLeft: "165px" }}
+            style={{
+              width: "240px",
+              height: "44px",
+              marginLeft: "165px",
+              paddingLeft: "-15px",
+            }}
           />
         </Button>
       </Form>
