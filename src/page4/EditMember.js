@@ -21,6 +21,12 @@ const EditMember = () => {
     navigate("/Edit"); // /Edit 페이지로 이동
   };
 
+  const handleWd = (event) => {
+    event.preventDefault();
+    // setAuthenticate(true); // 상태를 true로 설정
+    navigate("/Withdrawal"); // /Edit 페이지로 이동
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -58,7 +64,16 @@ const EditMember = () => {
             variant="primary"
             type="button"
           >
-            수정하기
+            수정
+          </Button>
+
+          <Button
+            className="WdButton"
+            onClick={handleWd}
+            variant="primary"
+            type="button"
+          >
+            탈퇴
           </Button>
         </Col>
       </Row>

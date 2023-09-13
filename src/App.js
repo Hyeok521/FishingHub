@@ -19,6 +19,7 @@ import Faq from "./page3/Faq";
 import QNA from "./page3/QNA";
 import EditMember from "./page4/EditMember";
 import Edit from "./page4/Edit";
+import Withdrawal from "./page4/Withdrawal";
 
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
@@ -96,6 +97,10 @@ function App() {
         />
 
         <Route path="/Edit" element={<Edit authenticate={authenticate} />} />
+        <Route
+          path="Withdrawal"
+          element={<Withdrawal authenticate={authenticate} />}
+        />
       </Routes>
       <Footer authenticate={authenticate} setAuthenticate={setAuthenticate} />
     </div>
