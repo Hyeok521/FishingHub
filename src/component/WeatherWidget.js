@@ -5,7 +5,23 @@ import { Carousel } from "react-bootstrap";
 
 const WeatherWidget = () => {
   const [weatherData, setWeatherData] = useState({});
-  const cities = ["Seoul", "Busan", "Daegu", "Incheon"];
+  const cities = [
+    "Seoul",
+    "Gyeonggi-do",
+    "Incheon",
+    "Gangwon-do",
+    "Chungcheongbuk-do",
+    "Chungcheongnam-do",
+    "Daejeon",
+    "Jeollabuk-do",
+    "Jeollanam-do",
+    "Gwangju",
+    "Gyeongsangbuk-do",
+    "Daegu",
+    "Gyeongsangnam-do",
+    "Busan",
+    "Ulsan",
+  ];
 
   useEffect(() => {
     const fetchWeather = async (city) => {
@@ -26,7 +42,7 @@ const WeatherWidget = () => {
 
   return (
     <div className="weather-widget">
-      <Carousel interval={3000}>
+      <Carousel interval={1000}>
         {cities.map((city) => (
           <Carousel.Item key={city}>
             {weatherData[city] && <WeatherBox weather={weatherData[city]} />}

@@ -14,7 +14,7 @@ body {
 .nav-header {
   display: flex;
   justify-content: space-between;
-  width: 1493px; /* 1312px */
+  width: 1600px;
   margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@ body {
 }
 
 .LogSet {
-  margin-right: 200px;
+  /* margin-right: 200px; */
 }
 
 .menu {
@@ -33,8 +33,8 @@ body {
 }
 
 .menu li {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .menu li a {
@@ -323,6 +323,7 @@ body {
 
 .weather-widget {
   margin-top: 1px;
+  margin-right: 200px;
   border: 1px solid #ddd;
   border-radius: 10px;
   width: 200px; /* 원하는 너비로 조절 */
@@ -336,7 +337,6 @@ body {
 }
 
 .weather-box {
-  /* ad */
   text-align: center;
   margin-top: 20px;
 }

@@ -73,7 +73,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <Carousel interval={3000} className="carousel">
+      <Carousel interval={2000} className="carousel">
         {imageUrls.map((url, index) => (
           <Carousel.Item key={index}>
             <img className="pointer" src={url} alt={`Image - ${index + 1}`} />
