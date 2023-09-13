@@ -42,7 +42,7 @@ const WeatherWidget = () => {
 
   return (
     <div className="weather-widget">
-      <Carousel interval={1000}>
+      <Carousel interval={2000}>
         {cities.map((city) => (
           <Carousel.Item key={city}>
             {weatherData[city] && <WeatherBox weather={weatherData[city]} />}

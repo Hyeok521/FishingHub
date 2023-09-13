@@ -274,11 +274,18 @@ body {
   color: black;
 }
 
+.bottom {
+  margin-top: 100px;
+  margin-bottom: -500px;
+  max-width: 1500px;
+  width: 100%;
+}
+
 .footer {
   background-color: gray;
   color: white;
   height: 150px;
-  margin-top: 1000px;
+  margin-top: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
