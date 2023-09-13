@@ -161,6 +161,38 @@ body {
   border-radius: 3px;
 }
 
+.EmBody {
+  display: flex;
+  justify-content: center;
+}
+
+.EmBodyCol {
+  width: 100%;
+}
+
+.EmBodyCol > * {
+  display: flex;
+  justify-content: center;
+}
+
+.EmBodyCol h4 {
+  width: 100%;
+  text-align: left;
+  margin: 0; /* 기본 마진을 초기화합니다. */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* 내용을 컨테이너의 오른쪽으로 이동 */
+  align-items: center;
+}
+
+.EmButton {
+  position: relative;
+  left: 190px;
+  bottom: 8px;
+}
+
 .Id_pass {
   margin-left: 100px !important;
 }
@@ -277,8 +309,9 @@ body {
 .bottom {
   margin-top: 100px;
   margin-bottom: -500px;
-  max-width: 1500px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .footer {

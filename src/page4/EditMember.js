@@ -42,8 +42,8 @@ const EditMember = () => {
 
   return (
     <Container className="EmBody">
-      <Row className="EmBodyCol">
-        <Col xs={12} md={8}>
+      <Row className="EmBodyRow">
+        <Col xs={12} md={8} className="EmBodyCol">
           <h4>회원정보 수정</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formPassword">
@@ -58,23 +58,25 @@ const EditMember = () => {
               />
             </Form.Group>
           </Form>
-          <Button
-            className="EmButton"
-            onClick={handleEdit}
-            variant="primary"
-            type="button"
-          >
-            수정
-          </Button>
+          <div className="button-container">
+            <Button
+              className="EmButton"
+              onClick={handleEdit}
+              variant="primary"
+              type="button"
+            >
+              수정
+            </Button>
 
-          <Button
-            className="WdButton"
-            onClick={handleWd}
-            variant="primary"
-            type="button"
-          >
-            탈퇴
-          </Button>
+            <Button
+              className="WdButton"
+              onClick={handleWd}
+              variant="primary"
+              type="button"
+            >
+              탈퇴
+            </Button>
+          </div>
         </Col>
       </Row>
     </Container>
