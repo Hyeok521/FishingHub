@@ -8,6 +8,24 @@ import Dropdown from "react-bootstrap/Dropdown";
 import WeatherWidget from "./WeatherWidget";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
+  const logout = () => {
+    // 카카오 연결 끊기 요청
+    window.Kakao.API.request({
+      url: "/v1/user/unlink",
+      success: (response) => {
+        console.log("카카오 연결 끊기 성공", response);
+        // 연결 끊기 성공 시, 로그인 상태를 false로 설정
+        setAuthenticate(false);
+        // 이후 로그아웃 처리 (서버 등의 추가 로직이 필요할 수 있음)
+        // 여기에서는 간단하게 콘솔에 로그아웃 메시지만 출력
+        console.log("사용자 로그아웃");
+      },
+      fail: (error) => {
+        console.log("카카오 연결 끊기 실패", error);
+      },
+    });
+  };
+
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
@@ -148,7 +166,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
         <div className="LogSet">
           {authenticate ? (
-            <div onClick={() => setAuthenticate(false)}>
+            <div onClick={logout}>
               <FontAwesomeIcon icon={faUser} />
               <span style={{ cursor: "pointer" }}>로그아웃</span>
             </div>
