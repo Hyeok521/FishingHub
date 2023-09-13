@@ -93,13 +93,13 @@ const Login = ({ setAuthenticate }) => {
 
   const goToIdSearch = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/IdSearch");
   };
 
   const goToPasswordSearch = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
+    // setAuthenticate(true);
     navigate("/PasswordSearch");
   };
 
