@@ -28,7 +28,7 @@ const Login = ({ setAuthenticate }) => {
 
       // 카카오 로그인 요청
       window.Kakao.Auth.login({
-        scope: "profile_nickname,birthday,talk_message",
+        scope: "profile_nickname,account_email,birthday,talk_message",
         success: (response) => {
           console.log("카카오 로그인 성공", response);
           window.Kakao.API.request({
