@@ -2,6 +2,8 @@
   /* 테이블의 전체 크기 */
   /* margin-left: -50px; */
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .EmCtl {
@@ -14,6 +16,18 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+  width: 100%;
+}
+
+.EmBodyCol > * {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* 내용을 컨테이너의 오른쪽으로 이동 */
+  align-items: center;
 }
 
 .WdButton {
@@ -26,4 +40,18 @@
 .EmButton {
   margin-right: 200px;
   margin-top: 15px;
+  position: relative;
+  left: 190px;
+  bottom: 8px;
+}
+
+.EmBodyCol h4 {
+  width: 100%;
+  text-align: left;
+  margin: 0; /* 기본 마진을 초기화합니다. */
+}
+
+.SighUp-form {
+  display: flex;
+  justify-content: center;
 }
