@@ -39,26 +39,26 @@ const Login = ({ setAuthenticate }) => {
   const login = async (event) => {
     event.preventDefault();
     try {
-      console.log("로그인 요청을 시도합니다..."); // 한글로 로그 출력
+      console.log("로그인 요청을 시도합니다...");
 
       const response = await axios.post("/member/login", {
         userId: id,
         userPw: password,
       });
 
-      console.log("서버 응답:", response); // 한글로 로그 출력
+      console.log("서버 응답:", response);
 
       if (response.status === 200 && response.data !== "로그인 실패") {
-        console.log("로그인 성공!"); // 한글로 로그 출력
+        console.log("로그인 성공!");
         setAuthenticate(true);
         navigate("/");
       } else {
-        console.log("로그인 실패. 서버 응답:", response); // 한글로 로그 출력
-        alert("로그인 실패"); // 한글로 알림
+        console.log("로그인 실패. 서버 응답:", response);
+        alert("로그인 실패. 다시 로그인 해주세요.");
         navigate("/login");
       }
     } catch (error) {
-      console.error("로그인 요청 실패. 에러 정보:", error); // 한글로 로그 출력
+      console.error("로그인 요청 실패. 에러 정보:", error);
       alert("아이디와 비밀번호를 확인해주세요");
     }
   };
