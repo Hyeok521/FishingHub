@@ -18,21 +18,34 @@ const Login = ({ setAuthenticate }) => {
 
   const kakaoLogin = (event) => {
     event.preventDefault();
-    window.Kakao.Auth.login({
-      scope: "profile_nickname,account_email,birthday,talk_message",
-      success: (response) => {
-        console.log("카카오 로그인 성공", response);
-        window.kakao.API.request({
-          url: "/v2/usdser/me",
-          success: (res) => {
-            const kakao_account = res.kakao_account;
-            console.log(kakao_account);
-          },
-        });
-      },
-      fail: (error) => {
-        console.log("카카오 로그인 실패", error);
-      },
+    // 카카오 로그아웃 수행
+    window.Kakao.Auth.logout(() => {
+      console.log("카카오 로그아웃 완료");
+
+      // 로그아웃 시 로컬 스토리지 또는 세션 스토리지에서 사용자 정보 삭제
+      localStorage.removeItem("userInfo"); // 예시: 로컬 스토리지에서 삭제
+      sessionStorage.removeItem("userInfo"); // 예시: 세션 스토리지에서 삭제
+
+      // 카카오 로그인 요청
+      window.Kakao.Auth.login({
+        scope: "profile_nickname,account_email,birthday,talk_message",
+        success: (response) => {
+          console.log("카카오 로그인 성공", response);
+          window.Kakao.API.request({
+            url: "/v2/user/me",
+            success: (res) => {
+              const kakao_account = res.kakao_account;
+              console.log(kakao_account);
+              // 카카오 로그인 성공 시, 로그인 상태를 true로 설정
+              setAuthenticate(true);
+              navigate("/");
+            },
+          });
+        },
+        fail: (error) => {
+          console.log("카카오 로그인 실패", error);
+        },
+      });
     });
   };
 
@@ -45,6 +58,15 @@ const Login = ({ setAuthenticate }) => {
         userId: id,
         userPw: password,
       });
+
+      const logout = () => {
+        // 카카오 로그아웃 수행
+        window.Kakao.Auth.logout(() => {
+          console.log("카카오 로그아웃 완료");
+        });
+        // 로그인 상태를 false로 설정
+        setAuthenticate(false);
+      };
 
       console.log("서버 응답:", response);
 
