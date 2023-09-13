@@ -153,11 +153,11 @@ const Login = ({ setAuthenticate }) => {
             회원가입
           </Button>
         </ButtonGroup>
-        <Button variant="warning" onClick={kakaoLogin}>
+        <Button variant="white" onClick={kakaoLogin}>
           <img
             src="kakao.png"
             alt="Kakao Login"
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "240px", height: "44px", marginLeft: "165px" }}
           />
         </Button>
       </Form>
