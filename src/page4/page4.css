@@ -16,6 +16,13 @@
   justify-content: flex-end;
 }
 
+.WdButton {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
 .EmButton {
   margin-right: 200px;
   margin-top: 15px;

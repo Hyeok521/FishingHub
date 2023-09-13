@@ -28,7 +28,7 @@ const Edit = () => {
 
         <span>
           <Button className="SighUp" variant="primary" type="submit">
-            회원가입
+            수정
           </Button>
         </span>
       </Form>
