@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -9,12 +9,32 @@ const Login = ({ setAuthenticate }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Kakao SDK 초기화
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init("ccee64d52026e46448ac815273a89fda");
+    }
+  }, []);
+
+  const kakaoLogin = (event) => {
+    event.preventDefault();
+    window.Kakao.Auth.login({
+      success: (response) => {
+        console.log("카카오 로그인 성공", response);
+        // TODO: 서버에 로그인 토큰을 전송하거나 다른 작업을 수행
+      },
+      fail: (error) => {
+        console.log("카카오 로그인 실패", error);
+      },
+    });
+  };
+
   const login = async (event) => {
     event.preventDefault();
     try {
       console.log("로그인 요청을 시도합니다..."); // 한글로 로그 출력
 
-      const response = await axios.post("/member/login", {
+      const response = await axios.post("/member/join", {
         userId: id,
         userPw: password,
       });
@@ -104,6 +124,9 @@ const Login = ({ setAuthenticate }) => {
             회원가입
           </Button>
         </ButtonGroup>
+        <Button variant="warning" onClick={kakaoLogin}>
+          카카오로 로그인
+        </Button>
       </Form>
     </Container>
   );
