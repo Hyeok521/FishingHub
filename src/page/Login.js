@@ -153,7 +153,6 @@ const Login = ({ setAuthenticate }) => {
             회원가입
           </Button>
         </ButtonGroup>
-<<<<<<< HEAD
         <img
           onClick={kakaoLogin}
           src="kakao.png"
@@ -165,19 +164,6 @@ const Login = ({ setAuthenticate }) => {
             marginTop: "10px",
           }}
         />
-=======
-        <Button variant="white" onClick={kakaoLogin}>
-          <img
-            src="kakao.png"
-            style={{
-              width: "240px",
-              height: "44px",
-              marginLeft: "165px",
-              paddingLeft: "-15px",
-            }}
-          />
-        </Button>
->>>>>>> 064b95229d61c111336391ba6607ebf86d088be1
       </Form>
     </Container>
   );
