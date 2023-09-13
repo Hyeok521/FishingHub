@@ -19,9 +19,16 @@ const Login = ({ setAuthenticate }) => {
   const kakaoLogin = (event) => {
     event.preventDefault();
     window.Kakao.Auth.login({
+      scope: "profile_nickname,account_email,birthday,talk_message",
       success: (response) => {
         console.log("카카오 로그인 성공", response);
-        // TODO: 서버에 로그인 토큰을 전송하거나 다른 작업을 수행
+        window.kakao.API.request({
+          url: "/v2/usdser/me",
+          success: (res) => {
+            const kakao_account = res.kakao_account;
+            console.log(kakao_account);
+          },
+        });
       },
       fail: (error) => {
         console.log("카카오 로그인 실패", error);
@@ -34,7 +41,7 @@ const Login = ({ setAuthenticate }) => {
     try {
       console.log("로그인 요청을 시도합니다..."); // 한글로 로그 출력
 
-      const response = await axios.post("/member/join", {
+      const response = await axios.post("/member/login", {
         userId: id,
         userPw: password,
       });
@@ -125,7 +132,11 @@ const Login = ({ setAuthenticate }) => {
           </Button>
         </ButtonGroup>
         <Button variant="warning" onClick={kakaoLogin}>
-          카카오로 로그인
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFQOJtNpYFKTS1T5QdhIDFFgLzQO93BuFjFw&usqp=CAU"
+            alt="Kakao Login"
+            style={{ width: "100%", height: "auto" }}
+          />
         </Button>
       </Form>
     </Container>
