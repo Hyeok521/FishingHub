@@ -19,10 +19,10 @@ const Withdrawal = () => {
   };
 
   return (
-    <Container>
-      <h1>회원 탈퇴</h1>
+    <Container className="unregister-container">
+      <h4>회원 탈퇴</h4>
       {message && <Alert variant="info">{message}</Alert>}
-      <Form onSubmit={handleSubmit}>
+      <Form className="unregister" onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>이메일 주소</Form.Label>
           <Form.Control
@@ -45,7 +45,7 @@ const Withdrawal = () => {
           />
         </Form.Group>
 
-        <Button variant="danger" type="submit">
+        <Button className="unregister-button" variant="primary" type="submit">
           회원 탈퇴
         </Button>
       </Form>

@@ -53,5 +53,28 @@
 
 .SighUp-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Flexbox의 방향을 수직으로 설정합니다. */
+  align-items: center; /* 수평 중앙 정렬을 위해 추가합니다. */
+}
+
+.SighUp {
+  margin-left: 440px;
+  margin-top: -9px;
+}
+
+.mb-3 {
+  width: 500px;
+}
+
+.unregister-container {
+  width: 500px;
+}
+
+.unregister-container h4 {
+  text-align: center;
+}
+
+.unregister-button {
+  margin-top: 9px;
+  margin-left: 380px;
 }
