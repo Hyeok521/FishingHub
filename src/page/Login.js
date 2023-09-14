@@ -103,6 +103,26 @@ const Login = ({ setAuthenticate }) => {
     navigate("/PasswordSearch");
   };
 
+  // Function to perform logout
+  const performLogout = async () => {
+    try {
+      // Send a logout request to the server
+      // Replace '/logout' with the actual API endpoint for logging out
+      const response = await axios.post("/logout");
+
+      // Check if the logout was successful
+      if (response.status === 200) {
+        // Remove user information from local state or storage
+        setId("");
+        setPassword("");
+
+        // Navigate to the login or home page
+        navigate("/"); // Replace '/' with the actual path if different
+      }
+    } catch (error) {
+      console.error("Failed to log out:", error);
+    }
+  };
   return (
     <Container className="login-area">
       <Form onSubmit={login} className="login-form">
