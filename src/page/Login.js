@@ -106,7 +106,7 @@ const Login = ({ setAuthenticate }) => {
   return (
     <Container className="login-area">
       <Form onSubmit={login} className="login-form">
-        <Form.Group className="mb-2" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Id</Form.Label>
           <Form.Control
             type="id"
@@ -117,7 +117,7 @@ const Login = ({ setAuthenticate }) => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-2" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -153,17 +153,17 @@ const Login = ({ setAuthenticate }) => {
             회원가입
           </Button>
         </ButtonGroup>
-        <img
-          onClick={kakaoLogin}
-          src="kakao.png"
-          alt="Kakao Login"
-          style={{
-            width: "160px",
-            height: "60px",
-            marginLeft: "210px",
-            marginTop: "10px",
-          }}
-        />
+        <Button variant="white" onClick={kakaoLogin}>
+          <img
+            src="kakao.png"
+            style={{
+              width: "240px",
+              height: "44px",
+              marginLeft: "165px",
+              paddingLeft: "-15px",
+            }}
+          />
+        </Button>
       </Form>
     </Container>
   );
