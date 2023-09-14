@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // axios 라이브러리를 추가
 import "./page4.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -10,15 +11,32 @@ const EditMember = () => {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
     password: "",
   });
 
-  const handleEdit = (event) => {
+  const handleEdit = async (event) => {
     event.preventDefault();
-    // setAuthenticate(true); // 상태를 true로 설정
-    navigate("/Edit"); // /Edit 페이지로 이동
+
+    try {
+      // 비밀번호를 서버로 전송하여 회원 정보를 조회
+      const response = await axios.post("/member/mypage", {
+        userPw: formData.password,
+      });
+
+      // 응답 데이터 확인
+      console.log("회원 정보 조회 응답:", response.data);
+
+      if (response.data.success) {
+        // 회원 정보 조회 성공
+        navigate("/Edit"); // /Edit 페이지로 이동
+      } else {
+        // 회원 정보 조회 실패
+        alert("회원 정보 조회에 실패했습니다. 비밀번호를 확인해주세요.");
+      }
+    } catch (error) {
+      console.error("회원 정보 조회 오류:", error);
+      alert("서버 오류가 발생했습니다. 나중에 다시 시도해주세요.");
+    }
   };
 
   const handleWd = (event) => {
@@ -66,15 +84,6 @@ const EditMember = () => {
               type="button"
             >
               수정
-            </Button>
-
-            <Button
-              className="WdButton"
-              onClick={handleWd}
-              variant="primary"
-              type="button"
-            >
-              탈퇴
             </Button>
           </div>
         </Col>
