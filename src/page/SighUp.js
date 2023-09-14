@@ -80,7 +80,7 @@ const SighUp = () => {
 
     try {
       const response = await axios.post(
-        "http://13.48.105.95:8080/member/login",
+        "http://13.48.105.95:8080/member/join",
         formData
       );
       if (response.status === 200) {
