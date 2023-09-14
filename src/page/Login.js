@@ -54,10 +54,13 @@ const Login = ({ setAuthenticate }) => {
     try {
       console.log("로그인 요청을 시도합니다...");
 
-      const response = await axios.post("/member/login", {
-        userId: id,
-        userPw: password,
-      });
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/login",
+        {
+          userId: id,
+          userPw: password,
+        }
+      );
 
       const logout = () => {
         // 카카오 연결 끊기 요청
