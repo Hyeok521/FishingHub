@@ -60,12 +60,22 @@ const Login = ({ setAuthenticate }) => {
       });
 
       const logout = () => {
-        // 카카오 로그아웃 수행
-        window.Kakao.Auth.logout(() => {
-          console.log("카카오 로그아웃 완료");
-        });
+        // 카카오 연결 끊기 요청
+        if (window.Kakao && window.Kakao.Auth.getAccessToken()) {
+          window.Kakao.API.request({
+            url: "/v1/user/unlink",
+            success: (response) => {
+              console.log("카카오 연결 끊기 성공", response);
+            },
+            fail: (error) => {
+              console.log("카카오 연결 끊기 실패", error);
+            },
+          });
+        }
+
         // 로그인 상태를 false로 설정
         setAuthenticate(false);
+        console.log("사용자 로그아웃");
       };
 
       console.log("서버 응답:", response);

@@ -9,21 +9,27 @@ import WeatherWidget from "./WeatherWidget";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const logout = () => {
-    // 카카오 연결 끊기 요청
-    window.Kakao.API.request({
-      url: "/v1/user/unlink",
-      success: (response) => {
-        console.log("카카오 연결 끊기 성공", response);
-        // 연결 끊기 성공 시, 로그인 상태를 false로 설정
-        setAuthenticate(false);
-        // 이후 로그아웃 처리 (서버 등의 추가 로직이 필요할 수 있음)
-        // 여기에서는 간단하게 콘솔에 로그아웃 메시지만 출력
-        console.log("사용자 로그아웃");
-      },
-      fail: (error) => {
-        console.log("카카오 연결 끊기 실패", error);
-      },
-    });
+    // 카카오 로그인 사용자의 경우, 카카오 연결 끊기 요청
+    if (window.Kakao && window.Kakao.Auth.getAccessToken()) {
+      window.Kakao.API.request({
+        url: "/v1/user/unlink",
+        success: (response) => {
+          console.log("카카오 연결 끊기 성공", response);
+        },
+        fail: (error) => {
+          console.log("카카오 연결 끊기 실패", error);
+        },
+      });
+    }
+
+    // 로그인 상태를 false로 설정
+    setAuthenticate(false);
+
+    // 로컬 스토리지 또는 세션 스토리지에서 사용자 정보 삭제
+    localStorage.removeItem("userInfo");
+    sessionStorage.removeItem("userInfo");
+
+    console.log("사용자 로그아웃");
   };
 
   const menuList = ["게시판", "정보제공", "고객센터", "마이페이지"];
