@@ -23,7 +23,7 @@ const Withdrawal = () => {
       <h4>회원 탈퇴</h4>
       {message && <Alert variant="info">{message}</Alert>}
       <Form className="unregister" onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group className="unregister-1" controlId="formBasicEmail">
           <Form.Label>이메일 주소</Form.Label>
           <Form.Control
             type="email"
@@ -34,7 +34,7 @@ const Withdrawal = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group className="unregister-2" controlId="formBasicPassword">
           <Form.Label>비밀번호</Form.Label>
           <Form.Control
             type="password"

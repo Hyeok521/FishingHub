@@ -68,10 +68,15 @@
 
 .unregister-container {
   width: 500px;
+  margin-top: 20px;
 }
 
 .unregister-container h4 {
   text-align: center;
+}
+
+.unregister-2 {
+  margin-top: 20px;
 }
 
 .unregister-button {

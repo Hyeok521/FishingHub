@@ -48,6 +48,24 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     navigate("/TrendBoard");
   };
 
+  const FishInformation = (event) => {
+    event.preventDefault();
+    // setAuthenticate(true);
+    navigate("/FishInformation");
+  };
+
+  const PointerInformation = (event) => {
+    event.preventDefault();
+    // setAuthenticate(true);
+    navigate("/PointerInformation");
+  };
+
+  const WeatherInformation = (event) => {
+    event.preventDefault();
+    // setAuthenticate(true);
+    navigate("/WeatherInformation");
+  };
+
   const AnnounCement = (event) => {
     event.preventDefault();
     // setAuthenticate(true);
@@ -135,9 +153,15 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                   )}
                   {menu === "정보제공" && (
                     <>
-                      <Dropdown.Item eventKey="1">어종정보</Dropdown.Item>
-                      <Dropdown.Item eventKey="2">포인터 정보</Dropdown.Item>
-                      <Dropdown.Item eventKey="3">날씨 정보</Dropdown.Item>
+                      <Dropdown.Item eventKey="1" onClick={FishInformation}>
+                        어종 정보
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="2" onClick={PointerInformation}>
+                        포인터 정보
+                      </Dropdown.Item>
+                      <Dropdown.Item eventKey="3" onClick={WeatherInformation}>
+                        날씨 정보
+                      </Dropdown.Item>
                     </>
                   )}
                   {menu === "고객센터" && (
