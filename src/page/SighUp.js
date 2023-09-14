@@ -79,7 +79,10 @@ const SighUp = () => {
     }
 
     try {
-      const response = await axios.post("/member/join", formData);
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/login",
+        formData
+      );
       if (response.status === 200) {
         console.log("회원가입 성공:", response.data);
         alert("회원가입 성공, 다시 로그인해주세요.");
