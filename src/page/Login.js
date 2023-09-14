@@ -9,45 +9,45 @@ const Login = ({ setAuthenticate }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Kakao SDK 초기화
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init("ccee64d52026e46448ac815273a89fda");
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Kakao SDK 초기화
+  //   if (!window.Kakao.isInitialized()) {
+  //     window.Kakao.init("ccee64d52026e46448ac815273a89fda");
+  //   }
+  // }, []);
 
-  const kakaoLogin = (event) => {
-    event.preventDefault();
-    // 카카오 로그아웃 수행
-    window.Kakao.Auth.logout(() => {
-      console.log("카카오 로그아웃 완료");
+  // const kakaoLogin = (event) => {
+  //   event.preventDefault();
+  //   // 카카오 로그아웃 수행
+  //   // window.Kakao.Auth.logout(() => {
+  //   //   console.log("카카오 로그아웃 완료");
 
-      // 로그아웃 시 로컬 스토리지 또는 세션 스토리지에서 사용자 정보 삭제
-      localStorage.removeItem("userInfo"); // 예시: 로컬 스토리지에서 삭제
-      sessionStorage.removeItem("userInfo"); // 예시: 세션 스토리지에서 삭제
+  //   //   // 로그아웃 시 로컬 스토리지 또는 세션 스토리지에서 사용자 정보 삭제
+  //   //   localStorage.removeItem("userInfo"); // 예시: 로컬 스토리지에서 삭제
+  //   //   sessionStorage.removeItem("userInfo"); // 예시: 세션 스토리지에서 삭제
 
-      // 카카오 로그인 요청
-      window.Kakao.Auth.login({
-        scope: "profile_nickname,account_email,birthday,talk_message",
-        success: (response) => {
-          console.log("카카오 로그인 성공", response);
-          window.Kakao.API.request({
-            url: "/v2/user/me",
-            success: (res) => {
-              const kakao_account = res.kakao_account;
-              console.log(kakao_account);
-              // 카카오 로그인 성공 시, 로그인 상태를 true로 설정
-              setAuthenticate(true);
-              navigate("/");
-            },
-          });
-        },
-        fail: (error) => {
-          console.log("카카오 로그인 실패", error);
-        },
-      });
-    });
-  };
+  //     // 카카오 로그인 요청
+  // //     window.Kakao.Auth.login({
+  // //       scope: "profile_nickname,account_email,birthday,talk_message",
+  // //       success: (response) => {
+  // //         console.log("카카오 로그인 성공", response);
+  // //         window.Kakao.API.request({
+  // //           url: "/v2/user/me",
+  // //           success: (res) => {
+  // //             const kakao_account = res.kakao_account;
+  // //             console.log(kakao_account);
+  // //             // 카카오 로그인 성공 시, 로그인 상태를 true로 설정
+  // //             setAuthenticate(true);
+  // //             navigate("/");
+  // //           },
+  // //         });
+  // //       },
+  // //       fail: (error) => {
+  // //         console.log("카카오 로그인 실패", error);
+  // //       },
+  // //     });
+  // //   });
+  // // };
 
   const login = async (event) => {
     event.preventDefault();
@@ -61,17 +61,17 @@ const Login = ({ setAuthenticate }) => {
 
       const logout = () => {
         // 카카오 연결 끊기 요청
-        if (window.Kakao && window.Kakao.Auth.getAccessToken()) {
-          window.Kakao.API.request({
-            url: "/v1/user/unlink",
-            success: (response) => {
-              console.log("카카오 연결 끊기 성공", response);
-            },
-            fail: (error) => {
-              console.log("카카오 연결 끊기 실패", error);
-            },
-          });
-        }
+        // if (window.Kakao && window.Kakao.Auth.getAccessToken()) {
+        //   window.Kakao.API.request({
+        //     url: "/v1/user/unlink",
+        //     success: (response) => {
+        //       console.log("카카오 연결 끊기 성공", response);
+        //     },
+        //     fail: (error) => {
+        //       console.log("카카오 연결 끊기 실패", error);
+        //     },
+        //   });
+        // }
 
         // 로그인 상태를 false로 설정
         setAuthenticate(false);
@@ -183,17 +183,17 @@ const Login = ({ setAuthenticate }) => {
             회원가입
           </Button>
         </ButtonGroup>
-        <img
+        {/* <img
           onClick={kakaoLogin}
           src="kakao.png"
           alt="Kakao Login"
           style={{
-            width: "160px",
-            height: "60px",
-            marginLeft: "210px",
-            marginTop: "10px",
+            // width: "160px",
+            // height: "60px",
+            // marginLeft: "210px",
+            // marginTop: "10px",
           }}
-        />
+        /> */}
       </Form>
     </Container>
   );
