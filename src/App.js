@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./page2/page2.css";
 import "./page4/page4.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
