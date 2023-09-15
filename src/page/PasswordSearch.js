@@ -19,7 +19,10 @@ const PasswordSearch = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/member/searchPw", formData);
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/searchPw",
+        formData
+      );
       if (response.data.message && response.data.foundPw) {
         alert(`${response.data.message} ${response.data.foundPw}`);
       } else if (response.data.message) {

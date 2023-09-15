@@ -19,7 +19,10 @@ const Idsearch = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/member/searchId", formData);
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/searchId",
+        formData
+      );
       if (response.data.message && response.data.foundId) {
         alert(`${response.data.message} ${response.data.foundId}`);
       } else if (response.data.message) {
