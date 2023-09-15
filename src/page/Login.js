@@ -191,6 +191,7 @@ const Login = ({ setAuthenticate }) => {
           src="kakao.png"
           alt="Kakao Login"
           style={{
+            cursor: "pointer",
             width: "160px",
             height: "60px",
             marginLeft: "210px",
