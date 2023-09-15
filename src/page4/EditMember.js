@@ -19,9 +19,12 @@ const EditMember = () => {
 
     try {
       // 비밀번호를 서버로 전송하여 회원 정보를 조회
-      const response = await axios.post("/member/mypage", {
-        userPw: formData.password,
-      });
+      const response = await axios.post(
+        "http://13.48.105.95:8080/member/mypage",
+        {
+          userPw: formData.password,
+        }
+      );
 
       // 응답 데이터 확인
       console.log("회원 정보 조회 응답:", response.data);
@@ -35,14 +38,14 @@ const EditMember = () => {
       }
     } catch (error) {
       console.error("회원 정보 조회 오류:", error);
-      alert("서버 오류가 발생했습니다. 나중에 다시 시도해주세요.");
+      alert("로그인 상태를 확인해주세요.");
     }
   };
 
   const handleWd = (event) => {
     event.preventDefault();
-    // setAuthenticate(true); // 상태를 true로 설정
-    navigate("/Withdrawal"); // /Edit 페이지로 이동
+    // setAuthenticate(true);
+    navigate("/Withdrawal");
   };
 
   const handleInputChange = (event) => {
