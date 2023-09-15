@@ -1,8 +1,22 @@
-.fishinfo,
-.pointerinfo,
+.fishinfo h4,
+.pointerinfo h4,
+.weatherinfo h4 {
+  margin-top: 30px;
+  text-align: center;
+}
+
 .weatherinfo {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* 이 부분은 선택 사항이며, .weatherinfo 내의 모든 요소를 수직으로 정렬하려는 경우에만 필요합니다. */
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 1000px;
   margin-top: 30px;
 }
