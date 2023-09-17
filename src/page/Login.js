@@ -10,17 +10,38 @@ const Login = ({ setAuthenticate }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("useEffect is running");
+
     // Kakao SDK 초기화
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init("ccee64d52026e46448ac815273a89fda");
     }
 
-    const userInfo = sessionStorage.getItem("userInfo");
-    if (userInfo) {
-      setAuthenticate(true);
-      navigate("/");
+    const token = sessionStorage.getItem("token");
+    console.log("Token from session storage:", token);
+
+    if (token) {
+      // 백엔드에 토큰 유효성 검사 요청
+      axios
+        .get("http://13.48.105.95:8080/member/login", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log("Response from token validation:", response.data);
+          if (response.data.valid) {
+            setAuthenticate(true);
+          } else {
+            sessionStorage.removeItem("token");
+            setAuthenticate(false);
+          }
+        })
+        .catch((error) => {
+          console.error("Token validation failed:", error);
+        });
     }
-  }, [navigate, setAuthenticate]);
+  }, [setAuthenticate]);
 
   const kakaoLogin = (event) => {
     event.preventDefault();
@@ -66,36 +87,14 @@ const Login = ({ setAuthenticate }) => {
         }
       );
 
-      const joinForm1 = response.data;
-
-      // console.log("joinForm1 값:", joinForm1);
-
-      const logout = () => {
-        // 카카오 연결 끊기 요청
-        if (window.Kakao && window.Kakao.Auth.getAccessToken()) {
-          window.Kakao.API.request({
-            url: "/v1/user/unlink",
-            success: (response) => {
-              console.log("카카오 연결 끊기 성공", response);
-            },
-            fail: (error) => {
-              console.log("카카오 연결 끊기 실패", error);
-            },
-          });
-        }
-
-        // 로그인 상태를 false로 설정
-        setAuthenticate(false);
-        console.log("사용자 로그아웃");
-      };
-
-      console.log("서버 응답:", response);
+      console.log("Response from login:", response.data);
 
       if (response.status === 200 && response.data !== "로그인 실패") {
-        sessionStorage.setItem("userInfo", JSON.stringify({ joinForm1 }));
+        const token = response.data;
+        console.log("Storing token to session storage:", token);
+        sessionStorage.setItem("token", token);
         setAuthenticate(true);
         navigate("/");
-        console.log("joinForm1 값:", joinForm1);
       } else {
         alert("로그인 실패. 다시 로그인 해주세요.");
         navigate("/login");
@@ -107,42 +106,19 @@ const Login = ({ setAuthenticate }) => {
 
   const goToSignUp = (event) => {
     event.preventDefault();
-    // setAuthenticate(true);
     navigate("/SighUp");
   };
 
   const goToIdSearch = (event) => {
     event.preventDefault();
-    // setAuthenticate(true);
     navigate("/IdSearch");
   };
 
   const goToPasswordSearch = (event) => {
     event.preventDefault();
-    // setAuthenticate(true);
     navigate("/PasswordSearch");
   };
 
-  // Function to perform logout
-  // const performLogout = async () => {
-  //   try {
-  //     // Send a logout request to the server
-  //     // Replace '/logout' with the actual API endpoint for logging out
-  //     const response = await axios.post("/logout");
-
-  //     // Check if the logout was successful
-  //     if (response.status === 200) {
-  //       // Remove user information from local state or storage
-  //       setId("");
-  //       setPassword("");
-
-  //       // Navigate to the login or home page
-  //       navigate("/"); // Replace '/' with the actual path if different
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to log out:", error);
-  //   }
-  // };
   return (
     <Container className="login-area">
       <Form onSubmit={login} className="login-form">
