@@ -24,6 +24,7 @@ import QNA from "./page3/QNA";
 import EditMember from "./page4/EditMember";
 import Edit from "./page4/Edit";
 import Withdrawal from "./page4/Withdrawal";
+import axios from "axios";
 
 function App() {
   let [authenticate, setAuthenticate] = useState(false);
@@ -38,12 +39,21 @@ function App() {
 
   // 컴포넌트가 마운트되거나 언마운트될 때 이벤트 리스너를 추가/제거
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize(); // 초기 로딩 시에도 적용
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    // 세션 스토리지에서 토큰을 가져옵니다.
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      // 백엔드에 토큰 유효성 검사를 요청합니다.
+      axios
+        .post("http://13.48.105.95:8080/member/login", { token: token }) // 백엔드 API 주소를 적절하게 수정해야 합니다.
+        .then((response) => {
+          if (response.data.isValid) {
+            setAuthenticate(true);
+          }
+        })
+        .catch((error) => {
+          console.error("Token validation failed:", error);
+        });
+    }
   }, []);
   return (
     <div>
