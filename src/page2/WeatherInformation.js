@@ -7,7 +7,18 @@ const WeatherInformation = () => {
   const markersRef = useRef([]);
   const [placeInfo, setPlaceInfo] = useState(null);
 
+  // OpenWeatherMap API를 사용하여 날씨 정보를 가져오는 함수
+  const fetchWeatherInfo = async (lat, lng) => {
+    const API_KEY = "e7f59aaca8543637eab9ad2b801f9249";
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
+    );
+    const data = await response.json();
+    return data;
+  };
+
   useEffect(() => {
+    // Kakao Map SDK 스크립트 로드
     const script = document.createElement("script");
     script.async = true;
     script.src =
@@ -26,131 +37,86 @@ const WeatherInformation = () => {
         mapRef.current = map;
         placesRef.current = new window.kakao.maps.services.Places();
 
-        // 지도 클릭 이벤트
+        // 지도 클릭 이벤트 리스너
         window.kakao.maps.event.addListener(
           map,
           "click",
-          function (mouseEvent) {
-            // 기존 마커들 제거
+          async function (mouseEvent) {
+            // 기존 마커 제거
             markersRef.current.forEach((marker) => marker.setMap(null));
             markersRef.current = [];
 
-            // 클릭한 위치에 마커 생성
             const latlng = mouseEvent.latLng;
-            const marker = new window.kakao.maps.Marker({
-              position: latlng,
-            });
+            const marker = new window.kakao.maps.Marker({ position: latlng });
             marker.setMap(map);
             markersRef.current.push(marker);
 
-            // 클릭한 위치의 정보 가져오기
+            // 클릭한 위치의 주소 정보 및 날씨 정보 가져오기
             const geocoder = new window.kakao.maps.services.Geocoder();
             geocoder.coord2Address(
               latlng.getLng(),
               latlng.getLat(),
-              function (result, status) {
+              async function (result, status) {
                 if (status === window.kakao.maps.services.Status.OK) {
-                  const detailAddr = !!result[0].road_address
-                    ? `<br>도로명주소 : ${result[0].road_address.address_name}`
-                    : "";
-                  const content = `<div>지번 주소 : ${result[0].address.address_name}${detailAddr}</div>`;
+                  const weatherInfo = await fetchWeatherInfo(
+                    latlng.getLat(),
+                    latlng.getLng()
+                  );
+                  const temperature = weatherInfo.main.temp;
+                  const description = weatherInfo.weather[0].description;
+                  const content = `<div>지번 주소: ${result[0].address.address_name}<br>온도: ${temperature}°C<br>날씨: ${description}</div>`;
                   setPlaceInfo(content);
                 }
               }
             );
           }
         );
-
-        const searchPlaces = () => {
-          const keyword = searchRef.current.value;
-
-          placesRef.current.keywordSearch(keyword, (results, status) => {
-            if (status === window.kakao.maps.services.Status.OK) {
-              // 기존 마커들 제거
-              markersRef.current.forEach((marker) => marker.setMap(null));
-              markersRef.current = [];
-
-              const bounds = new window.kakao.maps.LatLngBounds();
-
-              results.forEach((result) => {
-                const coords = new window.kakao.maps.LatLng(result.y, result.x);
-                bounds.extend(coords);
-
-                // 마커 생성 및 지도에 표시
-                const marker = new window.kakao.maps.Marker({
-                  position: coords,
-                });
-                marker.setMap(map);
-                markersRef.current.push(marker);
-              });
-
-              // 지도의 범위를 조정하여 모든 마커가 보이게 함
-              map.setBounds(bounds);
-
-              // 위치 정보 초기화
-              setPlaceInfo(null);
-            } else {
-              alert("검색 결과가 존재하지 않습니다.");
-            }
-          });
-        };
-
-        searchRef.current.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            searchPlaces();
-          }
-        });
       });
     };
   }, []);
+
+  // 검색 기능: 입력된 키워드로 위치를 검색하고 해당 위치에 마커를 표시하는 함수
+  const searchPlaces = () => {
+    const keyword = searchRef.current.value;
+
+    placesRef.current.keywordSearch(keyword, async (results, status) => {
+      if (status === window.kakao.maps.services.Status.OK) {
+        // 기존 마커 제거
+        markersRef.current.forEach((marker) => marker.setMap(null));
+        markersRef.current = [];
+
+        const bounds = new window.kakao.maps.LatLngBounds();
+
+        for (const result of results) {
+          const coords = new window.kakao.maps.LatLng(result.y, result.x);
+          bounds.extend(coords);
+
+          const marker = new window.kakao.maps.Marker({
+            position: coords,
+          });
+          marker.setMap(mapRef.current);
+          markersRef.current.push(marker);
+
+          // 날씨 정보 가져오기
+          const weatherInfo = await fetchWeatherInfo(result.y, result.x);
+          const temperature = weatherInfo.main.temp;
+          const description = weatherInfo.weather[0].description;
+          const content = `<div>지번 주소: ${result.address_name}<br>온도: ${temperature}°C<br>날씨: ${description}</div>`;
+          setPlaceInfo(content);
+        }
+
+        mapRef.current.setBounds(bounds);
+      } else {
+        alert("검색 결과가 존재하지 않습니다.");
+      }
+    });
+  };
 
   return (
     <div className="weatherinfo">
       <h4>날씨 정보</h4>
       <input type="text" placeholder="지역 검색..." ref={searchRef} />
-      <button
-        onClick={() => {
-          if (!placesRef.current) {
-            alert(
-              "검색 서비스가 초기화되지 않았습니다. 잠시 후 다시 시도해주세요."
-            );
-            return;
-          }
-
-          const keyword = searchRef.current.value;
-          placesRef.current.keywordSearch(keyword, (results, status) => {
-            if (status === window.kakao.maps.services.Status.OK) {
-              // 기존 마커들 제거
-              markersRef.current.forEach((marker) => marker.setMap(null));
-              markersRef.current = [];
-
-              const bounds = new window.kakao.maps.LatLngBounds();
-
-              results.forEach((result) => {
-                const coords = new window.kakao.maps.LatLng(result.y, result.x);
-                bounds.extend(coords);
-
-                // 마커 생성 및 지도에 표시
-                const marker = new window.kakao.maps.Marker({
-                  position: coords,
-                });
-                marker.setMap(mapRef.current);
-                markersRef.current.push(marker);
-              });
-
-              // 지도의 범위를 조정하여 모든 마커가 보이게 함
-              mapRef.current.setBounds(bounds);
-
-              // 위치 정보 초기화
-              setPlaceInfo(null);
-            } else {
-              alert("검색 결과가 존재하지 않습니다.");
-            }
-          });
-        }}
-      >
-        검색
-      </button>
+      <button onClick={searchPlaces}>검색</button>
       <div className="map" id="kakao-map"></div>
       {placeInfo && (
         <div
