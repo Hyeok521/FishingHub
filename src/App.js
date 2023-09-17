@@ -46,18 +46,25 @@ function App() {
       axios
         .post("http://13.48.105.95:8080/member/login", { token: token }) // 백엔드 API 주소를 적절하게 수정해야 합니다.
         .then((response) => {
-          if (response.data.isValid) {
+          if (response.data.valid) {
             setAuthenticate(true);
           }
         })
         .catch((error) => {
-          console.error("Token validation failed:", error);
+          console.error("토큰 가져오기 실패", error);
         });
     }
   }, []);
+
+  // 로그아웃 함수
+  function logout() {
+    sessionStorage.removeItem("token");
+    setAuthenticate(false);
+  }
+
   return (
     <div>
-      <Navbar authenticate={authenticate} />
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route

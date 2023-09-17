@@ -10,35 +10,28 @@ const Login = ({ setAuthenticate }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("useEffect is running");
+    console.log("useEffect가 실행 중입니다.");
 
     // Kakao SDK 초기화
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init("ccee64d52026e46448ac815273a89fda");
     }
 
+    // 세션 스토리지에서 토큰을 가져옵니다.
     const token = sessionStorage.getItem("token");
-    console.log("Token from session storage:", token);
+    console.log("세션 스토리지에서 토큰을 가져옵니다:", token);
 
     if (token) {
-      // 백엔드에 토큰 유효성 검사 요청
+      // 백엔드에 토큰 유효성 검사를 요청합니다.
       axios
-        .get("http://13.48.105.95:8080/member/login", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .post("http://13.48.105.95:8080/member/login", { token: token }) // 백엔드 API 주소를 적절하게 수정해야 합니다.
         .then((response) => {
-          console.log("Response from token validation:", response.data);
           if (response.data.valid) {
             setAuthenticate(true);
-          } else {
-            sessionStorage.removeItem("token");
-            setAuthenticate(false);
           }
         })
         .catch((error) => {
-          console.error("Token validation failed:", error);
+          console.error("토큰 유효성 검사 실패:", error);
         });
     }
   }, [setAuthenticate]);
@@ -91,7 +84,7 @@ const Login = ({ setAuthenticate }) => {
 
       if (response.status === 200 && response.data !== "로그인 실패") {
         const token = response.data;
-        console.log("Storing token to session storage:", token);
+        console.log("토큰을 세션 스토리지에 저장합니다:", token);
         sessionStorage.setItem("token", token);
         setAuthenticate(true);
         navigate("/");
@@ -100,6 +93,7 @@ const Login = ({ setAuthenticate }) => {
         navigate("/login");
       }
     } catch (error) {
+      console.error("로그인 오류:", error);
       alert("아이디와 비밀번호를 확인해주세요");
     }
   };
