@@ -44,7 +44,7 @@ const EditMember = () => {
 
   const handleWd = (event) => {
     event.preventDefault();
-    // setAuthenticate(true);
+    // setAuthenticate();
     navigate("/Withdrawal");
   };
 

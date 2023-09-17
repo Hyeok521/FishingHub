@@ -14,7 +14,13 @@ const Login = ({ setAuthenticate }) => {
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init("ccee64d52026e46448ac815273a89fda");
     }
-  }, []);
+
+    const userInfo = sessionStorage.getItem("userInfo");
+    if (userInfo) {
+      setAuthenticate(true);
+      navigate("/");
+    }
+  }, [navigate, setAuthenticate]);
 
   const kakaoLogin = (event) => {
     event.preventDefault();
@@ -52,8 +58,6 @@ const Login = ({ setAuthenticate }) => {
   const login = async (event) => {
     event.preventDefault();
     try {
-      console.log("로그인 요청을 시도합니다...");
-
       const response = await axios.post(
         "http://13.48.105.95:8080/member/login",
         {
@@ -61,6 +65,10 @@ const Login = ({ setAuthenticate }) => {
           userPw: password,
         }
       );
+
+      const joinForm1 = response.data;
+
+      // console.log("joinForm1 값:", joinForm1);
 
       const logout = () => {
         // 카카오 연결 끊기 요청
@@ -84,16 +92,15 @@ const Login = ({ setAuthenticate }) => {
       console.log("서버 응답:", response);
 
       if (response.status === 200 && response.data !== "로그인 실패") {
-        console.log("로그인 성공!");
+        sessionStorage.setItem("userInfo", JSON.stringify({ joinForm1 }));
         setAuthenticate(true);
         navigate("/");
+        console.log("joinForm1 값:", joinForm1);
       } else {
-        console.log("로그인 실패. 서버 응답:", response);
         alert("로그인 실패. 다시 로그인 해주세요.");
         navigate("/login");
       }
     } catch (error) {
-      console.error("로그인 요청 실패. 에러 정보:", error);
       alert("아이디와 비밀번호를 확인해주세요");
     }
   };
@@ -117,25 +124,25 @@ const Login = ({ setAuthenticate }) => {
   };
 
   // Function to perform logout
-  const performLogout = async () => {
-    try {
-      // Send a logout request to the server
-      // Replace '/logout' with the actual API endpoint for logging out
-      const response = await axios.post("/logout");
+  // const performLogout = async () => {
+  //   try {
+  //     // Send a logout request to the server
+  //     // Replace '/logout' with the actual API endpoint for logging out
+  //     const response = await axios.post("/logout");
 
-      // Check if the logout was successful
-      if (response.status === 200) {
-        // Remove user information from local state or storage
-        setId("");
-        setPassword("");
+  //     // Check if the logout was successful
+  //     if (response.status === 200) {
+  //       // Remove user information from local state or storage
+  //       setId("");
+  //       setPassword("");
 
-        // Navigate to the login or home page
-        navigate("/"); // Replace '/' with the actual path if different
-      }
-    } catch (error) {
-      console.error("Failed to log out:", error);
-    }
-  };
+  //       // Navigate to the login or home page
+  //       navigate("/"); // Replace '/' with the actual path if different
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to log out:", error);
+  //   }
+  // };
   return (
     <Container className="login-area">
       <Form onSubmit={login} className="login-form">
