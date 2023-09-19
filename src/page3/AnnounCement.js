@@ -16,7 +16,7 @@ const AnnounCement = () => {
       id: 1,
       title: "피싱허브 운영진입니다.",
       content:
-        "고객센터 연락처 알려드리겠습니다.\nfishinghub.co.k으로 연락주시면 조속히 처리 해드리겠습니다.",
+        "고객센터 연락처 알려드리겠습니다.\nfishinghub.co.kr으로 연락주시면 조속히 처리 해드리겠습니다.",
       author: "운영진",
       date: "2023-09-05",
       file: null,

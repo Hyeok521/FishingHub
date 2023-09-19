@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
+import axios from "axios";
+import { getCookie } from "../common/CookieUtil";
 
 const Withdrawal = () => {
   const [email, setEmail] = useState("");
@@ -8,20 +10,34 @@ const Withdrawal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // 여기에 회원 탈퇴 로직을 작성하세요.
-    // 예를 들어, axios.post("/api/unsubscribe", { email, password }) 같은 형태가 될 수 있습니다.
-
-    // 성공했다면
-    setMessage("회원 탈퇴가 성공적으로 완료되었습니다.");
-
-    // 실패했다면
-    // setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
+    try {
+      const token = getCookie("accessToken"); // 쿠키에서 토큰을 가져옵니다.
+      const response = await axios.delete(
+        "http://13.48.105.95:8080/member/delete",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // 토큰을 헤더에 추가합니다.
+          },
+          data: {
+            userPw: password,
+            email: email,
+          },
+        }
+      );
+      if (response.status === 200) {
+        setMessage(response.data);
+      } else {
+        setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
+      }
+    } catch (error) {
+      setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
+    }
   };
 
   return (
     <Container className="unregister-container">
       <h4>회원 탈퇴</h4>
-      {message && <Alert variant="info">{message}</Alert>}
+      {message && <Alert variant="danger">{message}</Alert>}
       <Form className="unregister" onSubmit={handleSubmit}>
         <Form.Group className="unregister-1" controlId="formBasicEmail">
           <Form.Label>이메일 주소</Form.Label>
