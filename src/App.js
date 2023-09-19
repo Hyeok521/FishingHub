@@ -33,7 +33,7 @@ function App() {
     if (zoomLevel >= 1.2) {
       document.body.style.overflowX = "hidden";
     } else {
-      document.body.style.overflowX = "auto";
+      document.body.style.overflowX = "hidden";
     }
   };
 

@@ -23,10 +23,11 @@ const PasswordSearch = () => {
         "http://13.48.105.95:8080/member/searchPw",
         formData
       );
-      if (response.data.message && response.data.foundPw) {
-        alert(`${response.data.message} ${response.data.foundPw}`);
+      if (response.data) {
+        // alert(`${response.data.message} ${response.data.foundPw}`);
+        alert(response.data);
       } else if (response.data.message) {
-        alert(response.data.message);
+        alert("올바른 값을 입력하세요");
       }
     } catch (error) {
       console.error("비밀번호 찾기 실패:", error);
