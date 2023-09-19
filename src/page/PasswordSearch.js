@@ -41,6 +41,7 @@ const PasswordSearch = () => {
         <Form.Group className="mb-3" controlId="formBasicId">
           <Form.Label>Id</Form.Label>
           <Form.Control
+            style={{ width: "40em" }}
             type="text"
             name="userId"
             placeholder="아이디를 입력해주세요"
@@ -52,6 +53,7 @@ const PasswordSearch = () => {
         <Form.Group controlId="formBasicEmail">
           <Form.Label>email</Form.Label>
           <Form.Control
+            style={{ width: "40em" }}
             type="email"
             name="email"
             placeholder="홍길동@naver.com"

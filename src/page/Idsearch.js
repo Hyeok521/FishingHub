@@ -40,6 +40,7 @@ const Idsearch = () => {
         <Form.Group className="mb-3" controlId="formBasicId">
           <Form.Label>이름</Form.Label>
           <Form.Control
+            style={{ width: "40em" }}
             type="text"
             name="userNm"
             placeholder="홍길동"
@@ -51,6 +52,7 @@ const Idsearch = () => {
         <Form.Group controlId="formBasicEmail">
           <Form.Label>email</Form.Label>
           <Form.Control
+            style={{ width: "40em" }}
             type="email"
             name="email"
             placeholder="홍길동@naver.com"

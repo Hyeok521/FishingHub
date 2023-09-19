@@ -79,12 +79,6 @@ const EditMember = () => {
     }
   };
 
-  const handleWd = (event) => {
-    event.preventDefault();
-    // setAuthenticate();
-    navigate("/Withdrawal");
-  };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({

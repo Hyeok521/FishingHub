@@ -19,6 +19,12 @@ const Edit = () => {
     birth: "",
   });
 
+  const handleWd = (event) => {
+    event.preventDefault();
+    // setAuthenticate();
+    navigate("/Withdrawal");
+  };
+
   useEffect(() => {
     getUserInfo().then(() => {
       // SNS 로그인인 경우 카카오 SDK 초기화
@@ -216,16 +222,26 @@ const Edit = () => {
               onChange={handleInputChange}
             />
           </Form.Group>
-          <span>
-            <Button
-              className="SighUp"
-              variant="primary"
-              type="button"
-              onClick={handleEdit}
-            >
-              수정
-            </Button>
-          </span>
+          <div className="SighUp">
+            <span>
+              <Button
+                style={{ marginRight: "5px" }}
+                variant="primary"
+                type="button"
+                onClick={handleEdit}
+              >
+                수정
+              </Button>
+              <Button
+                style={{ marginRight: "60px" }}
+                variant="primary"
+                type="button"
+                onClick={handleWd}
+              >
+                탈퇴
+              </Button>
+            </span>
+          </div>
         </Form>
       )}
     </Container>

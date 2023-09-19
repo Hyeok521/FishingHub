@@ -140,7 +140,7 @@ const SighUp = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password check</Form.Label>
             <Form.Control
-              style={{ width: "40em" }}
+              style={{ width: "31.3em" }}
               type="password"
               name="userPwRe"
               placeholder="비밀번호를 다시 한번 입력해주세요"
