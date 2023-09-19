@@ -30,7 +30,7 @@ const Withdrawal = () => {
         setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
       }
     } catch (error) {
-      setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
+      setMessage("올바른 정보를 입력해주세요");
     }
   };
 

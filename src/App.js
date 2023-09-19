@@ -86,9 +86,9 @@ function App() {
         <Route
           path="/Communityboard"
           element={
-            <PrivateRoute authenticate={authenticate}>
-              <Communityboard authenticate={authenticate} />
-            </PrivateRoute>
+            // <PrivateRoute authenticate={authenticate}>
+            <Communityboard authenticate={authenticate} />
+            // </PrivateRoute>
           }
         />
         <Route
