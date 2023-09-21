@@ -110,7 +110,7 @@ const Edit = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://13.48.105.95:8080/member/updateMemberInfo",
+        "http://13.48.105.95:8080/mypage/updateMemberInfo",
         {
           userPw: formData.beforePassword,
           afterUserPw: formData.afterPassword,

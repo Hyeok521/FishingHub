@@ -1,25 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Carousel,
-  Card,
-  Row,
-  Col,
-  Modal,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Container, Carousel, Card, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ProductAll = () => {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useSearchParams();
-  const [showModal, setShowModal] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
-  const [currentImageIndex, setCurrentImageIndex] = useState(null);
 
-  const [imageUrls, setImageUrls] = useState([
+  const imageUrls = [
     "https://lh3.googleusercontent.com/p/AF1QipNcO0HTZy14UCRUdmugbHbyuDbQnJlKfliy0UH2=s1360-w1360-h1020",
     "https://lh3.googleusercontent.com/p/AF1QipP9ZBjNAkwsuQvrxb7NMAWzJrA7hJAzbMT__Rpc=s1360-w1360-h1020",
     "https://lh3.googleusercontent.com/p/AF1QipMb5cZlRvf1ZwkMqgkOoY4_KFcwU_q2ec6cWuLF=s1360-w1360-h1020",
@@ -38,7 +26,7 @@ const ProductAll = () => {
     "https://lh3.googleusercontent.com/p/AF1QipO69QZovvXXYba-EwVyqsgSE-r_oy08tIkcGU5T=s1360-w1360-h1020",
     "https://lh3.googleusercontent.com/p/AF1QipOVyaxWSoRHztNySxaEYgfN3gR6Q9dDhiZ3lTeB=s1360-w1360-h1020",
     "https://lh3.googleusercontent.com/p/AF1QipOEPiLmDPcwrHWgrdKvC9WmRZyB1crjP5Xo6PmJ=s1360-w1360-h1020",
-  ]);
+  ];
 
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("");
@@ -83,82 +71,15 @@ const ProductAll = () => {
     }
   }, [city]);
 
-  useEffect(() => {
-    console.log("Updated Image URLs:", imageUrls);
-  }, [imageUrls]);
-
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index);
-    setShowModal(true);
-  };
-
-  const handleSave = async () => {
-    console.log("Sending Image URL:", imageUrl);
-    try {
-      const response = await fetch("http://13.48.105.95:8080/image", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ imageUrl: imageUrl }),
-      });
-      console.log("Server Response:", response);
-
-      if (response.ok) {
-        const returnedUrl = await response.text();
-        console.log("Returned URL:", returnedUrl);
-
-        // 이미지 URL 배열을 복제하고 현재 선택된 이미지의 URL을 변경합니다.
-        // 이미지 URL에 랜덤 쿼리 매개변수 추가
-        const updatedImageUrls = [...imageUrls];
-        updatedImageUrls[currentImageIndex] = `${returnedUrl}?${Math.random()}`;
-        setImageUrls(updatedImageUrls);
-
-        setShowModal(false);
-      } else {
-        console.error("Failed to save image URL.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <div>
-      <Carousel key={imageUrls.join(",")} interval={2000} className="carousel">
+      <Carousel interval={2000} className="carousel">
         {imageUrls.map((url, index) => (
-          <Carousel.Item key={index} onClick={handleImageClick}>
+          <Carousel.Item key={index}>
             <img className="pointer" src={url} alt={`Image - ${index + 1}`} />
           </Carousel.Item>
         ))}
       </Carousel>
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>이미지 URL 변경</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group>
-              <Form.Label>이미지 URL</Form.Label>
-              <Form.Control
-                type="text"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            닫기
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            저장
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
       <div>
         <ul className="product-add1">
           <li>
