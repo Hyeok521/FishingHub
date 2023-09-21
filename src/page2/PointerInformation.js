@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PointerInformation = () => {
   const mapRef = useRef(null);
-  const markersRef = useRef([]);
   const infowindowsRef = useRef([]);
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [forecastStart, setForecastStart] = useState(0);
+  const navigate = useNavigate();
 
   // 슬라이드 방향에 따라 예보 시작 지점을 조정합니다.
   const slideForecast = (direction) => {
@@ -36,22 +37,13 @@ const PointerInformation = () => {
     return data;
   };
 
-  // 정보 창을 토글하는 함수입니다.
-  const toggleInfoWindow = (map, marker, infowindow) => {
-    if (infowindow.getMap()) {
-      infowindow.close();
-    } else {
-      infowindow.open(map, marker);
-    }
-  };
-
   // 마커 위에 정보를 표시하는 함수입니다.
   const showInfoOnMarker = async (lat, lng, resultAddress, marker, map) => {
     const weatherInfo = await fetchWeatherInfo(lat, lng);
     const temperature = weatherInfo.main.temp;
     const description = weatherInfo.weather[0].description;
     const humidity = weatherInfo.main.humidity;
-    const content = `<div style="white-space: nowrap;">지번 주소: ${resultAddress}<br>온도: ${temperature}°C<br>날씨: ${description}<br>습도: ${humidity}%</div>`;
+    const content = `<div style="white-space: nowrap;">포인트 이름: ${resultAddress}<br>현재 온도: ${temperature}°C<br>현재 날씨: ${description}<br>현재 습도: ${humidity}%</div>`;
 
     // 지도 아래에 위치 정보 표시
     document.querySelector(".location-info h5").innerHTML = content;
@@ -162,51 +154,92 @@ const PointerInformation = () => {
     };
   }, []);
 
+  const goToPointerInfo1 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_1 페이지로 이동합니다.
+  };
+  const goToPointerInfo2 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_2 페이지로 이동합니다.
+  };
+  const goToPointerInfo3 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_3 페이지로 이동합니다.
+  };
+  const goToPointerInfo4 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_4 페이지로 이동합니다.
+  };
+  const goToPointerInfo5 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_5 페이지로 이동합니다.
+  };
+  const goToPointerInfo6 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_6 페이지로 이동합니다.
+  };
+  const goToPointerInfo7 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_7 페이지로 이동합니다.
+  };
+  const goToPointerInfo8 = () => {
+    navigate("/PointerInfo_1"); // PointerInfo_8 페이지로 이동합니다.
+  };
   return (
     <div className="weatherinfo">
       <h4>포인트 정보</h4>
       <div className="info-wrapper">
         <div className="info-container">
-          <div className="vertical-button-container">
+          <div className="local-button-container">
             <button>전체</button>
-            <button>서해중부권</button>
-            <button>서해남부권</button>
-            <button>동해중부권</button>
-            <button>동해남부권</button>
-            <button>남해서부권</button>
-            <button>남해중부권</button>
-            <button>남해동부권</button>
-            <button>제주권</button>
+            <button onClick={goToPointerInfo1}>서해중부권</button>
+            <button onClick={goToPointerInfo2}>서해남부권</button>
+            <button onClick={goToPointerInfo3}>동해중부권</button>
+            <button onClick={goToPointerInfo4}>동해남부권</button>
+            <button onClick={goToPointerInfo5}>남해서부권</button>
+            <button onClick={goToPointerInfo6}>남해중부권</button>
+            <button onClick={goToPointerInfo7}>남해동부권</button>
+            <button onClick={goToPointerInfo8}>제주권</button>
           </div>
           <div className="map-container">
             <div className="map" id="kakao-map"></div>
           </div>
         </div>
-        <div className="hourly-forecast-slider">
-          <button onClick={() => slideForecast("left")}>&lt;</button>
-          <div className="hourly-forecast">
-            {hourlyForecast
-              .slice(forecastStart, forecastStart + 5)
-              .map((forecast, index) => (
-                <div key={index} className="forecast-item">
-                  <div>
-                    {`${
-                      new Date(forecast.dt * 1000).getMonth() + 1
-                    }월 ${new Date(forecast.dt * 1000).getDate()}일 ${new Date(
-                      forecast.dt * 1000
-                    ).getHours()}시`}
-                  </div>
-                  <div>{forecast.main.temp}°C</div>
-                  <div>{forecast.weather[0].description}</div>
-                  <div>{forecast.main.humidity}%</div>
-                </div>
-              ))}
+        <div className="info-bottom">
+          <div className="location-info">
+            <h5></h5>
           </div>
-          <button onClick={() => slideForecast("right")}>&gt;</button>
+          <div className="hourly-forecast-slider">
+            <h5>일기 예보</h5>
+            <div className="slider-container">
+              <button
+                className="forecast-button"
+                onClick={() => slideForecast("left")}
+              >
+                &lt;
+              </button>
+              <div className="hourly-forecast">
+                {hourlyForecast
+                  .slice(forecastStart, forecastStart + 5)
+                  .map((forecast, index) => (
+                    <div key={index} className="forecast-item">
+                      <div>
+                        {`${
+                          new Date(forecast.dt * 1000).getMonth() + 1
+                        }월 ${new Date(
+                          forecast.dt * 1000
+                        ).getDate()}일 ${new Date(
+                          forecast.dt * 1000
+                        ).getHours()}시`}
+                      </div>
+                      <div>{forecast.main.temp}°C</div>
+                      <div>{forecast.weather[0].description}</div>
+                      <div>{forecast.main.humidity}%</div>
+                    </div>
+                  ))}
+              </div>
+              <button
+                className="forecast-button"
+                onClick={() => slideForecast("right")}
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="location-info">
-        <h5></h5>
       </div>
     </div>
   );

@@ -1,6 +1,4 @@
-.fishinfo h4,
-.pointerinfo h4,
-.weatherinfo h4 {
+.pointerinfo h4 {
   margin-top: 30px;
   text-align: center;
 }
@@ -27,14 +25,14 @@
 }
 
 /* 버튼 컨테이너 스타일 */
-.vertical-button-container {
+.local-button-container {
   display: flex;
   flex-direction: column;
   margin-right: 50px; /* 버튼과 지도의 오른쪽 간격 */
 }
 
 /* 버튼 스타일 */
-.vertical-button-container button {
+.local-button-container button {
   background-color: white;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -48,7 +46,7 @@
 }
 
 /* 클릭 상태 */
-.vertical-button-container button:active {
+.local-button-container button:active {
   background-color: #004085;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); /* 클릭 시 그림자 약화 */
   transform: scale(1); /* 원래 크기로 */
@@ -56,10 +54,17 @@
 
 /* 맵 컨테이너 스타일 */
 .map-container {
-  flex-grow: 1; /* 맵 컨테이너가 남은 공간을 채우도록 설정 */
+  flex-grow: 1;
   display: flex;
+  flex-direction: column; /* 이 부분 추가 */
   justify-content: center;
   align-items: center;
+}
+
+.location-info {
+  width: 1000px; /* info-container와 동일한 너비 */
+  text-align: left;
+  margin-top: 10px;
 }
 
 .search-container {
@@ -78,18 +83,7 @@
   margin-top: 30px;
 }
 
-.hourly-forecast-slider {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 20px; /* 예보 슬라이더와 지도 사이 간격 조정 */
-}
-
 button {
-  background-color: #f2f2f2;
-  border: none;
-  padding: 5px;
-  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s;
 
@@ -98,17 +92,56 @@ button {
   }
 }
 
+.forecast-button {
+  /* border-radius: 10px; */
+  background-color: lightslategray;
+  color: white;
+  border: none;
+}
+
+.hourly-forecast-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 약간의 그림자 효과 */
+  border-radius: 10px; /* 테두리 모서리를 둥글게 */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: lightslategray;
+  margin-top: 10px;
+}
+
+.hourly-forecast-slider h5 {
+  color: white;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+
 /* 각 예보 아이템에 일정한 너비를 설정하여 슬라이드 간격이 일정하게 유지되도록 합니다. */
 .forecast-item {
-  width: 110px; /* 필요한 너비로 조정 가능합니다 */
+  font-size: 12px;
+  width: 90px; /* 필요한 너비로 조정 가능합니다 */
   border: 1px solid #ddd; /* 테두리 스타일 */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
   border-radius: 5px; /* 테두리 모서리를 둥글게 */
-  text-align: center; /* 내용 중앙 정렬 */
+  text-align: left; /* 내용 왼쪽 정렬 */
+  padding: 5px;
+  background-color: yellowgreen;
 }
 
 /* .hourly-forecast 스타일에 아래의 속성을 추가하여 자식 요소들 사이의 간격이 일정하게 유지되도록 합니다. */
 .hourly-forecast {
   display: flex;
   justify-content: space-between;
+  gap: 5px;
+}
+
+/* 두 요소를 수평적으로 배열 */
+.info-bottom {
+  display: flex;
+  width: 900px; /* 필요한 경우 너비를 설정 */
+  margin-left: 250px;
 }
