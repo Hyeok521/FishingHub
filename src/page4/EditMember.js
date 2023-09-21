@@ -31,7 +31,7 @@ const EditMember = () => {
 
   const getUserInfo = async () => {
     try {
-      const response = await axios.get("http://13.48.105.95:8080/member/info", {
+      const response = await axios.get("http://13.48.105.95:8080/mypage/info", {
         headers: {
           Authorization: "Bearer " + getAuthentication(),
         },
@@ -57,7 +57,7 @@ const EditMember = () => {
     try {
       // 비밀번호를 서버로 전송하여 회원 정보를 조회
       const response = await axios.post(
-        "http://13.48.105.95:8080/member/mypage",
+        "http://13.48.105.95:8080/mypage/mypage",
         {
           userPw: formData.password,
         }
@@ -106,7 +106,7 @@ const EditMember = () => {
       success: async (response) => {
         try {
           const kakaoLoginRes = await axios.post(
-            "http://13.48.105.95:8080/member/kakaoAuth",
+            "http://13.48.105.95:8080/mypage/kakaoAuth",
             {
               accessToken: response.access_token,
             }

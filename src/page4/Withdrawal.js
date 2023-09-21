@@ -13,7 +13,7 @@ const Withdrawal = () => {
     try {
       const token = getCookie("accessToken"); // 쿠키에서 토큰을 가져옵니다.
       const response = await axios.delete(
-        "http://13.48.105.95:8080/member/delete",
+        "http://13.48.105.95:8080/mypage/delete",
         {
           headers: {
             Authorization: `Bearer ${token}`, // 토큰을 헤더에 추가합니다.

@@ -28,7 +28,7 @@ function App() {
   let [authenticate, setAuthenticate] = useState(false);
   const handleResize = () => {
     const zoomLevel = window.outerWidth / window.innerWidth;
-    if (zoomLevel >= 1.2) {
+    if (zoomLevel >= 1.1) {
       document.body.style.overflowX = "hidden";
     } else {
       document.body.style.overflowX = "hidden";
@@ -42,13 +42,6 @@ function App() {
     // 어차피 쿠키에 토큰의 유효시간 동안 저장을 하고, 인증이 필요한 로직에는 accessToken을 같이 서버로 넘기기 때문에, 그 때 검사를 해도 충분한 것 같습니다.
     const accessToken = getAuthentication();
     setAuthenticate(accessToken ? true : false);
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   return (
