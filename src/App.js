@@ -15,9 +15,7 @@ import Communityboard from "./page/Communityboard";
 import Footer from "./component/Footer";
 import Fishingboard from "./page/Fishingboard";
 import TrendBoard from "./page/TrendBoard";
-import FishInformation from "./page2/FishInformation";
 import PointerInformation from "./page2/PointerInformation";
-import WeatherInformation from "./page2/WeatherInformation";
 import AnnounCement from "./page3/AnnounCement";
 import Faq from "./page3/Faq";
 import QNA from "./page3/QNA";
@@ -102,18 +100,8 @@ function App() {
         />
 
         <Route
-          path="/FishInformation"
-          element={<FishInformation authenticate={authenticate} />}
-        />
-
-        <Route
           path="/PointerInformation"
           element={<PointerInformation authenticate={authenticate} />}
-        />
-
-        <Route
-          path="/WeatherInformation"
-          element={<WeatherInformation authenticate={authenticate} />}
         />
 
         <Route
