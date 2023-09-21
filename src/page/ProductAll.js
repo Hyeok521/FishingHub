@@ -83,6 +83,10 @@ const ProductAll = () => {
     }
   }, [city]);
 
+  useEffect(() => {
+    console.log("Updated Image URLs:", imageUrls);
+  }, [imageUrls]);
+
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
     setShowModal(true);
@@ -104,15 +108,11 @@ const ProductAll = () => {
         const returnedUrl = await response.text();
         console.log("Returned URL:", returnedUrl);
 
-        console.log("Image URLs before update:", imageUrls); // 추가
-
         // 이미지 URL 배열을 복제하고 현재 선택된 이미지의 URL을 변경합니다.
+        // 이미지 URL에 랜덤 쿼리 매개변수 추가
         const updatedImageUrls = [...imageUrls];
-        updatedImageUrls[currentImageIndex] = returnedUrl;
-
+        updatedImageUrls[currentImageIndex] = `${returnedUrl}?${Math.random()}`;
         setImageUrls(updatedImageUrls);
-
-        console.log("Image URLs after update:", imageUrls); // 추가
 
         setShowModal(false);
       } else {
@@ -125,7 +125,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <Carousel interval={2000} className="carousel">
+      <Carousel key={imageUrls.join(",")} interval={2000} className="carousel">
         {imageUrls.map((url, index) => (
           <Carousel.Item key={index} onClick={handleImageClick}>
             <img className="pointer" src={url} alt={`Image - ${index + 1}`} />
