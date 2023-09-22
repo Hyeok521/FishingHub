@@ -69,76 +69,11 @@ const PointerInformation = () => {
         const container = document.getElementById("kakao-map");
         const options = {
           center: new window.kakao.maps.LatLng(36, 128),
-          level: 12,
+          level: 13,
         };
 
         const map = new window.kakao.maps.Map(container, options);
         mapRef.current = map;
-
-        // '시화방조제'의 위치에 마커를 추가
-        const sihwaBreakwater = new window.kakao.maps.LatLng(37.3475, 126.5873);
-        const markerForSihwa = new window.kakao.maps.Marker({
-          position: sihwaBreakwater,
-          map: map,
-        });
-
-        // '시화방조제' 마커 클릭 시 정보 표시 및 날씨 예보 표시
-        window.kakao.maps.event.addListener(
-          markerForSihwa,
-          "click",
-          async function () {
-            // 이전 정보창들을 모두 닫습니다.
-            infowindowsRef.current.forEach((info) => info.close());
-
-            showInfoOnMarker(
-              sihwaBreakwater.getLat(),
-              sihwaBreakwater.getLng(),
-              "시화방조제",
-              markerForSihwa,
-              map
-            );
-
-            const hourlyWeatherInfoForSihwa = await fetchHourlyWeatherInfo(
-              sihwaBreakwater.getLat(),
-              sihwaBreakwater.getLng()
-            );
-            setHourlyForecast(hourlyWeatherInfoForSihwa.list.slice(0, 48));
-          }
-        );
-
-        // '정성바다낚시터'의 위치에 마커를 추가
-        const jeongseongFishingSpot = new window.kakao.maps.LatLng(
-          37.4922,
-          126.5312
-        );
-        const markerForJeongseong = new window.kakao.maps.Marker({
-          position: jeongseongFishingSpot,
-          map: map,
-        });
-
-        // '정성바다낚시터' 마커 클릭 시 정보 표시 및 날씨 예보 표시
-        window.kakao.maps.event.addListener(
-          markerForJeongseong,
-          "click",
-          async function () {
-            // 이전 정보창들을 모두 닫습니다.
-            infowindowsRef.current.forEach((info) => info.close());
-
-            showInfoOnMarker(
-              jeongseongFishingSpot.getLat(),
-              jeongseongFishingSpot.getLng(),
-              "정성바다낚시터",
-              markerForJeongseong,
-              map
-            );
-
-            const hourlyWeatherInfoForJeongseong = await fetchHourlyWeatherInfo(
-              jeongseongFishingSpot.getLat(),
-              jeongseongFishingSpot.getLng()
-            );
-            setHourlyForecast(hourlyWeatherInfoForJeongseong.list.slice(0, 48));
-          }
-        );
 
         // 지도 형식 변경 버튼을 추가합니다.
         const mapTypeControl = new window.kakao.maps.MapTypeControl();
@@ -158,25 +93,25 @@ const PointerInformation = () => {
     navigate("/PointerInfo_1"); // PointerInfo_1 페이지로 이동합니다.
   };
   const goToPointerInfo2 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_2 페이지로 이동합니다.
+    navigate("/PointerInfo_2"); // PointerInfo_2 페이지로 이동합니다.
   };
   const goToPointerInfo3 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_3 페이지로 이동합니다.
+    navigate("/PointerInfo_3"); // PointerInfo_3 페이지로 이동합니다.
   };
   const goToPointerInfo4 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_4 페이지로 이동합니다.
+    navigate("/PointerInfo_4"); // PointerInfo_4 페이지로 이동합니다.
   };
   const goToPointerInfo5 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_5 페이지로 이동합니다.
+    navigate("/PointerInfo_5"); // PointerInfo_5 페이지로 이동합니다.
   };
   const goToPointerInfo6 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_6 페이지로 이동합니다.
+    navigate("/PointerInfo_6"); // PointerInfo_6 페이지로 이동합니다.
   };
   const goToPointerInfo7 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_7 페이지로 이동합니다.
+    navigate("/PointerInfo_7"); // PointerInfo_7 페이지로 이동합니다.
   };
   const goToPointerInfo8 = () => {
-    navigate("/PointerInfo_1"); // PointerInfo_8 페이지로 이동합니다.
+    navigate("/PointerInfo_8"); // PointerInfo_8 페이지로 이동합니다.
   };
   return (
     <div className="weatherinfo">
