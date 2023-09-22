@@ -15,15 +15,21 @@ import Communityboard from "./page/Communityboard";
 import Footer from "./component/Footer";
 import Fishingboard from "./page/Fishingboard";
 import TrendBoard from "./page/TrendBoard";
-import FishInformation from "./page2/FishInformation";
 import PointerInformation from "./page2/PointerInformation";
-import WeatherInformation from "./page2/WeatherInformation";
 import AnnounCement from "./page3/AnnounCement";
 import Faq from "./page3/Faq";
 import QNA from "./page3/QNA";
 import EditMember from "./page4/EditMember";
 import Edit from "./page4/Edit";
 import Withdrawal from "./page4/Withdrawal";
+import PointerInfo_1 from "./page2/PointerInfo_1";
+import PointerInfo_2 from "./page2/PointerInfo_2";
+import PointerInfo_3 from "./page2/PointerInfo_3";
+import PointerInfo_4 from "./page2/PointerInfo_4";
+import PointerInfo_5 from "./page2/PointerInfo_5";
+import PointerInfo_6 from "./page2/PointerInfo_6";
+import PointerInfo_7 from "./page2/PointerInfo_7";
+import PointerInfo_8 from "./page2/PointerInfo_8";
 import { getAuthentication, getCookie } from "./common/CookieUtil";
 
 function App() {
@@ -95,18 +101,8 @@ function App() {
         />
 
         <Route
-          path="/FishInformation"
-          element={<FishInformation authenticate={authenticate} />}
-        />
-
-        <Route
           path="/PointerInformation"
           element={<PointerInformation authenticate={authenticate} />}
-        />
-
-        <Route
-          path="/WeatherInformation"
-          element={<WeatherInformation authenticate={authenticate} />}
         />
 
         <Route
@@ -128,6 +124,14 @@ function App() {
           path="Withdrawal"
           element={<Withdrawal authenticate={authenticate} />}
         />
+        <Route path="/PointerInfo_1" element={<PointerInfo_1 />} />
+        <Route path="/PointerInfo_2" element={<PointerInfo_2 />} />
+        <Route path="/PointerInfo_3" element={<PointerInfo_3 />} />
+        <Route path="/PointerInfo_4" element={<PointerInfo_4 />} />
+        <Route path="/PointerInfo_5" element={<PointerInfo_5 />} />
+        <Route path="/PointerInfo_6" element={<PointerInfo_6 />} />
+        <Route path="/PointerInfo_7" element={<PointerInfo_7 />} />
+        <Route path="/PointerInfo_8" element={<PointerInfo_8 />} />
       </Routes>
       <Footer authenticate={authenticate} setAuthenticate={setAuthenticate} />
     </div>

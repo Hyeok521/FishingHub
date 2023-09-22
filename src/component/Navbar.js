@@ -149,14 +149,8 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                   )}
                   {menu === "정보제공" && (
                     <>
-                      <Dropdown.Item eventKey="1" onClick={FishInformation}>
-                        어종 정보
-                      </Dropdown.Item>
-                      <Dropdown.Item eventKey="2" onClick={PointerInformation}>
-                        포인터 정보
-                      </Dropdown.Item>
-                      <Dropdown.Item eventKey="3" onClick={WeatherInformation}>
-                        날씨 정보
+                      <Dropdown.Item eventKey="1" onClick={PointerInformation}>
+                        포인트 정보
                       </Dropdown.Item>
                     </>
                   )}
