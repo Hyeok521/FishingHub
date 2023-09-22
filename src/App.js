@@ -30,7 +30,7 @@ function App() {
   let [authenticate, setAuthenticate] = useState(false);
   const handleResize = () => {
     const zoomLevel = window.outerWidth / window.innerWidth;
-    if (zoomLevel >= 1.1) {
+    if (zoomLevel >= 1.0) {
       document.body.style.overflowX = "hidden";
     } else {
       document.body.style.overflowX = "hidden";

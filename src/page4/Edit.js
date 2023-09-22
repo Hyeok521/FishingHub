@@ -19,6 +19,13 @@ const Edit = () => {
     birth: "",
   });
 
+  const userIdRegex = /^[a-zA-Z0-9]{5,15}$/;
+  const userNickRegex = /^.{2,10}$/;
+  const userNmRegex = /^[가-힣]{2,5}$/;
+  const birthRegex = /^\d{4}-\d{2}-\d{2}$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
   const handleWd = (event) => {
     event.preventDefault();
     // setAuthenticate();
@@ -41,7 +48,7 @@ const Edit = () => {
    */
   const getUserInfo = async () => {
     try {
-      const response = await axios.get("http://13.48.105.95:8080/member/info", {
+      const response = await axios.get("http://13.48.105.95:8080/mypage/info", {
         headers: {
           Authorization: "Bearer " + getAuthentication(),
         },
@@ -80,6 +87,34 @@ const Edit = () => {
    * @returns {Promise<void>}
    */
   const handleEdit = async () => {
+    // 유효성 검사
+    if (!userIdRegex.test(formData.userId)) {
+      alert("아이디는 5~15자의 알파벳과 숫자로만 구성되어야 합니다.");
+      return;
+    }
+    if (!emailRegex.test(formData.email)) {
+      alert("이메일 형식이 올바르지 않습니다.");
+      return;
+    }
+    if (!passwordRegex.test(formData.afterPassword)) {
+      alert(
+        "새 비밀번호는 최소 8자리, 하나의 대문자, 하나의 소문자, 하나의 숫자가 필요합니다."
+      );
+      return;
+    }
+    if (!userNickRegex.test(formData.userNick)) {
+      alert("닉네임은 2~10자로 제한됩니다.");
+      return;
+    }
+    if (!userNmRegex.test(formData.userNm)) {
+      alert("이름은 2~5자의 한글로만 구성되어야 합니다.");
+      return;
+    }
+    if (!birthRegex.test(formData.birth)) {
+      alert("생년월일 형식이 올바르지 않습니다.");
+      return;
+    }
+
     try {
       if (formData.loginType === "SNS") {
         // 카카오 로그인 요청
