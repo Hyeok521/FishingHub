@@ -18,32 +18,47 @@ const Communityboard = () => {
   const [userId, setUserId] = useState(null);
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const storedToken = getAuthentication(); // 쿠키에서 토큰을 가져옵니다.
-    console.log("쿠키에서 가져온 토큰:", storedToken); // 토큰 로그로 확인
-    // 게시글 목록 조회
+  const fetchPosts = () => {
     axios
       .get("http://13.48.105.95:8080/board/list")
       .then((response) => {
-        setPosts(response.data); // 게시글 목록 설정
+        setPosts(response.data);
         console.log("게시글 목록 조회 리스폰스:", response);
       })
       .catch((error) => {
         console.error("게시글 목록 조회 실패:", error);
-        console.error("목록조회 실패시 :", error);
       });
+  };
+
+  useEffect(() => {
+    const storedToken = getAuthentication();
+    console.log("쿠키에서 가져온 토큰:", storedToken);
+
     if (storedToken) {
       setToken(storedToken);
-      setIsLoggedIn(true); // 로그인 상태를 true로 설정
-      // axios
-      //   .get("/api/user", {
-      //     headers: { Authorization: `Bearer ${storedToken}` },
-      //   })
-      //   .then((response) => {
-      //     setUserId(response.data.id);
-      //   });
+      setIsLoggedIn(true); // 로그인 상태 인증
+
+      // 서버에서 게시글 목록을 가져옵니다.
+      fetchPosts();
     }
   }, []);
+
+  const refreshPosts = () => {
+    fetchPosts();
+  };
+
+  // axios로 사용자 정보를 가져오는 부분 (기존 코드 유지)
+  // }
+  // }, []);
+  // axios
+  //   .get("/api/user", {
+  //     headers: { Authorization: `Bearer ${storedToken}` },
+  //   })
+  //   .then((response) => {
+  //     setUserId(response.data.id);
+  //   });
+
+  // }, []);
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -159,6 +174,8 @@ const Communityboard = () => {
         if (response.status === 201) {
           alert("게시글 작성 성공");
           console.log("게시글 작성 응답:", response.data);
+
+          // 게시글 작성 후, 다시 서버에서 게시글 목록을 가져옵니다.
           axios
             .get("http://13.48.105.95:8080/board/list")
             .then((response) => {
