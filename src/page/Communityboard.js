@@ -20,6 +20,7 @@ const Communityboard = () => {
 
   useEffect(() => {
     const storedToken = getAuthentication(); // 쿠키에서 토큰을 가져옵니다.
+    console.log("쿠키에서 가져온 토큰:", storedToken); // 토큰 로그로 확인
     // 게시글 목록 조회
     axios
       .get("http://13.48.105.95:8080/board/list")
@@ -33,7 +34,7 @@ const Communityboard = () => {
       });
     if (storedToken) {
       setToken(storedToken);
-      setIsLoggedIn(true);
+      setIsLoggedIn(true); // 로그인 상태를 true로 설정
       // axios
       //   .get("/api/user", {
       //     headers: { Authorization: `Bearer ${storedToken}` },
@@ -49,9 +50,9 @@ const Communityboard = () => {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
-  const [newComment, setNewComment] = useState(""); // 새 댓글 내용
-  const [newCommentAuthor, setNewCommentAuthor] = useState(""); // 새 댓글 작성자 이름
-  const [comments, setComments] = useState({}); // 각 게시물에 대한 댓글 목록
+  const [newComment, setNewComment] = useState("");
+  const [newCommentAuthor, setNewCommentAuthor] = useState("");
+  const [comments, setComments] = useState({});
   const [newOrEditedPost, setNewOrEditedPost] = useState({
     title: "",
     content: "",
@@ -157,12 +158,21 @@ const Communityboard = () => {
       .then((response) => {
         if (response.status === 201) {
           alert("게시글 작성 성공");
-          // 글 작성 성공 시 필요한 추가 로직을 여기에 추가
-          // 예: 게시글 목록을 다시 불러오는 등의 동작
+          console.log("게시글 작성 응답:", response.data);
+          axios
+            .get("http://13.48.105.95:8080/board/list")
+            .then((response) => {
+              setPosts(response.data);
+              console.log("게시글 목록 재조회 리스폰스:", response);
+            })
+            .catch((error) => {
+              console.error("게시글 목록 재조회 실패:", error);
+            });
         }
       })
       .catch((error) => {
         alert("게시글 작성 실패");
+        console.error("게시글 작성 에러:", error);
       });
   };
 
@@ -171,18 +181,28 @@ const Communityboard = () => {
       alert("수정 권한이 없습니다.");
       return;
     }
+
     axios
-      .post(`http://13.48.105.95:8080/board/update/`, updatedData, {
+      .post(`http://13.48.105.95:8080/board/update/${postId}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
         if (response.data === "수정되었습니다.") {
           alert("게시글 수정 성공");
-          // ... 게시글 목록 갱신 로직 ...
+          axios
+            .get("http://13.48.105.95:8080/board/list")
+            .then((response) => {
+              setPosts(response.data);
+              console.log("게시글 목록 재조회 리스폰스:", response);
+            })
+            .catch((error) => {
+              console.error("게시글 목록 재조회 실패:", error);
+            });
         }
       })
       .catch((error) => {
         alert("게시글 수정 실패");
+        console.error("게시글 수정 에러:", error);
       });
   };
 
@@ -191,6 +211,7 @@ const Communityboard = () => {
       alert("삭제 권한이 없습니다.");
       return;
     }
+
     axios
       .delete(`http://13.48.105.95:8080/board/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -198,11 +219,20 @@ const Communityboard = () => {
       .then((response) => {
         if (response.status === 204) {
           alert("게시글 삭제 성공");
-          // ... 게시글 목록 갱신 로직 ...
+          axios
+            .get("http://13.48.105.95:8080/board/list")
+            .then((response) => {
+              setPosts(response.data);
+              console.log("게시글 목록 재조회 리스폰스:", response);
+            })
+            .catch((error) => {
+              console.error("게시글 목록 재조회 실패:", error);
+            });
         }
       })
       .catch((error) => {
         alert("게시글 삭제 실패");
+        console.error("게시글 삭제 에러:", error);
       });
   };
 
@@ -220,37 +250,22 @@ const Communityboard = () => {
   };
 
   const openModalForCreate = () => {
-    // 로그인 여부 확인
-    axios
-      .get("http://13.48.105.95:8080/board/log", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        // 여기서는 응답의 형태를 모르기 때문에 예시로 작성합니다.
-        // 실제 응답 형태에 따라 조건을 수정해야 합니다.
-        if (response.data.loggedIn) {
-          // 로그인이 되어 있다면
-          setCurrentPost(null);
-          setNewOrEditedPost({
-            title: "",
-            content: "",
-            author: "",
-            file: null,
-            fileURL: null,
-            image: null,
-            imageURL: null,
-          });
-          setIsEditing(false);
-          setShowCreateModal(true);
-        } else {
-          // 로그인이 되어 있지 않다면
-          alert("로그인이 필요합니다.");
-          console.log("로그인필요:", response);
-        }
-      })
-      .catch((error) => {
-        console.error("로그인 여부 확인 중 오류 발생:", error);
+    if (!isLoggedIn) {
+      alert("로그인이 필요합니다.");
+    } else {
+      setCurrentPost(null);
+      setNewOrEditedPost({
+        title: "",
+        content: "",
+        author: "",
+        file: null,
+        fileURL: null,
+        image: null,
+        imageURL: null,
       });
+      setIsEditing(false);
+      setShowCreateModal(true);
+    }
   };
   const handleSave = () => {
     if (currentPost) {
