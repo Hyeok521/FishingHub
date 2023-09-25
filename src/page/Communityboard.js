@@ -149,15 +149,12 @@ const Communityboard = () => {
     }
 
     // 글 작성에 필요한 데이터 수집
-    const boardData = {
-      title: newOrEditedPost.title,
-      content: newOrEditedPost.content,
-      author: newOrEditedPost.author,
-    };
-
-    // 파일 업로드와 이미지 업로드 처리
     const formData = new FormData();
-    formData.append("board", JSON.stringify(boardData));
+    formData.append("title", newOrEditedPost.title);
+    formData.append("content", newOrEditedPost.content);
+    formData.append("author", newOrEditedPost.author);
+
+    // 파일과 이미지 추가
     if (newOrEditedPost.file) {
       formData.append("file", newOrEditedPost.file);
     }
@@ -165,6 +162,7 @@ const Communityboard = () => {
       formData.append("image", newOrEditedPost.image);
     }
 
+    // formData를 사용하여 데이터를 보냅니다.
     axios
       .post("http://13.48.105.95:8080/board/writepro", formData, {
         headers: {
@@ -173,14 +171,14 @@ const Communityboard = () => {
         },
       })
       .then((response) => {
-        console.log("게시글 작성 응답:", response);
+        console.log("응답:", response);
         if (response.status === 201) {
           alert("게시글 작성 성공");
           fetchPosts(); // 게시글 작성 후, 다시 서버에서 게시글 목록을 가져옵니다.
         }
       })
       .catch((error) => {
-        console.error("게시글 작성 에러:", error);
+        console.error("에러:", error);
         alert("게시글 작성 실패");
       });
   };
@@ -228,17 +226,7 @@ const Communityboard = () => {
       .then((response) => {
         if (response.status === 204) {
           alert("게시글 삭제 성공");
-          axios
-            .get("http://13.48.105.95:8080/board/list", {
-              headers: { Authorization: `Bearer ${token}` },
-            })
-            .then((response) => {
-              setPosts(response.data);
-              console.log("게시글 목록 재조회 리스폰스:", response);
-            })
-            .catch((error) => {
-              console.error("게시글 목록 재조회 실패:", error);
-            });
+          fetchPosts(); // 게시글 삭제 후, 다시 서버에서 게시글 목록을 가져옵니다.
         }
       })
       .catch((error) => {
@@ -379,9 +367,7 @@ const Communityboard = () => {
                     </Button>
                     <Button
                       variant="primary"
-                      onClick={() =>
-                        setPosts(posts.filter((p) => p.id !== post.id))
-                      }
+                      onClick={() => handleDeletePost(post.id, post.author)} // 여기를 수정했습니다.
                     >
                       삭제
                     </Button>
