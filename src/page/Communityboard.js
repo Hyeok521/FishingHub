@@ -22,7 +22,8 @@ const Communityboard = () => {
     "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMDEiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjk1NjM0MjQ4LCJleHAiOjE2OTU3MjA2NDh9.Vz11Jf5hXINr9ENnETZC9USaNXllW4xQY2TnI7DjEsfUv9MqTttJrImRzN3pMDDz7id-K7Q1gfB5X3aH7sbnTA";
 
   const fetchPosts = () => {
-    console.log(`Bearer ${token}`); // 이 줄을 추가하세요.
+    const token = getAuthentication();
+    console.log(`Bearer ${token}`); // 이 줄을 확인하세요.
     axios
       .get("http://13.48.105.95:8080/board/list", {
         headers: {
@@ -35,12 +36,17 @@ const Communityboard = () => {
       })
       .catch((error) => {
         console.error("게시글 목록 조회 실패:", error);
+        if (error.response) {
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+        }
       });
   };
 
   useEffect(() => {
     const storedToken = getAuthentication();
-    console.log("쿠키에서 가져온 토큰:", storedToken);
+    console.log("쿠키에서 가져온 토큰:", storedToken); // 이 줄을 확인하세요.
 
     if (storedToken) {
       setToken(storedToken); // 여기를 수정했습니다.
@@ -180,6 +186,11 @@ const Communityboard = () => {
       })
       .catch((error) => {
         console.error("에러:", error);
+        if (error.response) {
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+        }
         alert("게시글 작성 실패");
       });
   };
@@ -209,8 +220,13 @@ const Communityboard = () => {
         }
       })
       .catch((error) => {
-        alert("게시글 수정 실패");
         console.error("게시글 수정 에러:", error);
+        if (error.response) {
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+        }
+        alert("게시글 수정 실패");
       });
   };
 
@@ -231,8 +247,13 @@ const Communityboard = () => {
         }
       })
       .catch((error) => {
-        alert("게시글 삭제 실패");
         console.error("게시글 삭제 에러:", error);
+        if (error.response) {
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+        }
+        alert("게시글 삭제 실패");
       });
   };
 
