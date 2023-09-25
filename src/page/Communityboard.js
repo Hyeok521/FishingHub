@@ -19,31 +19,32 @@ const Communityboard = () => {
   const [posts, setPosts] = useState([]);
 
   const TOKEN =
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqajg5MzgiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjk1NjE4MDc5LCJleHAiOjE2OTU3MDQ0Nzl9.7Tgzta8PuihhvqlGxkbc6KoCNaLAOuAfb_eBnD_LTK5VC_fLeGMpedjMs7HEv1-51oBXIB2V_TppGyI2zTW0pA";
+    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMDEiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjk1NjM0MjQ4LCJleHAiOjE2OTU3MjA2NDh9.Vz11Jf5hXINr9ENnETZC9USaNXllW4xQY2TnI7DjEsfUv9MqTttJrImRzN3pMDDz7id-K7Q1gfB5X3aH7sbnTA";
 
   const fetchPosts = () => {
+    console.log(`Bearer ${token}`); // 이 줄을 추가하세요.
     axios
       .get("http://13.48.105.95:8080/board/list", {
         headers: {
-          Authorization: `Bearer ${TOKEN}`,
+          Authorization: `Bearer ${token}`, // 여기를 수정했습니다.
         },
       })
       .then((response) => {
+        console.log(response); // 이 줄을 추가하세요.
         setPosts(response.data);
       })
       .catch((error) => {
         console.error("게시글 목록 조회 실패:", error);
       });
   };
+
   useEffect(() => {
     const storedToken = getAuthentication();
     console.log("쿠키에서 가져온 토큰:", storedToken);
 
     if (storedToken) {
-      setToken(storedToken);
-      setIsLoggedIn(true); // 로그인 상태 인증
-
-      // 서버에서 게시글 목록을 가져옵니다.
+      setToken(storedToken); // 여기를 수정했습니다.
+      setIsLoggedIn(true);
     }
     fetchPosts();
   }, []);
