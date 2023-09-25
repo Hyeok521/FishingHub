@@ -44,8 +44,8 @@ const Communityboard = () => {
       setIsLoggedIn(true); // 로그인 상태 인증
 
       // 서버에서 게시글 목록을 가져옵니다.
-      fetchPosts();
     }
+    fetchPosts();
   }, []);
 
   const refreshPosts = () => {
@@ -173,25 +173,15 @@ const Communityboard = () => {
         },
       })
       .then((response) => {
-        console.log("게시글 서버 응답 : ", response);
+        console.log("게시글 작성 응답:", response);
         if (response.status === 201) {
           alert("게시글 작성 성공");
-
-          // 게시글 작성 후, 다시 서버에서 게시글 목록을 가져옵니다.
-          axios
-            .get("http://13.48.105.95:8080/board/list")
-            .then((response) => {
-              setPosts(response.data);
-              console.log("게시글 목록 재조회 리스폰스:", response);
-            })
-            .catch((error) => {
-              console.error("게시글 목록 재조회 실패:", error);
-            });
+          fetchPosts(); // 게시글 작성 후, 다시 서버에서 게시글 목록을 가져옵니다.
         }
       })
       .catch((error) => {
-        alert("게시글 작성 실패");
         console.error("게시글 작성 에러:", error);
+        alert("게시글 작성 실패");
       });
   };
 
@@ -290,23 +280,11 @@ const Communityboard = () => {
   };
   const handleSave = () => {
     if (currentPost) {
-      setPosts(
-        posts.map((post) =>
-          post.id === currentPost.id
-            ? { ...currentPost, ...newOrEditedPost }
-            : post
-        )
-      );
+      // 게시물 수정 로직
+      handleEditPost(currentPost.id, currentPost.author, newOrEditedPost);
     } else {
-      setPosts([
-        ...posts,
-        {
-          id: posts.length + 1,
-          ...newOrEditedPost,
-          date: new Date().toISOString().split("T")[0],
-          comments: [],
-        },
-      ]);
+      // 새 게시물 작성 로직
+      handleWritePost();
     }
     setShowEditModal(false);
     setShowViewModal(false);
