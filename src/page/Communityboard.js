@@ -18,18 +18,23 @@ const Communityboard = () => {
   const [userId, setUserId] = useState(null);
   const [posts, setPosts] = useState([]);
 
+  const TOKEN =
+    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqajg5MzgiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjk1NjE4MDc5LCJleHAiOjE2OTU3MDQ0Nzl9.7Tgzta8PuihhvqlGxkbc6KoCNaLAOuAfb_eBnD_LTK5VC_fLeGMpedjMs7HEv1-51oBXIB2V_TppGyI2zTW0pA";
+
   const fetchPosts = () => {
     axios
-      .get("http://13.48.105.95:8080/board/list")
+      .get("http://13.48.105.95:8080/board/list", {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+      })
       .then((response) => {
         setPosts(response.data);
-        console.log("게시글 목록 조회 리스폰스:", response);
       })
       .catch((error) => {
         console.error("게시글 목록 조회 실패:", error);
       });
   };
-
   useEffect(() => {
     const storedToken = getAuthentication();
     console.log("쿠키에서 가져온 토큰:", storedToken);
@@ -151,29 +156,26 @@ const Communityboard = () => {
     };
 
     // 파일 업로드와 이미지 업로드 처리
-    const fileData = new FormData();
+    const formData = new FormData();
+    formData.append("board", JSON.stringify(boardData));
     if (newOrEditedPost.file) {
-      fileData.append("file", newOrEditedPost.file);
+      formData.append("file", newOrEditedPost.file);
     }
     if (newOrEditedPost.image) {
-      fileData.append("image", newOrEditedPost.image);
+      formData.append("image", newOrEditedPost.image);
     }
 
     axios
-      .post(
-        "http://13.48.105.95:8080/board/writepro",
-        {
-          board: boardData,
-          file: fileData,
+      .post("http://13.48.105.95:8080/board/writepro", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      })
       .then((response) => {
+        console.log("게시글 서버 응답 : ", response);
         if (response.status === 201) {
           alert("게시글 작성 성공");
-          console.log("게시글 작성 응답:", response.data);
 
           // 게시글 작성 후, 다시 서버에서 게시글 목록을 가져옵니다.
           axios
@@ -237,7 +239,9 @@ const Communityboard = () => {
         if (response.status === 204) {
           alert("게시글 삭제 성공");
           axios
-            .get("http://13.48.105.95:8080/board/list")
+            .get("http://13.48.105.95:8080/board/list", {
+              headers: { Authorization: `Bearer ${token}` },
+            })
             .then((response) => {
               setPosts(response.data);
               console.log("게시글 목록 재조회 리스폰스:", response);
@@ -334,8 +338,8 @@ const Communityboard = () => {
               </tr>
             </thead>
             <tbody>
-              {posts.map((post) => (
-                <tr key={post.id}>
+              {posts.map((post, index) => (
+                <tr key={index}>
                   <td>{post.id}</td>
                   <td>
                     <span
