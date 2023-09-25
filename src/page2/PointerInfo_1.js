@@ -6,6 +6,7 @@ const PointerInfo_1 = () => {
   const infowindowsRef = useRef([]);
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [forecastStart, setForecastStart] = useState(0);
+  const [markerInfos, setMarkerInfos] = useState([]);
   const navigate = useNavigate();
 
   const slideForecast = (direction) => {
@@ -34,7 +35,14 @@ const PointerInfo_1 = () => {
     return data;
   };
 
-  const showInfoOnMarker = async (lat, lng, resultAddress, marker, map) => {
+  const showInfoOnMarker = async (
+    lat,
+    lng,
+    resultAddress,
+    marker,
+    map,
+    index
+  ) => {
     const weatherInfo = await fetchWeatherInfo(lat, lng);
     const temperature = weatherInfo.main.temp;
     const description = weatherInfo.weather[0].description;
@@ -42,12 +50,38 @@ const PointerInfo_1 = () => {
     const content = `<div style="white-space: nowrap;">포인트 이름: ${resultAddress}<br>현재 온도: ${temperature}°C<br>현재 날씨: ${description}<br>현재 습도: ${humidity}%</div>`;
     document.querySelector(".location-info h5").innerHTML = content;
 
+    const markerData = locations[index];
+    setMarkerInfos((prev) => [
+      ...prev,
+      { image: markerData.image, text: markerData.text },
+    ]);
+
     const infowindow = new window.kakao.maps.InfoWindow({
       content: `<div>${resultAddress}</div>`,
     });
     infowindowsRef.current.push(infowindow);
     infowindow.open(map, marker);
   };
+
+  const locations = [
+    {
+      name: "정성바다낚시터",
+      lat: 37.51516,
+      lng: 126.5441,
+      image: "image1.jpg",
+      text: "Text 1",
+    },
+    { name: "시화방조제", lat: 37.31141, lng: 126.6083 },
+    { name: "뱃말선착장", lat: 37.23635, lng: 126.538 },
+    { name: "궁평리선착장", lat: 37.11669, lng: 126.6767 },
+    { name: "매향리선착장", lat: 37.03816, lng: 126.7492 },
+    { name: "천리포방파제", lat: 36.80398, lng: 126.1475 },
+    { name: "마도방파제", lat: 36.67761, lng: 126.1262 },
+    { name: "신진도 부억도", lat: 36.67181, lng: 126.132 },
+    { name: "몽산포방파제", lat: 36.67187, lng: 126.2724 },
+    { name: "방포방파제", lat: 36.50457, lng: 126.3347 },
+    { name: "보령방조제", lat: 36.4463, lng: 126.5269 },
+  ];
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -67,21 +101,7 @@ const PointerInfo_1 = () => {
         const map = new window.kakao.maps.Map(container, options);
         mapRef.current = map;
 
-        const locations = [
-          { name: "시화방조제", lat: 37.31141, lng: 126.6083 },
-          { name: "정성바다낚시터", lat: 37.51516, lng: 126.5441 },
-          { name: "뱃말선착장", lat: 37.23635, lng: 126.538 },
-          { name: "궁평리선착장", lat: 37.11669, lng: 126.6767 },
-          { name: "매향리선착장", lat: 37.03816, lng: 126.7492 },
-          { name: "천리포방파제", lat: 36.80398, lng: 126.1475 },
-          { name: "마도방파제", lat: 36.67761, lng: 126.1262 },
-          { name: "신진도 부억도", lat: 36.67181, lng: 126.132 },
-          { name: "몽산포방파제", lat: 36.67187, lng: 126.2724 },
-          { name: "방포방파제", lat: 36.50457, lng: 126.3347 },
-          { name: "보령방조제", lat: 36.4463, lng: 126.5269 },
-        ];
-
-        locations.forEach((location) => {
+        locations.forEach((location, index) => {
           const position = new window.kakao.maps.LatLng(
             location.lat,
             location.lng
@@ -102,7 +122,8 @@ const PointerInfo_1 = () => {
                 position.getLng(),
                 location.name,
                 marker,
-                map
+                map,
+                index
               );
 
               const hourlyWeatherInfo = await fetchHourlyWeatherInfo(
@@ -126,10 +147,6 @@ const PointerInfo_1 = () => {
       });
     };
   }, []);
-
-  const goToPointerInformation = () => {
-    navigate("/PointerInformation");
-  };
 
   const goToPointerInfo2 = () => {
     navigate("/PointerInfo_2");
@@ -159,7 +176,6 @@ const PointerInfo_1 = () => {
       <div className="info-wrapper">
         <div className="info-container">
           <div className="local-button-container">
-            <button onClick={goToPointerInformation}>전체</button>
             <button>서해중부권</button>
             <button onClick={goToPointerInfo2}>서해남부권</button>
             <button onClick={goToPointerInfo3}>동해중부권</button>
@@ -214,6 +230,14 @@ const PointerInfo_1 = () => {
               </button>
             </div>
           </div>
+        </div>
+        <div className="fishinfo-1">
+          {markerInfos.map((info, index) => (
+            <div key={index}>
+              <img src={info.image} alt="" />
+              <p>{info.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

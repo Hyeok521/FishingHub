@@ -15,7 +15,6 @@ import Communityboard from "./page/Communityboard";
 import Footer from "./component/Footer";
 import Fishingboard from "./page/Fishingboard";
 import TrendBoard from "./page/TrendBoard";
-import PointerInformation from "./page2/PointerInformation";
 import AnnounCement from "./page3/AnnounCement";
 import Faq from "./page3/Faq";
 import QNA from "./page3/QNA";
@@ -101,8 +100,8 @@ function App() {
         />
 
         <Route
-          path="/PointerInformation"
-          element={<PointerInformation authenticate={authenticate} />}
+          path="/PointerInfo_1"
+          element={<PointerInfo_1 authenticate={authenticate} />}
         />
 
         <Route
@@ -124,7 +123,6 @@ function App() {
           path="Withdrawal"
           element={<Withdrawal authenticate={authenticate} />}
         />
-        <Route path="/PointerInfo_1" element={<PointerInfo_1 />} />
         <Route path="/PointerInfo_2" element={<PointerInfo_2 />} />
         <Route path="/PointerInfo_3" element={<PointerInfo_3 />} />
         <Route path="/PointerInfo_4" element={<PointerInfo_4 />} />

@@ -44,22 +44,10 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     navigate("/TrendBoard");
   };
 
-  const FishInformation = (event) => {
+  const PointerInfo_1 = (event) => {
     event.preventDefault();
     // setAuthenticate(true);
-    navigate("/FishInformation");
-  };
-
-  const PointerInformation = (event) => {
-    event.preventDefault();
-    // setAuthenticate(true);
-    navigate("/PointerInformation");
-  };
-
-  const WeatherInformation = (event) => {
-    event.preventDefault();
-    // setAuthenticate(true);
-    navigate("/WeatherInformation");
+    navigate("/PointerInfo_1");
   };
 
   const AnnounCement = (event) => {
@@ -149,7 +137,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
                   )}
                   {menu === "정보제공" && (
                     <>
-                      <Dropdown.Item eventKey="1" onClick={PointerInformation}>
+                      <Dropdown.Item eventKey="1" onClick={PointerInfo_1}>
                         포인트 정보
                       </Dropdown.Item>
                     </>
