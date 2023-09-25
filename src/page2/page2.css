@@ -28,6 +28,7 @@
 .local-button-container {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   margin-right: 50px; /* 버튼과 지도의 오른쪽 간격 */
 }
 
@@ -114,6 +115,7 @@ button {
 
 .hourly-forecast-slider h5 {
   color: white;
+  white-space: nowrap;
 }
 
 .slider-container {
@@ -146,17 +148,16 @@ button {
   margin-left: 250px;
 }
 
+.mainfish {
+  margin-bottom: -30px;
+  margin-top: 50px;
+}
 .fishinfo-1 {
   display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .fishinfo-1 img {
-  width: 100px;
-  height: 100px;
-}
-
-.fishinfo-1 p {
-  margin-top: 10px;
+  margin-right: 10px; /* 이미지와 텍스트 사이의 간격 */
 }
