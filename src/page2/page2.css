@@ -145,3 +145,18 @@ button {
   width: 900px; /* 필요한 경우 너비를 설정 */
   margin-left: 250px;
 }
+
+.fishinfo-1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.fishinfo-1 img {
+  width: 100px;
+  height: 100px;
+}
+
+.fishinfo-1 p {
+  margin-top: 10px;
+}

@@ -123,9 +123,6 @@ const PointerInfo_8 = () => {
     };
   }, []);
 
-  const goToPointerInformation = () => {
-    navigate("/PointerInformation");
-  };
   const goToPointerInfo1 = () => {
     navigate("/PointerInfo_1");
   };
@@ -154,7 +151,6 @@ const PointerInfo_8 = () => {
       <div className="info-wrapper">
         <div className="info-container">
           <div className="local-button-container">
-            <button onClick={goToPointerInformation}>전체</button>
             <button onClick={goToPointerInfo1}>서해중부권</button>
             <button onClick={goToPointerInfo2}>서해남부권</button>
             <button onClick={goToPointerInfo3}>동해중부권</button>
