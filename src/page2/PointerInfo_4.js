@@ -68,7 +68,7 @@ const PointerInfo_4 = () => {
       lng: 129.468,
       image: [
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
@@ -95,19 +95,19 @@ const PointerInfo_4 = () => {
       lng: 129.4117,
       image: [
         {
-          url: "https://i.namu.wiki/i/yowrjhx8oRAlfN-iUI7XE7L_Ca6zVff-EjIsV12JOyMvGnZZCAMxOB1xgoAOTIDsq2NuVJ7kkDaVKBLV0kW1XQNLSYjNzBHv-NF7HdpvJDu5T9H-H9u68cI9mk8yg0rneYe-uY9T6e7aMoCTljiC7A.webp",
+          url: "https://ifh.cc/g/f6gOgF.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/6AejGjWXZEcz-r0OGYkCR1Ge1uTqrli9wKmlBB7B0LZ5YvJi_OycfsFKL6qsylGcQuHvSxAZ0aD2XaoW9t6kPVEQwIvnGhZCwOYLhAYLJG_En-GKtZLqj6xHP_dCrDKsI2zCYL9Cs3vdPJ6bS-hRKw.webp",
+          url: "https://ifh.cc/g/xlg7rc.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
@@ -180,7 +180,7 @@ const PointerInfo_4 = () => {
       lng: 129.4269,
       image: [
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
@@ -207,19 +207,19 @@ const PointerInfo_4 = () => {
       lng: 129.4431,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/ExzD3VKQvO4EPUHcdGGcfCxziPaFFeLm8PRHGquuZ01C9aOXBCLoaELgOpOHiBy5Py04PY45EFMVnMAtixIXdvUAMPNmZD3NVeyoV1kCUUd-ej7u6AGNrcLwJa1H6kWtaH9yBtKD2Vjss7bYEyiXuA.webp",
+          url: "https://ifh.cc/g/TylZN4.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/5cksvQyJXke3tfMPw33WzIn24R7fXCTQlAu5DazMjIzSy5pvGYVfn50vtrj1TcVL217n-14fQmB0tDp4QryQw4qwD4Fs28X_1LvprYqJqETbu-HRIGPG_1ziFSTmFH7IIcYyS4alDMGcahEWyZcBew.webp",
+          url: "https://ifh.cc/g/6LG5AA.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
@@ -292,7 +292,7 @@ const PointerInfo_4 = () => {
       lng: 129.4354,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
       ],
@@ -323,23 +323,23 @@ const PointerInfo_4 = () => {
       lng: 129.4295,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/FbMZrkB_b6ybs3yj-oxiPydBdkO_m_PeHASBYSvVjIW7LvoFndDY43BfBtntLeVQKJoFCmuq2L_jPVHuGEUnMiP-3rQy4UzhMutQ2QuKozjqhd3rXTDRpAq_2HsKc1BfXONADZGnldW2J7V2jy1gNg.webp",
+          url: "https://ifh.cc/g/fF9QVa.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/ExzD3VKQvO4EPUHcdGGcfCxziPaFFeLm8PRHGquuZ01C9aOXBCLoaELgOpOHiBy5Py04PY45EFMVnMAtixIXdvUAMPNmZD3NVeyoV1kCUUd-ej7u6AGNrcLwJa1H6kWtaH9yBtKD2Vjss7bYEyiXuA.webp",
+          url: "https://ifh.cc/g/TylZN4.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/5cksvQyJXke3tfMPw33WzIn24R7fXCTQlAu5DazMjIzSy5pvGYVfn50vtrj1TcVL217n-14fQmB0tDp4QryQw4qwD4Fs28X_1LvprYqJqETbu-HRIGPG_1ziFSTmFH7IIcYyS4alDMGcahEWyZcBew.webp",
+          url: "https://ifh.cc/g/6LG5AA.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
@@ -426,19 +426,19 @@ const PointerInfo_4 = () => {
       lng: 129.3985,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/ExzD3VKQvO4EPUHcdGGcfCxziPaFFeLm8PRHGquuZ01C9aOXBCLoaELgOpOHiBy5Py04PY45EFMVnMAtixIXdvUAMPNmZD3NVeyoV1kCUUd-ej7u6AGNrcLwJa1H6kWtaH9yBtKD2Vjss7bYEyiXuA.webp",
+          url: "https://ifh.cc/g/TylZN4.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/5cksvQyJXke3tfMPw33WzIn24R7fXCTQlAu5DazMjIzSy5pvGYVfn50vtrj1TcVL217n-14fQmB0tDp4QryQw4qwD4Fs28X_1LvprYqJqETbu-HRIGPG_1ziFSTmFH7IIcYyS4alDMGcahEWyZcBew.webp",
+          url: "https://ifh.cc/g/6LG5AA.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          url: "https://ifh.cc/g/mWxsV2.jpg",
           style: {},
         },
       ],
