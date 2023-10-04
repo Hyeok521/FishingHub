@@ -195,28 +195,34 @@ const Communityboard = () => {
       });
   };
 
-  const handleEditPost = (postId, postAuthor, updatedData) => {
-    if (userId !== postAuthor) {
-      alert("수정 권한이 없습니다.");
+  const handleEditPost = () => {
+    if (!currentPost || !newOrEditedPost) {
+      // 현재 게시물이나 수정 내용이 없는 경우 아무 작업도 하지 않음
       return;
     }
 
+    // 수정할 게시글의 ID
+    const postId = currentPost.id;
+
+    // 수정된 게시글 정보
+    const updatedData = {
+      title: newOrEditedPost.title,
+      content: newOrEditedPost.content,
+    };
+
     axios
-      .post(`http://13.48.105.95:8080/board/update/${postId}`, updatedData, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .post(
+        `http://13.48.105.95:8080/board/update`,
+        { board: updatedData },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
+        console.log("수정 응답:", response); // 수정 요청 응답 확인
         if (response.data === "수정되었습니다.") {
           alert("게시글 수정 성공");
-          axios
-            .get("http://13.48.105.95:8080/board/list")
-            .then((response) => {
-              setPosts(response.data);
-              console.log("게시글 목록 재조회 리스폰스:", response);
-            })
-            .catch((error) => {
-              console.error("게시글 목록 재조회 실패:", error);
-            });
+          fetchPosts(); // 게시글 수정 후, 다시 서버에서 게시글 목록을 가져옵니다.
         }
       })
       .catch((error) => {
@@ -227,15 +233,15 @@ const Communityboard = () => {
           console.error("Response headers:", error.response.headers);
         }
         alert("게시글 수정 실패");
+      })
+      .finally(() => {
+        setShowEditModal(false);
+        setShowViewModal(false);
+        setShowCreateModal(false);
       });
   };
 
-  const handleDeletePost = (postId, postAuthor) => {
-    if (userId !== postAuthor) {
-      alert("삭제 권한이 없습니다.");
-      return;
-    }
-
+  const handleDeletePost = (postId) => {
     axios
       .delete(`http://13.48.105.95:8080/board/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
