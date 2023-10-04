@@ -121,7 +121,12 @@ function App() {
         <Route path="/Edit" element={<Edit authenticate={authenticate} />} />
         <Route
           path="Withdrawal"
-          element={<Withdrawal authenticate={authenticate} />}
+          element={
+            <Withdrawal
+              authenticate={authenticate}
+              setAuthenticate={setAuthenticate}
+            />
+          }
         />
         <Route path="/PointerInfo_2" element={<PointerInfo_2 />} />
         <Route path="/PointerInfo_3" element={<PointerInfo_3 />} />
