@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { getCookie } from "../common/CookieUtil";
 
-const Withdrawal = () => {
+const Withdrawal = ({ authenticate, setAuthenticate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +28,9 @@ const Withdrawal = () => {
       );
       if (response.status === 200) {
         setMessage(response.data);
+        setMessage(response.data);
+        setAuthenticate(false); // 로그아웃 처리
+        navigate("/"); // 메인 페이지로 리다이렉트
       } else {
         setMessage("회원 탈퇴에 실패했습니다. 다시 시도해 주세요.");
       }
