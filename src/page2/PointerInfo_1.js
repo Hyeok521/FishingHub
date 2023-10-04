@@ -432,7 +432,7 @@ const PointerInfo_1 = () => {
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/wM_ity7-TgGPsIfG8cnSYKnYG4-UwCFD76tXO7xf8UVcZkybuK7epIbCHMhFc-8W3uRy4wecUPw7IFWwMViHhsm6wfFpwBd9qhrMLc7mZrHNjFMkelw9akGD2PTRTP6e7Bpcn7VEqjgtEqP5XbbhfQ.webp",
+          url: "https://i.namu.wiki/i/57q9pzGMLxSZ9c7J7NsNMeQWz10qjbmJRxyW-XfIkoQNVg18RtG5iFb9Sb4f2V8xf5yLN2d7rOFlEl7RBtvRw-TmXNOpJLS6NN41i5oC_mtJ3ZXrrxeJ3ujasJuUSC43ofM06YFWOyOVcRN0GcP5vw.webp",
           style: {},
         },
         {
@@ -623,11 +623,15 @@ const PointerInfo_1 = () => {
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/yOoqOJgR77-jPzoGM0lTlBpz7s5Aa1TiPvKastjdXGQJdwkOkGxsRuIqyVcqCrsjI4FtCGMYn1wyAlZMQwv6Re6F9uz5xIULEPiQzJf4qJIZ2l4a3BUnemmvacep5VwFlSa_GiiWAQ7PXQRX-0Yb-Q.webp",
+          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/TNUPPgpTR9pkaADQjeMGvWnyiSgTvob-e5grRNJdEYmHvsQlGcBcE4ElwtVNCtYP8Eu02iujDooYdjOPyF8QVyirB7MJpxccGAgkW5If-JUKIRoSU7Oh7WJocYIc7LaAYKOnmND7752FyrCynpY5mA.webp",
+          url: "https://i.namu.wiki/i/MWB0-vpJ4G0EaNf3kzCVzlr1tyXVOwzVEZ9Wj0s4c-biGUgYJt714iHxSCUBkLEJl1lSu67DA7j71OEHc-bz4V_T3qRcWRzdXiQVjY7C18JxiAYRvOSi_M66RYl6Qu_pg9WcYKcpX_GtnvQXnDP9Cg.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/lLCZOTUZZoPUasEdqEJUblYyg87wO5aJD0i9EgesI9DcFqYm5VbAFPrMikhiA1WYykbT6vuz-15q5SDgtsQHzimMcp3LFJ_sNNnxLeOpC0okMsrdTcuGC0U4OKkPNpv5q5Jmu3orQh-V44ThPAN8NA.webp",
           style: {},
         },
         {
@@ -689,13 +693,17 @@ const PointerInfo_1 = () => {
         },
         {
           content: [
-            "망둥이",
-            "먹이: 게·갯지렁이·곤충 등을 잡아먹는다.",
-            "크기: 최대 35cm",
-            "서식지: 서·남해안에 분포하고 있는 연안성 물고기",
+            "감성돔",
+            "먹이: 게, 새우 등 갑각류와 조개, 홍합, 따개비, 삿갓조개와 지렁이류도 좋아하는 편",
+            "크기: 최대 50~60cm",
+            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "금어기: 5월",
+            "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
             { fontSize: "15px" },
             { fontSize: "15px" },
             { fontSize: "15px" },
@@ -703,13 +711,31 @@ const PointerInfo_1 = () => {
         },
         {
           content: [
-            "숭어",
-            "먹이: 성어의 경우 잡식성으로 작은 어류를 비롯한 저서생물, 단각류, 유기성 잔류물 등을 섭이한다.",
-            "크기: 최대 120cm",
-            "서식지: 연안",
+            "광어",
+            "먹이: 먹이는 치어때 요각류, 젓새우류 등의 소형 갑각류를 먹고, 성장하면서 작은 어류, 갑각류",
+            "크기: 최대 60~80cm",
+            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "금지체장: 35cm",
           ],
           style: [
             { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "고등어",
+            "먹이: 부유성 갑각류, 오징어, 작은 어류 등을 주로 먹는다.",
+            "크기: 최대 30cm",
+            "금어기: 4~6월",
+            "금지체장: 21cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
             { fontSize: "15px" },
             { fontSize: "15px" },
             { fontSize: "15px" },
@@ -745,11 +771,640 @@ const PointerInfo_1 = () => {
         },
       ],
     },
-    { name: "마도방파제", lat: 36.67761, lng: 126.1262 },
-    { name: "신진도 부억도", lat: 36.67181, lng: 126.132 },
-    { name: "몽산포방파제", lat: 36.67187, lng: 126.2724 },
-    { name: "방포방파제", lat: 36.50457, lng: 126.3347 },
-    { name: "보령방조제", lat: 36.4463, lng: 126.5269 },
+    {
+      name: "마도방파제",
+      lat: 36.67761,
+      lng: 126.1262,
+      image: [
+        {
+          url: "https://i.namu.wiki/i/TNUPPgpTR9pkaADQjeMGvWnyiSgTvob-e5grRNJdEYmHvsQlGcBcE4ElwtVNCtYP8Eu02iujDooYdjOPyF8QVyirB7MJpxccGAgkW5If-JUKIRoSU7Oh7WJocYIc7LaAYKOnmND7752FyrCynpY5mA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/i3_iJbB0KlB2mhyT5TV0DgtjpT2Ar1RBqjRgsVpMeCwkxmgpbTCffHwU0zmbkYqT5xcEcD8Y0-sla2izQUuSvgub5uXuhNsq1sNBjF0a08KVOBEskDg2BSJrjrfK05H2oyXD_hJWeqH21OsPdFdj_g.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/6AejGjWXZEcz-r0OGYkCR1Ge1uTqrli9wKmlBB7B0LZ5YvJi_OycfsFKL6qsylGcQuHvSxAZ0aD2XaoW9t6kPVEQwIvnGhZCwOYLhAYLJG_En-GKtZLqj6xHP_dCrDKsI2zCYL9Cs3vdPJ6bS-hRKw.webp",
+          style: {},
+        },
+
+        {
+          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          style: {},
+        },
+
+        {
+          url: "https://i.namu.wiki/i/lLCZOTUZZoPUasEdqEJUblYyg87wO5aJD0i9EgesI9DcFqYm5VbAFPrMikhiA1WYykbT6vuz-15q5SDgtsQHzimMcp3LFJ_sNNnxLeOpC0okMsrdTcuGC0U4OKkPNpv5q5Jmu3orQh-V44ThPAN8NA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/Ws7ROJvP2UdJ4MDzqvzXzk0SZGvhK5ylHenO9U5yRYuwX3QYOiPgVkbJv2AwzWhBwCuMpikHlh4FwPhmVETJQTFI7XQv9zyHCjf9acwgEu3rpGrU3CAFp_tXY9uKjUkw0SuZ8yKZ607Mf9LM5WCH2Q.webp",
+          style: {},
+        },
+      ],
+      text: [
+        {
+          content: [
+            "숭어",
+            "먹이: 성어의 경우 잡식성으로 작은 어류를 비롯한 저서생물, 단각류, 유기성 잔류물 등을 섭이한다.",
+            "크기: 최대 120cm",
+            "서식지: 연안",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "우럭",
+            "먹이: 주로 작은 크기의 어류, 갑각류, 두족류 등을 섭식한다.",
+            "크기: 최대 40cm",
+            "서식지: 수심 10~100m인 연안의 암초지대",
+            "금지체장: 23cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "노래미",
+            "먹이: 육식성(작은 갑각류)",
+            "크기: 최대 60cm",
+            "서식지: 연안의 다소 얕은 곳의 해조류나 암초가 있는 곳",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+
+        {
+          content: [
+            "감성돔",
+            "먹이: 게, 새우 등 갑각류와 조개, 홍합, 따개비, 삿갓조개와 지렁이류도 좋아하는 편",
+            "크기: 최대 50~60cm",
+            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "금어기: 5월",
+            "금지체장: 25cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+
+        {
+          content: [
+            "고등어",
+            "먹이: 부유성 갑각류, 오징어, 작은 어류 등을 주로 먹는다.",
+            "크기: 최대 30cm",
+            "금어기: 4~6월",
+            "금지체장: 21cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "학꽁치",
+            "먹이: 작은 갑각류",
+            "크기: 최대 40cm",
+            "서식지: 연근해",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "신진도 부억도",
+      lat: 36.67181,
+      lng: 126.132,
+      image: [
+        {
+          url: "https://i.namu.wiki/i/ie3jBXDHm6X6BYTUTTWmw0ntEBdn5gYxIPZsVQwe9yl5_aJWR7pdYkzz1V5jtUQHeMdhfy1Cx4AqCSdjQMbxzPsus60Obvg9HVkuNBU7Te857qaBeFAF2UMZpFx0jCMZlJGbqa9LTncvCz2Ekim0Tw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/i3_iJbB0KlB2mhyT5TV0DgtjpT2Ar1RBqjRgsVpMeCwkxmgpbTCffHwU0zmbkYqT5xcEcD8Y0-sla2izQUuSvgub5uXuhNsq1sNBjF0a08KVOBEskDg2BSJrjrfK05H2oyXD_hJWeqH21OsPdFdj_g.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/Ws7ROJvP2UdJ4MDzqvzXzk0SZGvhK5ylHenO9U5yRYuwX3QYOiPgVkbJv2AwzWhBwCuMpikHlh4FwPhmVETJQTFI7XQv9zyHCjf9acwgEu3rpGrU3CAFp_tXY9uKjUkw0SuZ8yKZ607Mf9LM5WCH2Q.webp",
+          style: {},
+        },
+      ],
+      text: [
+        {
+          content: [
+            "농어",
+            "먹이: 먹이로는 주로 소형 어류, 새우류 등을 섭이한다.",
+            "크기: 최대 1m",
+            "서식지: 연근해 / 연안이나 만입구의 수심 50~80m 되는 약간 깊은 곳",
+            "금지체장: 30cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "우럭",
+            "먹이: 주로 작은 크기의 어류, 갑각류, 두족류 등을 섭식한다.",
+            "크기: 최대 40cm",
+            "서식지: 수심 10~100m인 연안의 암초지대",
+            "금지체장: 23cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+
+        {
+          content: [
+            "감성돔",
+            "먹이: 게, 새우 등 갑각류와 조개, 홍합, 따개비, 삿갓조개와 지렁이류도 좋아하는 편",
+            "크기: 최대 50~60cm",
+            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "금어기: 5월",
+            "금지체장: 25cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "학꽁치",
+            "먹이: 작은 갑각류",
+            "크기: 최대 40cm",
+            "서식지: 연근해",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "몽산포방파제",
+      lat: 36.67187,
+      lng: 126.2724,
+      image: [
+        {
+          url: "https://i.namu.wiki/i/i3_iJbB0KlB2mhyT5TV0DgtjpT2Ar1RBqjRgsVpMeCwkxmgpbTCffHwU0zmbkYqT5xcEcD8Y0-sla2izQUuSvgub5uXuhNsq1sNBjF0a08KVOBEskDg2BSJrjrfK05H2oyXD_hJWeqH21OsPdFdj_g.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/TNUPPgpTR9pkaADQjeMGvWnyiSgTvob-e5grRNJdEYmHvsQlGcBcE4ElwtVNCtYP8Eu02iujDooYdjOPyF8QVyirB7MJpxccGAgkW5If-JUKIRoSU7Oh7WJocYIc7LaAYKOnmND7752FyrCynpY5mA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/ie3jBXDHm6X6BYTUTTWmw0ntEBdn5gYxIPZsVQwe9yl5_aJWR7pdYkzz1V5jtUQHeMdhfy1Cx4AqCSdjQMbxzPsus60Obvg9HVkuNBU7Te857qaBeFAF2UMZpFx0jCMZlJGbqa9LTncvCz2Ekim0Tw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/6AejGjWXZEcz-r0OGYkCR1Ge1uTqrli9wKmlBB7B0LZ5YvJi_OycfsFKL6qsylGcQuHvSxAZ0aD2XaoW9t6kPVEQwIvnGhZCwOYLhAYLJG_En-GKtZLqj6xHP_dCrDKsI2zCYL9Cs3vdPJ6bS-hRKw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/wM_ity7-TgGPsIfG8cnSYKnYG4-UwCFD76tXO7xf8UVcZkybuK7epIbCHMhFc-8W3uRy4wecUPw7IFWwMViHhsm6wfFpwBd9qhrMLc7mZrHNjFMkelw9akGD2PTRTP6e7Bpcn7VEqjgtEqP5XbbhfQ.webp",
+          style: {},
+        },
+
+        {
+          url: "https://i.namu.wiki/i/ETTClryP3Vv4bVTdyGQOUcqw7N-U0tEbOKceyY73zIvJvcjMwgRJdBWop5PFn_fjZAiwiXn2Yj_ukZ9EhCB8Fk5FZmfvW4EKkvnm4GlzYCn--ETJH74YqcaH8Grq1HHIemZ6hemE7zskyTdUKSe-GQ.webp",
+          style: {},
+        },
+      ],
+      text: [
+        {
+          content: [
+            "우럭",
+            "먹이: 주로 작은 크기의 어류, 갑각류, 두족류 등을 섭식한다.",
+            "크기: 최대 40cm",
+            "서식지: 수심 10~100m인 연안의 암초지대",
+            "금지체장: 23cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "숭어",
+            "먹이: 성어의 경우 잡식성으로 작은 어류를 비롯한 저서생물, 단각류, 유기성 잔류물 등을 섭이한다.",
+            "크기: 최대 120cm",
+            "서식지: 연안",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "농어",
+            "먹이: 먹이로는 주로 소형 어류, 새우류 등을 섭이한다.",
+            "크기: 최대 1m",
+            "서식지: 연근해 / 연안이나 만입구의 수심 50~80m 되는 약간 깊은 곳",
+            "금지체장: 30cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "노래미",
+            "먹이: 육식성(작은 갑각류)",
+            "크기: 최대 60cm",
+            "서식지: 연안의 다소 얕은 곳의 해조류나 암초가 있는 곳",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "도다리",
+            "먹이: 먹이는 갯지렁이류, 조개류, 새우류 등의 저서성 생물을 주로 섭이한다.",
+            "크기: 최대 30cm",
+            "서식지: 우리나라 전 연안",
+            "금어기: 12월~2월",
+            "금지체장: 15cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "붕장어",
+            "먹이: 작은 갑각류",
+            "크기: 최대 40cm",
+            "서식지: 연근해",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "방포방파제",
+      lat: 36.50457,
+      lng: 126.3347,
+      image: [
+        {
+          url: "https://i.namu.wiki/i/i3_iJbB0KlB2mhyT5TV0DgtjpT2Ar1RBqjRgsVpMeCwkxmgpbTCffHwU0zmbkYqT5xcEcD8Y0-sla2izQUuSvgub5uXuhNsq1sNBjF0a08KVOBEskDg2BSJrjrfK05H2oyXD_hJWeqH21OsPdFdj_g.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/TNUPPgpTR9pkaADQjeMGvWnyiSgTvob-e5grRNJdEYmHvsQlGcBcE4ElwtVNCtYP8Eu02iujDooYdjOPyF8QVyirB7MJpxccGAgkW5If-JUKIRoSU7Oh7WJocYIc7LaAYKOnmND7752FyrCynpY5mA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/6AejGjWXZEcz-r0OGYkCR1Ge1uTqrli9wKmlBB7B0LZ5YvJi_OycfsFKL6qsylGcQuHvSxAZ0aD2XaoW9t6kPVEQwIvnGhZCwOYLhAYLJG_En-GKtZLqj6xHP_dCrDKsI2zCYL9Cs3vdPJ6bS-hRKw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/Ws7ROJvP2UdJ4MDzqvzXzk0SZGvhK5ylHenO9U5yRYuwX3QYOiPgVkbJv2AwzWhBwCuMpikHlh4FwPhmVETJQTFI7XQv9zyHCjf9acwgEu3rpGrU3CAFp_tXY9uKjUkw0SuZ8yKZ607Mf9LM5WCH2Q.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/908TXkllS2xx-3o_sl2VpMjwkWXPGPXeT-A_B3nUKjvhRj9rOzVZ10fykw71CcDvCx7CxSjLAzRsBpTAzK94SEwyt4KbbpmMXjsMfUMKlLvVawDwo40kfoNZKGV-jQsrD0a4O9fQsOatTrxYsqrDNw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/-RHOICD8ksfRhw0ohNIUk8g0LqCO_FeKUGP2RYped5dr4aLy0nNqkzxD3TzlL3mNsB3GOEv9C1VF9m2BogUiEJfS4igWbVQf84eP9i2n9aSPAGJRAcMp45SV8ErV57EbaIrEZFxDHlFqTzEflA2-YA.webp",
+          style: {},
+        },
+      ],
+      text: [
+        {
+          content: [
+            "우럭",
+            "먹이: 주로 작은 크기의 어류, 갑각류, 두족류 등을 섭식한다.",
+            "크기: 최대 40cm",
+            "서식지: 수심 10~100m인 연안의 암초지대",
+            "금지체장: 23cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "숭어",
+            "먹이: 성어의 경우 잡식성으로 작은 어류를 비롯한 저서생물, 단각류, 유기성 잔류물 등을 섭이한다.",
+            "크기: 최대 120cm",
+            "서식지: 연안",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "노래미",
+            "먹이: 육식성(작은 갑각류)",
+            "크기: 최대 60cm",
+            "서식지: 연안의 다소 얕은 곳의 해조류나 암초가 있는 곳",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "학꽁치",
+            "먹이: 작은 갑각류",
+            "크기: 최대 40cm",
+            "서식지: 연근해",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "갈치",
+            "먹이: 작은 물고기나 오징어나 새우, 게",
+            "크기: 최대 150cm",
+            "서식지: 연안",
+            "금어기: 7월",
+            "금지체장: 18cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "보리멸",
+            "먹이: 먹이는 작은 어류, 갑각류, 갯지렁이류 등의 저서생물을 주로 섭이",
+            "크기: 최대 30cm",
+            "서식지: 연안 가까이의 모래 바닥이나 강 하구의 간석지",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "보령방조제",
+      lat: 36.4463,
+      lng: 126.5269,
+      image: [
+        {
+          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/i3_iJbB0KlB2mhyT5TV0DgtjpT2Ar1RBqjRgsVpMeCwkxmgpbTCffHwU0zmbkYqT5xcEcD8Y0-sla2izQUuSvgub5uXuhNsq1sNBjF0a08KVOBEskDg2BSJrjrfK05H2oyXD_hJWeqH21OsPdFdj_g.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/TNUPPgpTR9pkaADQjeMGvWnyiSgTvob-e5grRNJdEYmHvsQlGcBcE4ElwtVNCtYP8Eu02iujDooYdjOPyF8QVyirB7MJpxccGAgkW5If-JUKIRoSU7Oh7WJocYIc7LaAYKOnmND7752FyrCynpY5mA.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/ie3jBXDHm6X6BYTUTTWmw0ntEBdn5gYxIPZsVQwe9yl5_aJWR7pdYkzz1V5jtUQHeMdhfy1Cx4AqCSdjQMbxzPsus60Obvg9HVkuNBU7Te857qaBeFAF2UMZpFx0jCMZlJGbqa9LTncvCz2Ekim0Tw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/6AejGjWXZEcz-r0OGYkCR1Ge1uTqrli9wKmlBB7B0LZ5YvJi_OycfsFKL6qsylGcQuHvSxAZ0aD2XaoW9t6kPVEQwIvnGhZCwOYLhAYLJG_En-GKtZLqj6xHP_dCrDKsI2zCYL9Cs3vdPJ6bS-hRKw.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/wM_ity7-TgGPsIfG8cnSYKnYG4-UwCFD76tXO7xf8UVcZkybuK7epIbCHMhFc-8W3uRy4wecUPw7IFWwMViHhsm6wfFpwBd9qhrMLc7mZrHNjFMkelw9akGD2PTRTP6e7Bpcn7VEqjgtEqP5XbbhfQ.webp",
+          style: {},
+        },
+
+        {
+          url: "https://i.namu.wiki/i/ETTClryP3Vv4bVTdyGQOUcqw7N-U0tEbOKceyY73zIvJvcjMwgRJdBWop5PFn_fjZAiwiXn2Yj_ukZ9EhCB8Fk5FZmfvW4EKkvnm4GlzYCn--ETJH74YqcaH8Grq1HHIemZ6hemE7zskyTdUKSe-GQ.webp",
+          style: {},
+        },
+        {
+          url: "https://i.namu.wiki/i/57q9pzGMLxSZ9c7J7NsNMeQWz10qjbmJRxyW-XfIkoQNVg18RtG5iFb9Sb4f2V8xf5yLN2d7rOFlEl7RBtvRw-TmXNOpJLS6NN41i5oC_mtJ3ZXrrxeJ3ujasJuUSC43ofM06YFWOyOVcRN0GcP5vw.webp",
+          style: {},
+        },
+      ],
+      text: [
+        {
+          content: [
+            "감성돔",
+            "먹이: 게, 새우 등 갑각류와 조개, 홍합, 따개비, 삿갓조개와 지렁이류도 좋아하는 편",
+            "크기: 최대 50~60cm",
+            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "금어기: 5월",
+            "금지체장: 25cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "우럭",
+            "먹이: 주로 작은 크기의 어류, 갑각류, 두족류 등을 섭식한다.",
+            "크기: 최대 40cm",
+            "서식지: 수심 10~100m인 연안의 암초지대",
+            "금지체장: 23cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "숭어",
+            "먹이: 성어의 경우 잡식성으로 작은 어류를 비롯한 저서생물, 단각류, 유기성 잔류물 등을 섭이한다.",
+            "크기: 최대 120cm",
+            "서식지: 연안",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "농어",
+            "먹이: 먹이로는 주로 소형 어류, 새우류 등을 섭이한다.",
+            "크기: 최대 1m",
+            "서식지: 연근해 / 연안이나 만입구의 수심 50~80m 되는 약간 깊은 곳",
+            "금지체장: 30cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "노래미",
+            "먹이: 육식성(작은 갑각류)",
+            "크기: 최대 60cm",
+            "서식지: 연안의 다소 얕은 곳의 해조류나 암초가 있는 곳",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "도다리",
+            "먹이: 먹이는 갯지렁이류, 조개류, 새우류 등의 저서성 생물을 주로 섭이한다.",
+            "크기: 최대 30cm",
+            "서식지: 우리나라 전 연안",
+            "금어기: 12월~2월",
+            "금지체장: 15cm",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "붕장어",
+            "먹이: 작은 갑각류",
+            "크기: 최대 40cm",
+            "서식지: 연근해",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+        {
+          content: [
+            "삼치",
+            "먹이: 먹이는 주로 작은 어류를 먹는다.",
+            "크기: 최대 100cm",
+            "서식지: 연근해의 아표층",
+            "금어기: 5월",
+          ],
+          style: [
+            { fontSize: "20px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+            { fontSize: "15px" },
+          ],
+        },
+      ],
+    },
   ];
 
   useEffect(() => {
