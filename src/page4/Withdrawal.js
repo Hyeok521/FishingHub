@@ -27,6 +27,8 @@ const Withdrawal = ({ authenticate, setAuthenticate }) => {
         }
       );
       if (response.status === 200) {
+        // setMessage("회원 탈퇴 성공");
+        alert("회원탈퇴성공");
         setMessage(response.data);
         setMessage(response.data);
         setAuthenticate(false); // 로그아웃 처리
