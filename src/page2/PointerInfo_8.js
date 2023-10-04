@@ -918,15 +918,15 @@ const PointerInfo_8 = () => {
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/5T5sWA.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/4mxQ2D.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/SgyQQP.jpg",
           style: {},
         },
       ],
@@ -1089,27 +1089,27 @@ const PointerInfo_8 = () => {
       lng: 126.5168,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/fF9QVa.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/DDvn5g.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/ZVkFcV.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/4kPXWY.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/KKLSxz.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/drtVqn.jpg",
           style: {},
         },
       ],
@@ -1214,23 +1214,23 @@ const PointerInfo_8 = () => {
       lng: 126.3143,
       image: [
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/fF9QVa.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/H8MdAw.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/4kPXWY.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/78Hh0rw8DWD_SNeWQdIWOAjPbzbwZxdldpx5faT-SA8P7Nfn0gt3rOEgyrKYhBlqgJadlcXZqwDfiYBfoZNnCZkgFz0sl5bgL_QB42oMuziuqU5BIfYK0CC7xQfYk-nIaHMm6GUqYzJ6oQCLOSISJA.webp",
+          url: "https://ifh.cc/g/KKLSxz.jpg",
           style: {},
         },
         {
-          url: "https://i.namu.wiki/i/eKS5Q19Ukx1zUY4JmsHuw0Hh-Una05lxSTcbNArgv76T3nd9S6tH0jpBLDc7FH6vqcvBEo1VaXG_IIsARKVjsEVnDj8xXNnoCQ--2d3VcbsJx37AVdhD0LkbV1u_T-p9vUOIbbkjnvZDHb9sBjmL2g.webp",
+          url: "https://ifh.cc/g/drtVqn.jpg",
           style: {},
         },
       ],
