@@ -311,7 +311,7 @@ const ProductAll = () => {
 
       <Carousel interval={2000} className="carousel">
         {mainInfos?.map((item, index) => {
-          if (index < 18) {
+          if (index < 8) {
             let code;
             let i;
             if (index + 1 < 10) {
