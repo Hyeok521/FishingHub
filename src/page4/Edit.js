@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import axios from "axios"; // axios 라이브러리를 추가
-import { getAuthentication } from "../common/CookieUtil";
+import axios from "axios";
+import { deleteCookie, getAuthentication } from "../common/CookieUtil";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/authSlice";
 
 const Edit = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfos] = useState();
   const [snsAccessToken, setSnsAccessToken] = useState();
   const [formData, setFormData] = useState({
     beforePassword: "",
@@ -26,19 +29,28 @@ const Edit = () => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-  const handleWd = (event) => {
-    event.preventDefault();
-    // setAuthenticate();
-    navigate("/Withdrawal");
+  const handleWd = () => {
+    axios
+      .delete(process.env.REACT_APP_SERVER_URL + "/member/me", {
+        headers: { Authorization: `Bearer ${getAuthentication()}` },
+      })
+      .then(() => {
+        alert("탈퇴되었습니다.");
+        deleteCookie("accessToken");
+        dispatch(setUserInfo(null));
+        navigate("/login");
+      })
+      .catch(() => {
+        alert("실패하였습니다.");
+      });
   };
 
   useEffect(() => {
-    getUserInfo().then(() => {
+    getUserInfo().then((res) => {
       // SNS 로그인인 경우 카카오 SDK 초기화
-      if (formData.loginType === "SNS") {
-        if (!window.Kakao.isInitialized()) {
-          window.Kakao.init("ccee64d52026e46448ac815273a89fda");
-        }
+      if (res.loginType === "SNS") {
+        alert("SNS 로그인 유저는 회원정보를 수정할 수 없습니다.");
+        navigate("/");
       }
     });
   }, []);
@@ -48,13 +60,16 @@ const Edit = () => {
    */
   const getUserInfo = async () => {
     try {
-      const response = await axios.get("http://13.48.105.95:8080/mypage/info", {
-        headers: {
-          Authorization: "Bearer " + getAuthentication(),
-        },
-      });
+      const response = await axios.get(
+        process.env.REACT_APP_SERVER_URL + "/member/info",
+        {
+          headers: {
+            Authorization: "Bearer " + getAuthentication(),
+          },
+        }
+      );
       if (response.status === 200) {
-        setUserInfo(response.data);
+        setUserInfos(response.data);
         setFormData({
           ...formData,
           loginType: response.data.loginType,
@@ -64,11 +79,13 @@ const Edit = () => {
           birth: response.data.birth,
           userNick: response.data.userNick,
         });
+        return response.data;
       } else {
         alert("잘못된 접근입니다.");
         navigate("/");
       }
     } catch (error) {
+      console.error(error);
       alert("잘못된 접근입니다.");
       navigate("/");
     }
@@ -144,18 +161,16 @@ const Edit = () => {
    */
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        "http://13.48.105.95:8080/mypage/updateMemberInfo",
+      const response = await axios.put(
+        process.env.REACT_APP_SERVER_URL + "/member/update-info",
         {
           userPw: formData.beforePassword,
-          afterUserPw: formData.afterPassword,
-          userNick: formData.userNick,
-          userNm: formData.userNm,
+          newUserPw: formData.afterPassword,
+          userNickname: formData.userNick,
+          userName: formData.userNm,
           email: formData.email,
           mobile: formData.mobile,
-          loginType: formData.loginType,
           birth: formData.birth,
-          accessToken: snsAccessToken,
         },
         {
           headers: {
@@ -171,7 +186,8 @@ const Edit = () => {
         alert("회원정보 수정에 실패하였습니다.");
       }
     } catch (error) {
-      alert("회원정보 수정에 실패하였습니다.");
+      console.error(error);
+      alert(error.response.data.message);
     }
   };
 

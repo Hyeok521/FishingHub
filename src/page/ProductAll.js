@@ -1,11 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Container, Carousel, Card, Row, Col } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import {
+  Button,
+  Card,
+  Carousel,
+  Col,
+  Form,
+  Image,
+  Modal,
+  Row,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useSelector } from "react-redux";
+import { ROLE_ADMIN } from "../common/Constants";
+import axios from "axios";
+import { getAuthentication } from "../common/CookieUtil";
+import { useNavigate } from "react-router-dom";
 
 const ProductAll = () => {
-  const [products, setProducts] = useState([]);
-  const [query, setQuery] = useSearchParams();
+  const auth = useSelector((state) => state.auth.auth);
+  const navigate = useNavigate();
+  const [isModal, setIsModal] = useState(false);
+  const [image, setImage] = useState(null);
+  const [preImage, setPreImage] = useState(null);
+  const [mainInfo, setMainInfo] = useState(null);
+  const [mainCode, setMainCode] = useState("");
+  const [mainInfos, setMainInfos] = useState();
 
   const imageUrls = [
     "https://lh3.googleusercontent.com/p/AF1QipNcO0HTZy14UCRUdmugbHbyuDbQnJlKfliy0UH2=s1360-w1360-h1020",
@@ -63,47 +82,320 @@ const ProductAll = () => {
     setWeather(data);
   };
 
+  // 이미지 업로드
+  const handleImageChange = (event) => {
+    const image = event.target.files[0];
+    setImage(image);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+      setPreImage(reader.result);
+    };
+  };
+
+  const fetchMainInfo = async () => {
+    try {
+      const res = await axios.get(
+        process.env.REACT_APP_SERVER_URL + "/main/info"
+      );
+      if (res && res.data) {
+        setMainInfos(res.data);
+      } else {
+        console.error("Unexpected response:", res);
+      }
+    } catch (error) {
+      console.error("Error fetching main info:", error);
+      alert(error.response ? error.response.data.message : error.message);
+    }
+  };
+
   useEffect(() => {
-    if (city == "") {
+    fetchMainInfo();
+  }, []);
+
+  const handleUpdate = () => {
+    if (!auth) {
+      alert("로그인 후 이용해주세요");
+      navigate("/login");
+      return;
+    }
+
+    // 글 작성에 필요한 데이터 수집
+    const formData = new FormData();
+    formData.append("text", mainInfo.text);
+    formData.append("infoType", mainCode);
+
+    if (image) {
+      formData.append("image", image);
+    }
+
+    // formData를 사용하여 데이터를 보냅니다.
+    axios
+      .put(process.env.REACT_APP_SERVER_URL + "/admin/main/info", formData, {
+        headers: {
+          Authorization: `Bearer ${getAuthentication()}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          alert("수정 성공");
+          fetchMainInfo();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("수정 실패");
+      })
+      .finally(() => {
+        setIsModal(false);
+        setImage(null);
+        setMainInfo(null);
+      });
+  };
+
+  const openModal = (e, code) => {
+    if (auth.userType === ROLE_ADMIN) {
+      e.preventDefault();
+      setIsModal(true);
+      setMainCode(code);
+
+      axios
+        .get(process.env.REACT_APP_SERVER_URL + "/admin/main/info", {
+          params: { infoType: code },
+          headers: {
+            Authorization: `Bearer ${getAuthentication()}`,
+          },
+        })
+        .then((res) => {
+          setMainInfo(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+          alert(error.response.data.message);
+          setIsModal(true);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (city === "") {
       getCurrentLocation();
     } else {
       getWeatherByCity();
     }
   }, [city]);
 
+  const getMainInfoText = (code) => {
+    return mainInfos?.map((item) => {
+      if (item.infoType === code) {
+        return item.text;
+      }
+    });
+  };
+
+  const getMainInfoImage = (code) => {
+    const imageUrls = mainInfos
+      ?.filter((item) => item.infoType === code)
+      .map((item) => {
+        console.log(
+          process.env.REACT_APP_SERVER_URL +
+            "/image/" +
+            item.savedImage?.savedName
+        );
+        return (
+          process.env.REACT_APP_SERVER_URL +
+          "/image/" +
+          item.savedImage?.savedName
+        );
+      });
+
+    return imageUrls || [];
+    // return mainInfos?.map(item => {
+    //     if (item.infoType === code) {
+    //         console.log(process.env.REACT_APP_SERVER_URL + '/image/' + item.savedImage?.savedName)
+    //         return process.env.REACT_APP_SERVER_URL + '/image/' + item.savedImage?.savedName
+    //     }
+    // })
+  };
+
   return (
     <div>
+      <Modal
+        show={isModal}
+        onHide={() => setIsModal(false)}
+        onExited={() => {
+          setPreImage(null);
+          setImage(null);
+        }}
+        size="lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>수정</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {(mainCode.startsWith("B") || mainCode.startsWith("C")) && (
+            <Form.Group className="mb-5">
+              <Form.Label>텍스트</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="텍스트를 입력하세요."
+                value={mainInfo?.text}
+                onChange={(e) =>
+                  setMainInfo({
+                    ...mainInfo,
+                    text: e.target.value,
+                  })
+                }
+              />
+            </Form.Group>
+          )}
+          <Form.Group>
+            <Form.Control
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+            {(mainInfo?.savedImage || preImage) && (
+              <div
+                style={{
+                  height: "auto",
+                  width: "auto",
+                }}
+              >
+                <Image
+                  src={
+                    preImage
+                      ? preImage
+                      : process.env.REACT_APP_SERVER_URL +
+                        "/image/" +
+                        mainInfo?.savedImage.savedName
+                  }
+                  // src={process.env.REACT_APP_SERVER_URL + '/image/' + articleInfo?.savedImage.savedName}
+                  alt="Image Preview"
+                  thumbnail
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    marginBottom: "10px",
+                  }}
+                />
+                {mainInfo?.savedImage && (
+                  <div>
+                    {mainInfo?.savedImage.originalName}
+                    {/*<Button variant="danger"*/}
+                    {/*        onClick={() => handleFileDelete(main.savedImage.id, "image")}>*/}
+                    {/*    이미지 삭제*/}
+                    {/*</Button>*/}
+                  </div>
+                )}
+              </div>
+            )}
+          </Form.Group>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setIsModal(false)}>
+            취소
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleUpdate();
+            }}
+          >
+            저장
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Carousel interval={2000} className="carousel">
-        {imageUrls.map((url, index) => (
-          <Carousel.Item key={index}>
-            <img className="pointer" src={url} alt={`Image - ${index + 1}`} />
-          </Carousel.Item>
-        ))}
+        {mainInfos?.map((item, index) => {
+          if (index < 18) {
+            let code;
+            let i;
+            if (index + 1 < 10) {
+              i = "0" + (index + 1);
+            } else {
+              i = index + 1;
+            }
+            code = "A" + i;
+            return (
+              <Carousel.Item key={index}>
+                <img
+                  className="pointer"
+                  src={getMainInfoImage(code)}
+                  alt="이미지"
+                  onClick={(e) => {
+                    openModal(e, code);
+                  }}
+                />
+              </Carousel.Item>
+            );
+          }
+        })}
+        {/*{imageUrls.map((url, index) => (*/}
+        {/*    <Carousel.Item key={index}>*/}
+        {/*        <img className="pointer" src={url} alt={`Image - ${index + 1}`} onClick={(e) => {*/}
+        {/*            let i;*/}
+        {/*            if (index + 1 < 10) {*/}
+        {/*                i = '0' + (index + 1)*/}
+        {/*            } else {*/}
+        {/*                i = index + 1;*/}
+        {/*            }*/}
+        {/*            openModal(e, 'A' + i)*/}
+        {/*        }}/>*/}
+        {/*    </Carousel.Item>*/}
+        {/*))}*/}
       </Carousel>
       <div>
         <ul className="product-add1">
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=28">
-              <img src="https://sapa.co.kr/web/product/extra/big/20230224/585d140ee81a60cb4964fd56ed44175c.jpg" />
-              <div>릴 →</div>
+              <img
+                src={getMainInfoImage("B01")[0]}
+                onClick={(e) => {
+                  openModal(e, "B01");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B01")} →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=107">
-              <img src="https://sapa.co.kr/web/product/extra/big/20230901/636e7a9b5c3dae5054fee181e387317f.jpg" />
-              <div>낚싯줄 →</div>
+              <img
+                src={getMainInfoImage("B02")}
+                onClick={(e) => {
+                  openModal(e, "B02");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B02")} →</div>
             </a>
           </li>
           <li>
             <a href="https://www.wfish.co.kr/sp2/goods_data_list.htm?cate_code=009">
-              <img src="https://sapa.co.kr/web/product/medium/202306/dc636f8b85b83077bd32e81a261f80d2.jpg" />
-              <div>찌 →</div>
+              <img
+                src={getMainInfoImage("B03")}
+                onClick={(e) => {
+                  openModal(e, "B03");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B03")} →</div>
             </a>
           </li>
           <li>
             <a href="https://www.klfishing.com/shop_item_list.php?ac_id=8">
-              <img src="https://sapa.co.kr/web/product/medium/202206/15cbe9ea7c81066739a70917e3ea88a9.jpg" />
-              <div>낚시바늘 →</div>
+              <img
+                src={getMainInfoImage("B04")}
+                onClick={(e) => {
+                  openModal(e, "B04");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B04")} →</div>
             </a>
           </li>
         </ul>
@@ -112,26 +404,50 @@ const ProductAll = () => {
         <ul className="product-add2">
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=112">
-              <img src="https://sapa.co.kr/web/product/extra/big/20230207/37f74a86184ec084cd81980c986c4a40.jpg" />
-              <div>낚시가방 →</div>
+              <img
+                src={getMainInfoImage("B05")}
+                onClick={(e) => {
+                  openModal(e, "B05");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B05")} →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=204">
-              <img src="https://sapa.co.kr/web/product/medium/202205/dd9cd4ae2a1683c64676754517265a81.jpg" />
-              <div>낚시의자 및 테이블 →</div>
+              <img
+                src={getMainInfoImage("B06")}
+                onClick={(e) => {
+                  openModal(e, "B06");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B06")} →</div>
             </a>
           </li>
           <li>
             <a href="https://www.wfish.co.kr/sp2/goods_data_list.htm?cate_code=012">
-              <img src="https://sapa.co.kr/web/product/medium/202306/d20bcf505cb2583e86a92eb6922e0bf2.jpg" />
-              <div>의류 및 잡화 →</div>
+              <img
+                src={getMainInfoImage("B07")}
+                onClick={(e) => {
+                  openModal(e, "B07");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B07")} →</div>
             </a>
           </li>
           <li>
             <a href="https://sapa.co.kr/product/list.html?cate_no=261">
-              <img src="https://sapa.co.kr/web/product/medium/202308/70c4de93dbc72ec255fdfb775e7674b4.jpg" />
-              <div>낚싯대 및 낚시세트 →</div>
+              <img
+                src={getMainInfoImage("B08")}
+                onClick={(e) => {
+                  openModal(e, "B08");
+                }}
+                alt="이미지"
+              />
+              <div>{getMainInfoText("B08")} →</div>
             </a>
           </li>
         </ul>
@@ -152,12 +468,15 @@ const ProductAll = () => {
             transform: "none",
           }}
         >
-          <Row noGutters={true}>
+          <Row>
             <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
               <Card.Img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfFbzu_8IO3x7CB3q-He2q9ZeOQ7Y6sdXWsKZWWMUr9sLT66S68gX-zmVJNBCyHVvDouA&usqp=CAU"
+                src={getMainInfoImage("C01")}
                 variant="left"
                 style={{ width: "675px" }}
+                onClick={(e) => {
+                  openModal(e, "C01");
+                }}
               />
             </Col>
             <Col xs={6} style={{ display: "flex" }}>
@@ -171,14 +490,7 @@ const ProductAll = () => {
                 }}
               >
                 <Card.Text style={{ fontSize: "20px", textAlign: "left" }}>
-                  <div>
-                    바다의 파도 속에서, 강의 흐름 속에서, 우리는 무엇을 찾고
-                    있는가?
-                  </div>
-                  <div>아마도 잡히지 않는 꿈, 혹은</div>
-                  <div>
-                    놓치고 싶지 않은 순간의 아름다움을 찾고 있을 것이다.
-                  </div>
+                  {getMainInfoText("C01")}
                 </Card.Text>
               </Card.Body>
             </Col>
@@ -201,7 +513,7 @@ const ProductAll = () => {
             transform: "none",
           }}
         >
-          <Row noGutters={true}>
+          <Row>
             <Col xs={6} style={{ display: "flex" }}>
               <Card.Body
                 style={{
@@ -213,25 +525,31 @@ const ProductAll = () => {
                 }}
               >
                 <Card.Text style={{ fontSize: "20px", textAlign: "left" }}>
-                  <div>낚시는 인생의 교훈을 주는 활동이다.</div>
-                  <div>무한한 기다림과 인내, 그리고 예상치 못한 선물.</div>
-                  <div>이 모든 것이 우리에게 인생이란 무엇인지,</div>
-                  <div>그리고 진정한 행복이란 무엇인지를 알려준다.</div>
+                  {getMainInfoText("C02")}
                 </Card.Text>
               </Card.Body>
             </Col>
             <Col xs={6} style={{ display: "flex", alignItems: "center" }}>
               <Card.Img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX9pq_LheRIf41LZyi-g36AIzWK59-dlil1Q&usqp=CAU"
+                src={getMainInfoImage("C02")}
                 variant="left"
                 style={{ width: "675px" }}
+                onClick={(e) => {
+                  openModal(e, "C02");
+                }}
               />
             </Col>
           </Row>
         </Card>
       </div>
       <div className="bottom">
-        <img src="https://fishinghub.store/cdn/shop/files/6abb3fa590883cd3c9df83c9973e2d18.jpg?v=1660987896&width=1500" />
+        <img
+          src={getMainInfoImage("D01")}
+          alt="이미지"
+          onClick={(e) => {
+            openModal(e, "D01");
+          }}
+        />
       </div>
     </div>
   );
