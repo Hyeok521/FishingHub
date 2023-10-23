@@ -22,6 +22,34 @@ const Edit = () => {
     birth: "",
   });
 
+  const [emailDomains, setEmailDomains] = useState([
+    "@naver.com",
+    "@gmail.com",
+    "@daum.net",
+  ]);
+  const [emailDomain, setEmailDomain] = useState("");
+
+  const handleEditChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleDomainChange = (event) => {
+    const selectedDomain = event.target.value;
+    setFormData({
+      ...formData,
+      email: formData.email + selectedDomain,
+    });
+  };
+
+  const handleDropdownClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   const userIdRegex = /^[a-zA-Z0-9]{5,15}$/;
   const userNickRegex = /^.{2,10}$/;
   const userNmRegex = /^[가-힣]{2,5}$/;
@@ -243,13 +271,35 @@ const Edit = () => {
 
           <Form.Group className="mb-3" controlId="formBasicNickname">
             <Form.Label>email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder=""
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
+            <div className="input-group">
+              <Form.Control
+                type="text"
+                name="email"
+                placeholder=""
+                value={formData.email}
+                onChange={handleEditChange}
+                style={{ borderRight: "1px solid black" }}
+              />
+              <select
+                onClick={handleDropdownClick}
+                onChange={(e) => {
+                  const selectedDomain = e.target.value;
+                  setFormData({
+                    ...formData,
+                    email:
+                      formData.email.replace(emailDomain, "") + selectedDomain,
+                  });
+                  setEmailDomain(selectedDomain);
+                }}
+                value={emailDomain}
+              >
+                {emailDomains.map((domain) => (
+                  <option key={domain} value={domain}>
+                    {domain}
+                  </option>
+                ))}
+              </select>
+            </div>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicTel">
