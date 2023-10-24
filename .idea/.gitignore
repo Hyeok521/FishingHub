@@ -10,4 +10,7 @@
 .env
 .env.production
 
+src/.env
+src/.env.production
+
 # test
