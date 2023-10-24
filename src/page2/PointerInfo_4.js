@@ -19,7 +19,7 @@ const PointerInfo_4 = () => {
   };
 
   const fetchWeatherInfo = async (lat, lng) => {
-    const API_KEY = "e7f59aaca8543637eab9ad2b801f9249";
+    const API_KEY = process.env.REACT_APP_WeatherApi;
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}&lang=kr`
     );
@@ -28,7 +28,7 @@ const PointerInfo_4 = () => {
   };
 
   const fetchHourlyWeatherInfo = async (lat, lng) => {
-    const API_KEY = "e7f59aaca8543637eab9ad2b801f9249";
+    const API_KEY = process.env.REACT_APP_WeatherApi;
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}&lang=kr`
     );
@@ -510,8 +510,7 @@ const PointerInfo_4 = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
-    script.src =
-      "https://dapi.kakao.com/v2/maps/sdk.js?appkey=63114d1a191dab97391e7908148e4784&libraries=services&autoload=false";
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_Kakao_Map}&libraries=services&autoload=false`;
     document.head.appendChild(script);
 
     script.onload = () => {

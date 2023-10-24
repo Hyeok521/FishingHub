@@ -25,8 +25,9 @@ const WeatherWidget = () => {
 
   useEffect(() => {
     const fetchWeather = async (city) => {
-      const apiKey = "e7f59aaca8543637eab9ad2b801f9249";
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`;
+      // const apiKey = "e7f59aaca8543637eab9ad2b801f9249";
+      const API_KEY = process.env.REACT_APP_WeatherApi;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=kr`;
 
       try {
         const response = await fetch(url);
