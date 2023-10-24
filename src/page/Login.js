@@ -15,6 +15,7 @@ const Login = () => {
   useEffect(() => {
     // Kakao SDK 초기화
     if (!window.Kakao.isInitialized()) {
+      // env 적용
       window.Kakao.init(process.env.REACT_APP_Kakao_Login);
     }
   }, []);
