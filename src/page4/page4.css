@@ -1,0 +1,85 @@
+.EmBody {
+  /* 테이블의 전체 크기 */
+  /* margin-left: -50px; */
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.EmCtl {
+  width: 40em;
+}
+
+.EmBodyCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.EmBodyCol > * {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* 내용을 컨테이너의 오른쪽으로 이동 */
+  align-items: center;
+}
+
+.WdButton {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.EmButton {
+  margin-right: 200px;
+  margin-top: 15px;
+  position: relative;
+  left: 190px;
+  bottom: 8px;
+}
+
+.EmBodyCol h4 {
+  width: 100%;
+  text-align: left;
+  margin: 0; /* 기본 마진을 초기화합니다. */
+}
+
+.SighUp-form {
+  display: flex;
+  flex-direction: column; /* Flexbox의 방향을 수직으로 설정합니다. */
+  align-items: center; /* 수평 중앙 정렬을 위해 추가합니다. */
+}
+
+.SighUp {
+  margin-left: 440px;
+  margin-top: -9px;
+}
+
+.mb-3 {
+  width: 500px;
+}
+
+.unregister-container {
+  width: 500px;
+  margin-top: 20px;
+}
+
+.unregister-container h4 {
+  text-align: center;
+}
+
+.unregister-2 {
+  margin-top: 20px;
+}
+
+.unregister-button {
+  margin-top: 9px;
+  margin-left: 380px;
+}
