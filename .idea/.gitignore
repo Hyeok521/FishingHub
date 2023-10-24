@@ -9,4 +9,5 @@
 # api 키
 .env
 .env.production
-# push test
+
+# test
