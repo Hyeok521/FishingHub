@@ -6,11 +6,3 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-# api 키
-.env
-.env.production
-
-src/.env
-src/.env.production
-
-# test
