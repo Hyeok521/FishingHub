@@ -70,7 +70,7 @@ const ProductAll = () => {
   };
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=process.env.REACT_APP_WeatherApi`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WeatherApi}`;
     let response = await fetch(url);
     let data = await response.json();
   };
@@ -160,7 +160,6 @@ const ProductAll = () => {
       e.preventDefault();
       setIsModal(true);
       setMainCode(code);
-
       axios
         .get(process.env.REACT_APP_SERVER_URL + "/admin/main/info", {
           params: { infoType: code },
@@ -176,6 +175,9 @@ const ProductAll = () => {
           alert(error.response.data.message);
           setIsModal(true);
         });
+    } else {
+      // 관리자가 아닌 경우에만 이동하도록 수정
+      // navigate(`/PointerInfo_${code.substring(1)}`);
     }
   };
 
@@ -327,7 +329,11 @@ const ProductAll = () => {
                   src={getMainInfoImage(code)}
                   alt="이미지"
                   onClick={(e) => {
-                    openModal(e, code);
+                    if (auth.userType === ROLE_ADMIN) {
+                      openModal(e, code);
+                    } else {
+                      navigate(`/PointerInfo_${i.substring(1)}`);
+                    }
                   }}
                 />
               </Carousel.Item>
