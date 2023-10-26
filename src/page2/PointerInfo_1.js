@@ -1575,7 +1575,7 @@ const PointerInfo_1 = () => {
             id="imageWithTooltip"
           />
           <div className="tooltip" id="imageTooltip">
-            천리포 방파제 : 충청남도 태안군 소원면 의항리 978-84
+            천리포방파제 : 충청남도 태안군 소원면 의항리 978-84
           </div>
         </div>
         <h4 className="mainfish">주요 포획 어종</h4>
