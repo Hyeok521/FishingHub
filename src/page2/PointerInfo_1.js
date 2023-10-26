@@ -2,6 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
+const imageWithTooltip = document.getElementById("imageWithTooltip");
+const imageTooltip = document.getElementById("imageTooltip");
+
+imageWithTooltip.addEventListener("mouseover", () => {
+  imageTooltip.style.visibility = "visible";
+  imageTooltip.style.opacity = "1";
+});
+
+imageWithTooltip.addEventListener("mouseout", () => {
+  imageTooltip.style.visibility = "hidden";
+  imageTooltip.style.opacity = "0";
+});
+
 const PointerInfo_1 = () => {
   const mapRef = useRef(null);
   const infowindowsRef = useRef([]);
@@ -1551,6 +1564,18 @@ const PointerInfo_1 = () => {
                 &gt;
               </button>
             </div>
+          </div>
+        </div>
+        <div className="Pointer">
+          <h4 className="PointerName">장소</h4>
+          {/* 천리포 */}
+          <img
+            className="PointerImg"
+            src="https://www.gogofp.com/wp-content/uploads/naver/myfishing/1511/3_15112618344562893_15112618352611662.jpg"
+            id="imageWithTooltip"
+          />
+          <div className="tooltip" id="imageTooltip">
+            천리포 방파제 : 충청남도 태안군 소원면 의항리 978-84
           </div>
         </div>
         <h4 className="mainfish">주요 포획 어종</h4>
