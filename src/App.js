@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./page2/page2.css";
@@ -29,6 +29,28 @@ import PublicRoute from "./Route/PublicRoute";
 function App() {
   const auth = useSelector((state) => state.auth.auth);
   const [authenticate, setAuthenticate] = useState(false);
+
+  useEffect(() => {
+    function checkScreenWidth() {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const screenRatio = (screenWidth / screenHeight) * 100;
+
+      if (screenRatio >= 125) {
+        document.body.style.overflowX = "hidden";
+      } else {
+        document.body.style.overflowX = "hidden";
+      }
+    }
+
+    checkScreenWidth();
+
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []);
 
   return (
     <div>
