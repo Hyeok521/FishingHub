@@ -60,7 +60,7 @@ const PointerInfo_3 = () => {
     infowindowsRef.current.push(infowindow);
     infowindow.open(map, marker);
   };
-
+  //adsdasda
   const locations = [
     {
       name: "속초 봉포방파제",
