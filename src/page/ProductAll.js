@@ -156,7 +156,7 @@ const ProductAll = () => {
   };
 
   const openModal = (e, code) => {
-    if (auth.userType === ROLE_ADMIN) {
+    if (auth && auth.userType === ROLE_ADMIN) {
       e.preventDefault();
       setIsModal(true);
       setMainCode(code);
@@ -329,7 +329,7 @@ const ProductAll = () => {
                   src={getMainInfoImage(code)}
                   alt="이미지"
                   onClick={(e) => {
-                    if (auth.userType === ROLE_ADMIN) {
+                    if (auth && auth.userType == ROLE_ADMIN) {
                       openModal(e, code);
                     } else {
                       navigate(`/PointerInfo_${i.substring(1)}`);

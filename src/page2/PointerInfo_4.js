@@ -654,6 +654,7 @@ const PointerInfo_4 = () => {
             </div>
           </div>
         </div>
+        <div className="markerlocal"></div>
         <h4 className="mainfish">주요 포획 어종</h4>
         <div className="fishinfo-1">
           {markerInfos.map((info, index) => (
