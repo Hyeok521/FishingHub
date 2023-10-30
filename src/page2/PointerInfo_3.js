@@ -68,7 +68,7 @@ const PointerInfo_3 = () => {
       lng: 128.5695,
       image: [
         {
-          url: "https://ifh.cc/g/H8MdAw.jpg",
+          url: "https://ifh.cc/g/6hlaws.jpg",
           style: {},
         },
         {
@@ -90,17 +90,17 @@ const PointerInfo_3 = () => {
             "감성돔",
             "미끼: 크릴, 청갯지렁이, 참갯지렁이, 게, 홍합, 쏙, 오징어내장, 개불",
             "크기: 최대 50~60cm",
-            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "서식지: 서해, 남해 / 바닥이 해조류가 있는 모래질이며 수심 50m 이내 암초지대인 연안",
             "금어기: 5월",
             "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -112,9 +112,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -126,9 +126,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -140,9 +140,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -153,11 +153,11 @@ const PointerInfo_3 = () => {
       lng: 128.6022,
       image: [
         {
-          url: "https://ifh.cc/g/l2pp5q.jpg",
+          url: "https://ifh.cc/g/X1Zy7G.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/H8MdAw.jpg",
+          url: "https://ifh.cc/g/6hlaws.jpg",
           style: {},
         },
         {
@@ -179,9 +179,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -189,17 +189,17 @@ const PointerInfo_3 = () => {
             "감성돔",
             "미끼: 크릴, 청갯지렁이, 참갯지렁이, 게, 홍합, 쏙, 오징어내장, 개불",
             "크기: 최대 50~60cm",
-            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "서식지: 서해, 남해 / 바닥이 해조류가 있는 모래질이며 수심 50m 이내 암초지대인 연안",
             "금어기: 5월",
             "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -211,9 +211,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -225,9 +225,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -238,11 +238,11 @@ const PointerInfo_3 = () => {
       lng: 128.8326,
       image: [
         {
-          url: "https://ifh.cc/g/l2pp5q.jpg",
+          url: "https://ifh.cc/g/X1Zy7G.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/H8MdAw.jpg",
+          url: "https://ifh.cc/g/6hlaws.jpg",
           style: {},
         },
         {
@@ -264,9 +264,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -274,17 +274,17 @@ const PointerInfo_3 = () => {
             "감성돔",
             "미끼: 크릴, 청갯지렁이, 참갯지렁이, 게, 홍합, 쏙, 오징어내장, 개불",
             "크기: 최대 50~60cm",
-            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "서식지: 서해, 남해 / 바닥이 해조류가 있는 모래질이며 수심 50m 이내 암초지대인 연안",
             "금어기: 5월",
             "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -296,9 +296,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -310,9 +310,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -323,7 +323,7 @@ const PointerInfo_3 = () => {
       lng: 128.8746,
       image: [
         {
-          url: "https://ifh.cc/g/f6gOgF.jpg",
+          url: "https://ifh.cc/g/R699j4.jpg",
           style: {},
         },
         {
@@ -345,9 +345,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -360,10 +360,10 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -375,9 +375,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -388,11 +388,11 @@ const PointerInfo_3 = () => {
       lng: 129.2549,
       image: [
         {
-          url: "https://ifh.cc/g/f6gOgF.jpg",
+          url: "https://ifh.cc/g/R699j4.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/fF9QVa.jpg",
+          url: "https://ifh.cc/g/HqgzzO.jpg",
           style: {},
         },
         {
@@ -400,7 +400,7 @@ const PointerInfo_3 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/2wkK79.jpg",
+          url: "https://ifh.cc/g/hb3nMF.jpg",
           style: {},
         },
         {
@@ -408,7 +408,7 @@ const PointerInfo_3 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/H8MdAw.jpg",
+          url: "https://ifh.cc/g/6hlaws.jpg",
           style: {},
         },
       ],
@@ -422,9 +422,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -436,9 +436,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -451,10 +451,10 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -466,9 +466,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -480,9 +480,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -490,17 +490,17 @@ const PointerInfo_3 = () => {
             "감성돔",
             "미끼: 크릴, 청갯지렁이, 참갯지렁이, 게, 홍합, 쏙, 오징어내장, 개불",
             "크기: 최대 50~60cm",
-            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "서식지: 서해, 남해 / 바닥이 해조류가 있는 모래질이며 수심 50m 이내 암초지대인 연안",
             "금어기: 5월",
             "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -511,15 +511,15 @@ const PointerInfo_3 = () => {
       lng: 129.3175,
       image: [
         {
-          url: "https://ifh.cc/g/l2pp5q.jpg",
+          url: "https://ifh.cc/g/X1Zy7G.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/fF9QVa.jpg",
+          url: "https://ifh.cc/g/HqgzzO.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/Xq37Sd.jpg",
+          url: "https://ifh.cc/g/z0M704.jpg",
           style: {},
         },
       ],
@@ -533,9 +533,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -547,9 +547,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -563,11 +563,11 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
@@ -578,15 +578,15 @@ const PointerInfo_3 = () => {
       lng: 129.3461,
       image: [
         {
-          url: "https://ifh.cc/g/H8MdAw.jpg",
+          url: "https://ifh.cc/g/6hlaws.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/fF9QVa.jpg",
+          url: "https://ifh.cc/g/HqgzzO.jpg",
           style: {},
         },
         {
-          url: "https://ifh.cc/g/TylZN4.jpg",
+          url: "https://ifh.cc/g/QGv5qQ.jpg",
           style: {},
         },
         {
@@ -604,17 +604,17 @@ const PointerInfo_3 = () => {
             "감성돔",
             "미끼: 크릴, 청갯지렁이, 참갯지렁이, 게, 홍합, 쏙, 오징어내장, 개불",
             "크기: 최대 50~60cm",
-            "서식지: 서해, 남해 / 수심 50m 이내인 바닥이 해조류가 있는 모래질이거나 암초지대인 연안에 주로 서식한다.",
+            "서식지: 서해, 남해 / 바닥이 해조류가 있는 모래질이며 수심 50m 이내 암초지대인 연안",
             "금어기: 5월",
             "금지체장: 25cm",
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -626,9 +626,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -640,9 +640,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -654,9 +654,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
         {
@@ -668,9 +668,9 @@ const PointerInfo_3 = () => {
           ],
           style: [
             { fontSize: "20px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
-            { fontSize: "15px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
+            { fontSize: "14px" },
           ],
         },
       ],
