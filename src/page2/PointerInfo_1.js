@@ -1141,7 +1141,7 @@ const PointerInfo_1 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/6O9QMp.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],

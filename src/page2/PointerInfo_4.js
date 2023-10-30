@@ -68,7 +68,7 @@ const PointerInfo_4 = () => {
       lng: 129.468,
       image: [
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
@@ -107,7 +107,7 @@ const PointerInfo_4 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
@@ -180,7 +180,7 @@ const PointerInfo_4 = () => {
       lng: 129.4269,
       image: [
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
@@ -219,7 +219,7 @@ const PointerInfo_4 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
@@ -339,7 +339,7 @@ const PointerInfo_4 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
@@ -438,7 +438,7 @@ const PointerInfo_4 = () => {
           style: {},
         },
         {
-          url: "https://ifh.cc/g/mWxsV2.jpg",
+          url: "https://ifh.cc/g/3Mggco.jpg",
           style: {},
         },
       ],
